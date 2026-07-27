@@ -11,6 +11,21 @@ const chapterTitle = document.querySelector("#chapter-title");
 const chromeLogo = document.querySelector("#chrome-logo");
 const prevButton = document.querySelector("[data-action='prev']");
 const nextButtons = [...document.querySelectorAll("[data-action='next']")];
+const fullscreenButton = document.querySelector("[data-action='fullscreen']");
+
+const fullscreenApi = {
+  element: () => document.fullscreenElement || document.webkitFullscreenElement,
+  request: document.documentElement.requestFullscreen
+    ? () => document.documentElement.requestFullscreen({ navigationUI: "hide" })
+    : document.documentElement.webkitRequestFullscreen
+      ? () => document.documentElement.webkitRequestFullscreen()
+      : null,
+  exit: document.exitFullscreen
+    ? () => document.exitFullscreen()
+    : document.webkitExitFullscreen
+      ? () => document.webkitExitFullscreen()
+      : null,
+};
 
 const scenarios = {
   agua: ["Seguridad hídrica", "Comprender fuentes, demanda, calidad, infraestructura y comportamiento para abastecer con continuidad y uso responsable."],
@@ -59,6 +74,26 @@ function createChrome() {
       <strong>${scene.dataset.title}</strong>
     </button>
   `).join("");
+}
+
+function renderFullscreenControl() {
+  if (!fullscreenButton) return;
+  const supported = Boolean(fullscreenApi.request && fullscreenApi.exit);
+  const active = Boolean(fullscreenApi.element());
+  fullscreenButton.hidden = !supported;
+  fullscreenButton.setAttribute("aria-pressed", String(active));
+  fullscreenButton.setAttribute("aria-label", active ? "Salir de pantalla completa" : "Entrar en pantalla completa");
+  fullscreenButton.dataset.tooltip = active ? "Salir de pantalla completa" : "Pantalla completa";
+}
+
+async function toggleFullscreen() {
+  if (!fullscreenApi.request || !fullscreenApi.exit) return;
+  try {
+    if (fullscreenApi.element()) await fullscreenApi.exit();
+    else await fullscreenApi.request();
+  } catch {
+    renderFullscreenControl();
+  }
 }
 
 function renderScenario(value) {
@@ -128,6 +163,7 @@ function bindControls() {
       if (action === "prev") store.dispatch({ type: "PREV" });
       if (action === "overview") store.dispatch({ type: "OPEN_OVERVIEW" });
       if (action === "close-overview") store.dispatch({ type: "CLOSE_OVERVIEW" });
+      if (action === "fullscreen") toggleFullscreen();
     }
     const go = event.target.closest("[data-go]");
     if (go) store.dispatch({ type: "GO", index: Number(go.dataset.go) });
@@ -149,6 +185,8 @@ function bindControls() {
   overview.addEventListener("click", (event) => {
     if (event.target === overview) store.dispatch({ type: "CLOSE_OVERVIEW" });
   });
+  document.addEventListener("fullscreenchange", renderFullscreenControl);
+  document.addEventListener("webkitfullscreenchange", renderFullscreenControl);
 }
 
 function enableDebug() {
@@ -177,4 +215,5 @@ bindControls();
 bindPresentationInputs(store);
 store.subscribe(render);
 window.lucide?.createIcons({ attrs: { "stroke-width": 1.8 } });
+renderFullscreenControl();
 enableDebug();

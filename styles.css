@@ -216,6 +216,9 @@ h3 { font-size: 18px; text-transform: uppercase; }
 .deck-controls { position: fixed; z-index: 40; right: max(24px, calc((100vw - 1440px) / 2 + 5vw)); bottom: 18px; display: flex; gap: 10px; }
 .icon-button { position: relative; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(4,18,40,.64); color: var(--white); cursor: pointer; transition: border 180ms ease, background 180ms ease, transform 180ms ease; }
 .icon-button svg { width: 20px; height: 20px; }
+.fullscreen-button__exit { display: none; }
+.fullscreen-button[aria-pressed="true"] .fullscreen-button__enter { display: none; }
+.fullscreen-button[aria-pressed="true"] .fullscreen-button__exit { display: block; }
 .icon-button:hover { border-color: var(--cyan); transform: translateY(-2px); }
 .icon-button:disabled { opacity: .3; cursor: default; transform: none; }
 .icon-button::after { content: attr(data-tooltip); position: absolute; right: 0; bottom: 54px; visibility: hidden; border-radius: 3px; background: var(--navy-deep); padding: 7px 9px; color: var(--white); font-size: 12px; opacity: 0; white-space: nowrap; transition: opacity 150ms ease; }
@@ -345,6 +348,10 @@ body.theme-light .icon-button { border-color: rgba(23,42,69,.22); background: rg
   .career-wash::after { inset: 42% 0 0; }
   .challenge-grid article { grid-template-columns: 92px 1fr; }
   .challenge-grid b { font-size: 34px; }
+  .chapter-meta { left: 16px; }
+  .chapter-meta span { max-width: 150px; }
+  .deck-controls { right: 12px; gap: 6px; }
+  .icon-button { width: 42px; height: 42px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
