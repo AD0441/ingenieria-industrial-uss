@@ -1,0 +1,24 @@
+Fidelity ledger - Ser ingeniero y desafios del siglo XXI
+
+1. Narrative reference
+   Match: restores the original deck's opening question, definition of engineering, basic sciences, technology and global challenges.
+   Intentional deviation: the career-admissions section is removed; the official curriculum appears only once as supporting evidence.
+
+2. Visual system
+   Match: retains the approved USS navy, gold and cyan language, editorial serif headings, authentic faculty logos and cinematic engineering imagery.
+
+3. Basic sciences
+   Added: dedicated chapters for calculus, physics, mechanics, algebra and statistics, plus a generated laboratory image connecting theory with experimentation.
+
+4. Industrial engineering
+   Match: positioned as systems engineering across people, processes, technology and resources, supported by a hospital example and five analytical lenses.
+
+5. Technology
+   Match: programming, AI, robotics, additive manufacturing and IoT remain present, reframed as engineering amplifiers rather than the definition of the profession.
+
+6. Responsive interaction
+   Added: interactive problem, science, industrial-lens, technology and century-challenge selectors. Mobile uses a fixed control bar and scrollable long chapters.
+
+7. QA
+   PowerPoint: 18 slides rendered and visually inspected; slides_test reported no overflow.
+   Web: Chrome/Playwright at 1440x900 and 390x844; 18 scenes per viewport, no console errors, missing images or horizontal overflow.

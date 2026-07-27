@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b2743" />
+    <link rel="icon" href="data:," />
+    <meta name="description" content="Experiencia interactiva sobre ingeniería, ciencias básicas, Ingeniería Civil Industrial y desafíos del siglo XXI." />
+    <title>Ser ingeniero | Facultad de Ingeniería USS</title>
+    <link rel="preload" as="image" href="assets/hero-industrial-uss.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="deck" id="deck" aria-live="polite">
+      <section class="scene scene--hero scene--dark" data-title="¿Ser o no ser ingeniero?">
+        <img class="scene__media" src="assets/hero-industrial-uss.png" alt="Estudiantes aplicando datos, robótica y experimentación" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="scene__inner hero-layout">
+          <div class="hero-copy">
+            <h1 class="reveal">¿Ser o no ser<br />ingeniero?</h1>
+            <p class="hero-promise reveal delay-1">Pensar con ciencia. Diseñar con criterio. Responder por el impacto.</p>
+            <p class="hero-support reveal delay-2">Una conversación sobre ingeniería, sistemas y los desafíos del siglo XXI.</p>
+            <button class="command command--primary reveal delay-3" type="button" data-action="next"><span>Comenzar</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Problemas que importan">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">El punto de partida</p>
+          <h2 class="reveal delay-1">La ingeniería comienza cuando un problema importa</h2>
+          <p class="lede reveal delay-2">Una decisión debe funcionar bajo restricciones reales: seguridad, tiempo, costo, recursos e impacto.</p>
+          <div class="scenario-layout reveal delay-3">
+            <div class="scenario-list" role="list" aria-label="Problemas de ingeniería">
+              <button class="scenario-row is-selected" type="button" data-scenario="agua"><span class="index">01</span><strong>Agua</strong><span>Abastecer con calidad, continuidad y uso responsable.</span></button>
+              <button class="scenario-row" type="button" data-scenario="salud"><span class="index">02</span><strong>Salud</strong><span>Reducir esperas sin perder seguridad ni trato humano.</span></button>
+              <button class="scenario-row" type="button" data-scenario="energia"><span class="index">03</span><strong>Energía</strong><span>Equilibrar demanda, resiliencia, costo y emisiones.</span></button>
+              <button class="scenario-row" type="button" data-scenario="movilidad"><span class="index">04</span><strong>Movilidad</strong><span>Mover personas y bienes con menos tiempo y riesgo.</span></button>
+            </div>
+            <aside class="scenario-answer" id="scenario-answer" aria-live="polite"></aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Qué es ingeniería">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Qué es ingeniería</p>
+          <h2 class="reveal delay-1">Transformar conocimiento en soluciones que funcionan</h2>
+          <p class="lede reveal delay-2">Aplica ciencias, matemáticas y tecnología para diseñar dentro de restricciones.</p>
+          <div class="process-rail reveal delay-3" aria-label="Proceso de ingeniería">
+            <article><span>01</span><strong>Entender</strong><p>Personas, contexto y necesidad.</p></article>
+            <article><span>02</span><strong>Modelar</strong><p>Datos, ciencia y restricciones.</p></article>
+            <article class="is-focus"><span>03</span><strong>Diseñar</strong><p>Sistemas, procesos o productos.</p></article>
+            <article><span>04</span><strong>Probar</strong><p>Medir, iterar y aprender.</p></article>
+            <article><span>05</span><strong>Responder</strong><p>Seguridad, impacto y ética.</p></article>
+          </div>
+          <p class="closing-line reveal delay-4">Diseñar es decidir: siempre existen alternativas, riesgos y compromisos.</p>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Ser ingeniero">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Ser ingeniero</p>
+          <h2 class="reveal delay-1">No es saber todas las respuestas. Es saber cómo construir una respuesta.</h2>
+          <p class="lede reveal delay-2">El oficio combina rigor intelectual, imaginación práctica y responsabilidad profesional.</p>
+          <div class="open-columns reveal delay-3">
+            <article><strong>Curiosidad</strong><p>Preguntar por qué ocurre y qué evidencia falta.</p></article>
+            <article><strong>Rigor</strong><p>Modelar supuestos y comprobar antes de afirmar.</p></article>
+            <article><strong>Creatividad</strong><p>Imaginar alternativas que aún no existen.</p></article>
+            <article><strong>Responsabilidad</strong><p>Asumir efectos sobre personas y entorno.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--split-media" data-title="Ciencias básicas">
+        <img class="split-media" src="assets/basic-sciences-lab.png" alt="Estudiantes conectando cálculo, mecánica, física y datos en un laboratorio" />
+        <div class="scene__inner content-layout split-copy science-layout">
+          <p class="section-label section-label--gold reveal">La base que permite comprender</p>
+          <h2 class="reveal delay-1">Las ciencias básicas enseñan a leer la realidad</h2>
+          <p class="lede reveal delay-2">Convierte intuiciones en modelos que pueden ponerse a prueba.</p>
+          <div class="tech-picker science-picker reveal delay-3" role="tablist" aria-label="Ciencias básicas">
+            <button class="is-selected" type="button" data-science="calculus" role="tab">∫</button>
+            <button type="button" data-science="physics" role="tab">F</button>
+            <button type="button" data-science="mechanics" role="tab">Σ</button>
+            <button type="button" data-science="algebra" role="tab">A</button>
+            <button type="button" data-science="stats" role="tab">P</button>
+          </div>
+          <div class="tech-detail reveal delay-4" id="science-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Cálculo">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Cálculo</p>
+          <h2 class="reveal delay-1">Pensar en cambio, acumulación y óptimos</h2>
+          <p class="lede reveal delay-2">Detrás de cada sistema dinámico existe una pregunta: ¿cómo cambia y dónde conviene actuar?</p>
+          <div class="challenge-grid reveal delay-3">
+            <article><b>Δ</b><div><strong>Cambio</strong><p>Velocidad, crecimiento y variación.</p></div></article>
+            <article><b>∫</b><div><strong>Acumulación</strong><p>Energía, costo, demanda y tiempo.</p></div></article>
+            <article><b>min</b><div><strong>Optimización</strong><p>La mejor alternativa bajo límites.</p></div></article>
+            <article><b>dx/dt</b><div><strong>Dinámica</strong><p>Cómo evoluciona un sistema.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Física y mecánica">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Física y mecánica</p>
+          <h2 class="reveal delay-1">La realidad impone leyes: fuerzas, energía, movimiento y materiales</h2>
+          <p class="lede reveal delay-2">La mecánica permite reconocer límites físicos antes de diseñar.</p>
+          <div class="pathway-grid reveal delay-3">
+            <article><strong>ΣF = 0 · Equilibrio</strong><p>¿Qué fuerzas debe resistir?</p></article>
+            <article><strong>E₁ = E₂ · Energía</strong><p>¿Qué se transforma y qué se pierde?</p></article>
+            <article><strong>v = dx/dt · Movimiento</strong><p>¿Cómo evoluciona en el tiempo?</p></article>
+            <article><strong>σ = F/A · Materiales</strong><p>¿Cuándo deja de ser seguro?</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Álgebra y estadística">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Álgebra y estadística</p>
+          <h2 class="reveal delay-1">Modelar también significa convivir con la incertidumbre</h2>
+          <p class="lede reveal delay-2">El álgebra representa relaciones; la estadística permite aprender de datos incompletos y decidir con riesgo.</p>
+          <div class="open-columns reveal delay-3">
+            <article><strong>Ax = b</strong><p>Representar variables que interactúan.</p></article>
+            <article><strong>P(X)</strong><p>Describir lo que puede ocurrir.</p></article>
+            <article><strong>μ ± σ</strong><p>Separar patrón, variabilidad y ruido.</p></article>
+            <article><strong>ŷ</strong><p>Predecir sin confundir correlación con causa.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--image" data-title="De la ciencia a la solución">
+        <img class="scene__media" src="assets/hero-engineering-lab.png" alt="Estudiantes trabajando con robótica y fabricación digital" />
+        <div class="media-wash" aria-hidden="true"></div>
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">El puente</p>
+          <h2 class="reveal delay-1">La ciencia explica. La ingeniería decide. La tecnología ejecuta.</h2>
+          <p class="lede reveal delay-2">Juntas convierten una idea en una solución repetible, medible y escalable.</p>
+          <div class="project-list reveal delay-3">
+            <article><span>01</span><strong>Observar</strong><p>Reconocer el fenómeno y la necesidad.</p></article>
+            <article><span>02</span><strong>Modelar</strong><p>Representar relaciones y restricciones.</p></article>
+            <article><span>03</span><strong>Simular</strong><p>Comparar alternativas antes de intervenir.</p></article>
+            <article><span>04</span><strong>Prototipar</strong><p>Convertir una hipótesis en algo comprobable.</p></article>
+            <article><span>05</span><strong>Medir</strong><p>Aprender del impacto real.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--image" data-title="Qué es un industrial">
+        <img class="scene__media" src="assets/smart-systems.png" alt="Sistemas productivos, logísticos y energéticos conectados" />
+        <div class="media-wash" aria-hidden="true"></div>
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Qué es un ingeniero civil industrial</p>
+          <h2 class="reveal delay-1">Diseña y mejora sistemas donde interactúan personas, procesos y tecnología</h2>
+          <p class="lede reveal delay-2">Su objeto no es una máquina aislada: es el desempeño del sistema completo.</p>
+          <div class="open-columns reveal delay-3">
+            <article><strong>Personas</strong><p>Capacidades, coordinación y decisiones.</p></article>
+            <article><strong>Procesos</strong><p>Flujo, capacidad y calidad.</p></article>
+            <article><strong>Tecnología</strong><p>Automatización e información.</p></article>
+            <article><strong>Recursos</strong><p>Tiempo, energía y capital.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Pensamiento sistémico">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Pensamiento sistémico</p>
+          <h2 class="reveal delay-1">Un hospital no necesita más esfuerzo. Necesita un mejor sistema.</h2>
+          <p class="lede reveal delay-2">La pregunta cambia: de “¿quién trabaja más?” a “¿cómo coordinamos mejor?”.</p>
+          <div class="case-study reveal delay-3">
+            <div class="case-symptoms"><h3>Síntomas</h3><p>Esperas largas</p><p>Turnos saturados</p><p>Información fragmentada</p><p>Recursos mal coordinados</p></div>
+            <div class="case-arrow"><i data-lucide="arrow-right" aria-hidden="true"></i></div>
+            <div class="case-decisions"><h3>Decisiones de sistema</h3><article><span>1</span><div><strong>Modelar la demanda</strong><p>Cuándo y dónde se forman colas.</p></div></article><article><span>2</span><div><strong>Rediseñar el flujo</strong><p>Qué pasos agregan valor.</p></div></article><article><span>3</span><div><strong>Asignar capacidad</strong><p>Equilibrar recursos y servicio.</p></div></article><article><span>4</span><div><strong>Medir el impacto</strong><p>Tiempo, costo, calidad y experiencia.</p></div></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Las miradas de Industrial">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Las cinco miradas de Industrial</p>
+          <h2 class="reveal delay-1">Una mejora debe funcionar técnica, económica y humanamente</h2>
+          <p class="lede reveal delay-2">Optimizar una parte puede empeorar el conjunto.</p>
+          <div class="tech-picker reveal delay-3" role="tablist" aria-label="Perspectivas de Ingeniería Industrial">
+            <button class="is-selected" type="button" data-lens="operations" role="tab">OP</button><button type="button" data-lens="economy" role="tab">$</button><button type="button" data-lens="people" role="tab">H</button><button type="button" data-lens="data" role="tab">D</button><button type="button" data-lens="impact" role="tab">S</button>
+          </div>
+          <div class="tech-detail reveal delay-4" id="lens-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--split-media" data-title="Tecnología como amplificador">
+        <img class="split-media" src="assets/tech-workbench.png" alt="Robótica, sensores, programación e impresión 3D" />
+        <div class="scene__inner content-layout split-copy technology-layout">
+          <p class="section-label section-label--gold reveal">Tecnología como amplificador</p>
+          <h2 class="reveal delay-1">Multiplica la capacidad de experimentar</h2>
+          <p class="lede reveal delay-2">No define el problema ni asume las consecuencias.</p>
+          <div class="tech-picker reveal delay-3" role="tablist" aria-label="Tecnologías de ingeniería">
+            <button class="is-selected" type="button" data-tech="ai" role="tab">IA</button><button type="button" data-tech="code" role="tab">{ }</button><button type="button" data-tech="robot" role="tab">ROB</button><button type="button" data-tech="print" role="tab">3D</button><button type="button" data-tech="iot" role="tab">IoT</button>
+          </div>
+          <div class="tech-detail reveal delay-4" id="tech-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="El método importa">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">El método importa</p>
+          <h2 class="reveal delay-1">Una tecnología no es una solución hasta superar una prueba de ingeniería</h2>
+          <p class="lede reveal delay-2">Debe demostrar qué problema resuelve, bajo qué condiciones y con qué riesgos.</p>
+          <div class="process-rail reveal delay-3"><article><span>01</span><strong>Problema</strong><p>¿Qué necesidad existe?</p></article><article><span>02</span><strong>Evidencia</strong><p>¿Qué datos sostienen el diagnóstico?</p></article><article><span>03</span><strong>Alternativas</strong><p>¿Qué otras soluciones son posibles?</p></article><article><span>04</span><strong>Restricciones</strong><p>¿Seguridad, costo, tiempo, ética?</p></article><article class="is-focus"><span>05</span><strong>Validación</strong><p>¿Cómo sabremos que funcionó?</p></article></div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--careers" data-title="Desafíos del siglo XXI">
+        <img class="scene__media" src="assets/career-panorama.png" alt="Ciudades, energía, salud, puertos y manufactura conectados" />
+        <div class="career-wash" aria-hidden="true"></div>
+        <div class="scene__inner content-layout career-content">
+          <p class="section-label section-label--gold reveal">Desafíos del siglo XXI</p>
+          <h2 class="reveal delay-1">Los grandes desafíos ya son sistemas conectados</h2>
+          <p class="lede reveal delay-2">No pueden resolverse desde una sola disciplina.</p>
+          <div class="career-tabs reveal delay-3" role="tablist" aria-label="Desafíos del siglo XXI">
+            <button class="is-selected" type="button" data-challenge="climate" role="tab">Cambio climático</button><button type="button" data-challenge="resources" role="tab">Energía y recursos</button><button type="button" data-challenge="health" role="tab">Salud y demografía</button><button type="button" data-challenge="cities" role="tab">Ciudades y logística</button><button type="button" data-challenge="digital" role="tab">Transformación digital</button>
+          </div>
+          <div class="career-detail reveal delay-4" id="challenge-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Trabajo, IA y aprendizaje">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Trabajo, IA y aprendizaje continuo</p>
+          <h2 class="reveal delay-1">El siglo XXI eleva el estándar del criterio ingenieril</h2>
+          <p class="lede reveal delay-2">La automatización cambia tareas; formular problemas, evaluar riesgos y decidir sigue siendo humano.</p>
+          <div class="challenge-grid reveal delay-3"><article><b>22%</b><div><strong>Transformación</strong><p>de los empleos cambiarían estructuralmente hacia 2030.</p></div></article><article><b>≈40%</b><div><strong>Habilidades</strong><p>de las capacidades requeridas podrían transformarse.</p></div></article><article><b>IA + H</b><div><strong>Colaboración</strong><p>Máquinas para ampliar análisis; humanos para propósito y juicio.</p></div></article><article><b>∞</b><div><strong>Aprendizaje</strong><p>Aprender a aprender será una competencia permanente.</p></div></article></div>
+          <p class="source-caption reveal delay-4">Fuente: World Economic Forum, Future of Jobs Report 2025.</p>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Una referencia de formación">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Una referencia de formación</p>
+          <h2 class="reveal delay-1">Este modo de pensar se construye con capas que se conectan</h2>
+          <p class="lede reveal delay-2">El plan de estudios respalda la secuencia; no es el centro de esta conversación.</p>
+          <div class="pathway-grid reveal delay-3"><article><strong>Base</strong><p>Cálculo · Álgebra · Física · Mecánica · Estadística.</p></article><article><strong>Modelos</strong><p>Programación · Datos · Optimización · Simulación.</p></article><article><strong>Sistemas</strong><p>Operaciones · Logística · Calidad · Finanzas.</p></article><article><strong>Impacto</strong><p>Innovación · Personas · Proyectos · Sostenibilidad.</p></article></div>
+          <p class="closing-line reveal delay-4">Ciencias básicas primero; integración y aplicación después.</p>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--close" data-title="Ser ingeniero">
+        <div class="scene__inner content-layout close-layout">
+          <p class="section-label reveal">Ser ingeniero</p>
+          <h2 class="reveal delay-1">Comprender antes de intervenir.<br />Diseñar antes de prometer.<br />Medir antes de afirmar.</h2>
+          <p class="lede reveal delay-2">Cada solución transforma un sistema, una organización y la vida de personas reales.</p>
+          <p class="closing-line closing-line--gold reveal delay-3">La pregunta final no es solo qué puede hacer la tecnología. Es qué futuro vale la pena construir.</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="brand-chrome" aria-hidden="true"><img id="chrome-logo" src="assets/uss-facultad-blanco.png" alt="" /></div>
+    <div class="chapter-meta" aria-live="polite"><strong id="chapter-number">01 / 18</strong><span id="chapter-title">¿Ser o no ser ingeniero?</span></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <nav class="deck-controls" aria-label="Controles de presentación"><button class="icon-button" type="button" data-action="prev" aria-label="Capítulo anterior" data-tooltip="Anterior"><i data-lucide="arrow-left"></i></button><button class="icon-button" type="button" data-action="overview" aria-label="Abrir panorama" data-tooltip="Panorama"><i data-lucide="layout-grid"></i></button><button class="icon-button" type="button" data-action="next" aria-label="Capítulo siguiente" data-tooltip="Siguiente"><i data-lucide="arrow-right"></i></button></nav>
+    <dialog class="overview" id="overview" aria-labelledby="overview-title"><div class="overview__header"><h2 id="overview-title">Panorama</h2><button class="icon-button" type="button" data-action="close-overview" aria-label="Cerrar panorama" data-tooltip="Cerrar"><i data-lucide="x"></i></button></div><div class="overview__list" id="overview-list"></div></dialog>
+    <output class="debug-panel" id="debug-panel" hidden></output>
+    <script src="vendor/lucide.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
