@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#061526" />
+    <meta name="description" content="Presentación interactiva para estudiantes de 4º medio sobre Ingeniería Civil Industrial e Ingeniería Civil Informática." />
+    <title>Ingenierías USS | Industrial e Informática</title>
+    <link rel="preload" as="image" href="assets/hero-engineering-future.png" />
+    <link rel="preload" as="image" href="assets/industrial-systems.png" />
+    <link rel="preload" as="image" href="assets/informatica-ai-lab.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="signal-canvas" class="signal-canvas" aria-hidden="true"></canvas>
+
+    <main class="deck" id="deck" aria-live="polite">
+      <section class="scene scene--hero scene--dark is-active" data-title="¿Ser o no ser ingeniero?">
+        <img class="scene__media" src="assets/hero-engineering-future.png" alt="Estudiantes explorando robótica, datos e infraestructura sostenible" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="scene__inner hero-layout">
+          <div class="hero-copy">
+            <p class="brandline reveal">Facultad de Ingeniería USS</p>
+            <h1 class="reveal delay-1">¿Ser o no ser ingeniero?</h1>
+            <p class="hero-promise reveal delay-2">Matemáticas, criterio y tecnología para transformar problemas reales.</p>
+            <p class="hero-support reveal delay-3">Una experiencia para 4º medio: descubre Ingeniería Civil Industrial e Ingeniería Civil Informática desde los desafíos que podrías resolver.</p>
+            <div class="hero-actions reveal delay-4">
+              <button class="command command--primary" type="button" data-action="next">
+                <span>Explorar</span><i data-icon="arrow-right" aria-hidden="true"></i>
+              </button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="6">
+                <span>Comparar carreras</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Por qué importa">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">El punto de partida</p>
+          <h2 class="reveal delay-1">La ingeniería comienza cuando alguien decide que un problema sí importa</h2>
+          <p class="lede reveal delay-2">Agua, salud, energía, transporte, software, datos e industria necesitan personas capaces de entender, modelar, diseñar y probar soluciones.</p>
+          <div class="problem-grid reveal delay-3">
+            <article><span>01</span><strong>Personas</strong><p>Mejorar experiencias, servicios y decisiones cotidianas.</p></article>
+            <article><span>02</span><strong>Tecnología</strong><p>Crear sistemas que funcionen, escalen y sean confiables.</p></article>
+            <article><span>03</span><strong>Sostenibilidad</strong><p>Usar recursos con inteligencia y medir impactos.</p></article>
+            <article><span>04</span><strong>Industria</strong><p>Coordinar procesos, datos, equipos y operaciones.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="La matemática en acción">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">La matemática no es el final: es el lenguaje</p>
+          <h2 class="reveal delay-1">Sirve para leer lo que no se ve a simple vista</h2>
+          <p class="lede reveal delay-2">Si puedes detectar patrones, comparar alternativas y explicar una decisión, ya estás usando una parte central del pensamiento ingenieril.</p>
+          <div class="math-stage reveal delay-3" aria-label="Matemática aplicada">
+            <div class="formula-card is-live"><b>f(x)</b><span>Modelar</span><p>Convertir una situación real en variables.</p></div>
+            <div class="formula-card"><b>Δ</b><span>Cambiar</span><p>Entender cómo evoluciona un sistema.</p></div>
+            <div class="formula-card"><b>P</b><span>Decidir</span><p>Trabajar con incertidumbre y datos incompletos.</p></div>
+            <div class="formula-card"><b>min</b><span>Optimizar</span><p>Elegir la mejor opción bajo límites reales.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Dos rutas">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Dos carreras, dos formas de impactar</p>
+          <h2 class="reveal delay-1">Industrial mejora sistemas. Informática crea tecnología.</h2>
+          <p class="lede reveal delay-2">Ambas usan matemáticas, datos, creatividad y pensamiento crítico; cambian el tipo de problema que miras primero.</p>
+          <div class="career-compare reveal delay-3">
+            <article class="career-card" data-career-card="industrial">
+              <div class="career-image"><img src="assets/industrial-systems.png" alt="Estudiantes trabajando en modelos de procesos, logística y sostenibilidad" /></div>
+              <div class="career-copy">
+                <i data-icon="factory" aria-hidden="true"></i>
+                <strong>Ingeniería Civil Industrial</strong>
+                <p>Diseña y mejora sistemas donde interactúan personas, procesos, datos, recursos y tecnología.</p>
+              </div>
+            </article>
+            <article class="career-card" data-career-card="informatica">
+              <div class="career-image"><img src="assets/informatica-ai-lab.png" alt="Estudiantes programando y probando tecnología con IA y sensores" /></div>
+              <div class="career-copy">
+                <i data-icon="code" aria-hidden="true"></i>
+                <strong>Ingeniería Civil Informática</strong>
+                <p>Construye software, IA, plataformas y soluciones digitales que conectan datos con decisiones.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--image scene--dark" data-title="Industrial">
+        <img class="scene__media" src="assets/industrial-systems.png" alt="Modelo de logística, operaciones y sostenibilidad" />
+        <div class="media-wash" aria-hidden="true"></div>
+        <div class="scene__inner split-overlay">
+          <p class="section-label section-label--gold reveal">Ingeniería Civil Industrial</p>
+          <h2 class="reveal delay-1">Mirar el sistema completo cambia la solución</h2>
+          <p class="lede reveal delay-2">Industrial pregunta cómo coordinar mejor personas, procesos, recursos, tecnología y datos para que una organización funcione con más impacto.</p>
+          <div class="lens-list reveal delay-3">
+            <article><span>OP</span><strong>Operaciones</strong><p>Flujos, capacidad, calidad y mejora continua.</p></article>
+            <article><span>$</span><strong>Decisiones</strong><p>Costos, beneficios, riesgos y prioridades.</p></article>
+            <article><span>D</span><strong>Datos</strong><p>Modelos para comprender y anticipar.</p></article>
+            <article><span>S</span><strong>Sostenibilidad</strong><p>Impacto económico, social y ambiental.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--image scene--dark" data-title="Informática">
+        <img class="scene__media scene__media--right" src="assets/informatica-ai-lab.png" alt="Laboratorio de software, IA y sensores" />
+        <div class="media-wash media-wash--left" aria-hidden="true"></div>
+        <div class="scene__inner split-overlay split-overlay--right">
+          <p class="section-label section-label--gold reveal">Ingeniería Civil Informática</p>
+          <h2 class="reveal delay-1">Crear tecnología también es hacerse cargo de sus consecuencias</h2>
+          <p class="lede reveal delay-2">Informática convierte ideas en software, IA, sistemas seguros y productos digitales que pueden llegar a miles de personas.</p>
+          <div class="lens-list reveal delay-3">
+            <article><span>{ }</span><strong>Software</strong><p>Apps, plataformas, arquitectura y automatización.</p></article>
+            <article><span>IA</span><strong>Inteligencia artificial</strong><p>Datos, modelos, predicción y uso responsable.</p></article>
+            <article><span>SEC</span><strong>Ciberseguridad</strong><p>Confianza, privacidad y continuidad.</p></article>
+            <article><span>UX</span><strong>Producto digital</strong><p>Soluciones útiles, claras y humanas.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Comparador">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Comparador interactivo</p>
+          <h2 class="reveal delay-1">Elige una ruta y mira qué tipo de problemas aparecen</h2>
+          <div class="toggle-row reveal delay-2" role="tablist" aria-label="Comparar carreras">
+            <button class="toggle is-selected" type="button" role="tab" data-career="industrial">Civil Industrial</button>
+            <button class="toggle" type="button" role="tab" data-career="informatica">Civil Informática</button>
+          </div>
+          <div class="career-detail reveal delay-3" id="career-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Habilidades">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Lo que ya puedes empezar a entrenar</p>
+          <h2 class="reveal delay-1">No necesitas tenerlo todo resuelto para empezar a pensar como ingeniero</h2>
+          <p class="lede reveal delay-2">La carrera no premia memorizar sin sentido: desarrolla hábitos para explorar, equivocarse con método y mejorar.</p>
+          <div class="skill-orbit reveal delay-3">
+            <button type="button" class="skill-node is-active" data-skill="analizar"><i data-icon="search"></i><span>Analizar</span></button>
+            <button type="button" class="skill-node" data-skill="crear"><i data-icon="spark"></i><span>Crear</span></button>
+            <button type="button" class="skill-node" data-skill="resolver"><i data-icon="tool"></i><span>Resolver</span></button>
+            <button type="button" class="skill-node" data-skill="comunicar"><i data-icon="message"></i><span>Comunicar</span></button>
+          </div>
+          <div class="skill-detail reveal delay-4" id="skill-detail"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Mini test">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Mini test vocacional</p>
+          <h2 class="reveal delay-1">¿Qué problema te llama más la atención?</h2>
+          <p class="lede reveal delay-2">No decide por ti; solo te ayuda a reconocer qué tipo de curiosidad aparece primero.</p>
+          <div class="quiz-grid reveal delay-3">
+            <button class="quiz-option" type="button" data-score="industrial"><i data-icon="route"></i><strong>Reducir filas en un hospital</strong><span>Procesos, datos, coordinación y experiencia.</span></button>
+            <button class="quiz-option" type="button" data-score="informatica"><i data-icon="shield"></i><strong>Crear una app segura con IA</strong><span>Software, datos, privacidad y usuarios.</span></button>
+            <button class="quiz-option" type="button" data-score="industrial"><i data-icon="factory"></i><strong>Optimizar una cadena logística</strong><span>Recursos, transporte, demanda y sostenibilidad.</span></button>
+            <button class="quiz-option" type="button" data-score="informatica"><i data-icon="code"></i><strong>Detectar patrones en millones de datos</strong><span>Algoritmos, modelos y decisiones digitales.</span></button>
+          </div>
+          <div class="quiz-result" id="quiz-result" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Desafíos">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Desafíos del siglo XXI</p>
+          <h2 class="reveal delay-1">Los grandes problemas mezclan tecnología, industria y personas</h2>
+          <p class="lede reveal delay-2">Por eso ambas ingenierías conversan: una crea sistemas digitales; la otra mejora sistemas organizacionales y productivos.</p>
+          <div class="challenge-rail reveal delay-3">
+            <article><i data-icon="leaf"></i><strong>Clima y energía</strong><p>Medir, optimizar y reducir impacto.</p></article>
+            <article><i data-icon="network"></i><strong>IA y datos</strong><p>Decidir mejor sin perder criterio humano.</p></article>
+            <article><i data-icon="city"></i><strong>Ciudades y servicios</strong><p>Coordinar movilidad, salud, agua y logística.</p></article>
+            <article><i data-icon="rocket"></i><strong>Innovación</strong><p>Convertir ideas en proyectos que funcionen.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="4º medio">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Para estudiantes de 4º medio</p>
+          <h2 class="reveal delay-1">No elijas solo por el nombre de la carrera: elige por la pregunta que quieres perseguir</h2>
+          <div class="decision-grid reveal delay-2">
+            <article><span>Si te mueve...</span><strong>Mejorar cómo funciona una organización</strong><p>Explora Civil Industrial: procesos, operaciones, analítica, innovación y gestión.</p></article>
+            <article><span>Si te mueve...</span><strong>Crear tecnología desde cero</strong><p>Explora Civil Informática: software, IA, datos, ciberseguridad y productos digitales.</p></article>
+            <article><span>Si te gustan ambas...</span><strong>Excelente señal</strong><p>Los problemas reales mezclan sistemas, datos, personas y tecnología.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--close" data-title="Cierre">
+        <div class="scene__inner close-layout">
+          <p class="section-label section-label--gold reveal">Tu próxima decisión</p>
+          <h2 class="reveal delay-1">Comprender antes de intervenir. Diseñar antes de prometer. Medir antes de afirmar.</h2>
+          <p class="lede reveal delay-2">La ingeniería no trata solo de estudiar matemáticas. Trata de usar ese pensamiento para construir un futuro que valga la pena.</p>
+          <div class="closing-actions reveal delay-3">
+            <button class="command command--primary" type="button" data-action="jump" data-target="3">Ver carreras</button>
+            <button class="command command--ghost" type="button" data-action="jump" data-target="8">Hacer mini test</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <header class="topbar" aria-label="Identidad de presentación">
+      <strong>Ingenierías USS</strong>
+      <span>Industrial + Informática</span>
+    </header>
+
+    <aside class="chapter-meta" aria-live="polite">
+      <strong id="chapter-number">01 / 11</strong>
+      <span id="chapter-title">¿Ser o no ser ingeniero?</span>
+    </aside>
+
+    <nav class="rail-nav" aria-label="Capítulos">
+      <button class="rail-dot is-active" type="button" data-jump="0" aria-label="Ir al capítulo 1"></button>
+      <button class="rail-dot" type="button" data-jump="1" aria-label="Ir al capítulo 2"></button>
+      <button class="rail-dot" type="button" data-jump="2" aria-label="Ir al capítulo 3"></button>
+      <button class="rail-dot" type="button" data-jump="3" aria-label="Ir al capítulo 4"></button>
+      <button class="rail-dot" type="button" data-jump="4" aria-label="Ir al capítulo 5"></button>
+      <button class="rail-dot" type="button" data-jump="5" aria-label="Ir al capítulo 6"></button>
+      <button class="rail-dot" type="button" data-jump="6" aria-label="Ir al capítulo 7"></button>
+      <button class="rail-dot" type="button" data-jump="7" aria-label="Ir al capítulo 8"></button>
+      <button class="rail-dot" type="button" data-jump="8" aria-label="Ir al capítulo 9"></button>
+      <button class="rail-dot" type="button" data-jump="9" aria-label="Ir al capítulo 10"></button>
+      <button class="rail-dot" type="button" data-jump="10" aria-label="Ir al capítulo 11"></button>
+    </nav>
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <nav class="deck-controls" aria-label="Controles de presentación">
+      <button class="icon-button" type="button" data-action="prev" aria-label="Capítulo anterior" data-tooltip="Anterior"><i data-icon="arrow-left"></i></button>
+      <button class="icon-button" type="button" data-action="overview" aria-label="Abrir panorama" data-tooltip="Panorama"><i data-icon="grid"></i></button>
+      <button class="icon-button fullscreen-button" type="button" data-action="fullscreen" aria-label="Pantalla completa" data-tooltip="Pantalla completa"><i data-icon="expand"></i></button>
+      <button class="icon-button" type="button" data-action="next" aria-label="Capítulo siguiente" data-tooltip="Siguiente"><i data-icon="arrow-right"></i></button>
+    </nav>
+
+    <dialog class="overview" id="overview" aria-labelledby="overview-title">
+      <div class="overview__header">
+        <h2 id="overview-title">Panorama</h2>
+        <button class="icon-button" type="button" data-action="close-overview" aria-label="Cerrar"><i data-icon="x"></i></button>
+      </div>
+      <div class="overview__list" id="overview-list"></div>
+    </dialog>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
