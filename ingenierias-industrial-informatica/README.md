@@ -20,7 +20,8 @@ http://127.0.0.1:4174
 - En móvil, desplazamiento vertical dentro de cada capítulo y gesto horizontal para cambiar de escena.
 - Botón de panorama para saltar entre capítulos.
 - Selector interactivo para comparar carreras.
-- Mini test vocacional con resultado dinámico.
+- Mini test vocacional con seis desafíos, tres elecciones y reinicio completo.
+- Identidad visual de la Facultad de Ingeniería USS en todos los capítulos.
 - Enlaces finales a las páginas oficiales de admisión USS de ambas carreras.
 
 ## Publicación

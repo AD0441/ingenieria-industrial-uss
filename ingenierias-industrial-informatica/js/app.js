@@ -23,6 +23,7 @@ const icons = {
   brain: '<svg viewBox="0 0 24 24"><path d="M9.5 4.5A3 3 0 0 0 4 6a3 3 0 0 0 .5 5.5A3.5 3.5 0 0 0 8 17h1.5"></path><path d="M14.5 4.5A3 3 0 0 1 20 6a3 3 0 0 1-.5 5.5A3.5 3.5 0 0 1 16 17h-1.5"></path><path d="M12 3v18"></path><path d="M8 9h4"></path><path d="M12 14h4"></path></svg>',
   layout: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>',
   external: '<svg viewBox="0 0 24 24"><path d="M15 3h6v6"></path><path d="m10 14 11-11"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>',
+  "rotate-ccw": '<svg viewBox="0 0 24 24"><path d="M3 2v6h6"></path><path d="M3 8a9 9 0 1 1 2.64 9.36"></path></svg>',
 };
 
 const careers = {
@@ -64,11 +65,17 @@ const overviewList = document.querySelector("#overview-list");
 const careerDetail = document.querySelector("#career-detail");
 const skillDetail = document.querySelector("#skill-detail");
 const quizResult = document.querySelector("#quiz-result");
+const quizProgress = document.querySelector("#quiz-progress");
+const quizMessage = document.querySelector("#quiz-message");
+const quizReset = document.querySelector('[data-action="reset-quiz"]');
+const quizOptions = [...document.querySelectorAll("[data-score]")];
 
 let current = 0;
 let wheelLock = false;
 let touchStartY = null;
 let touchStartX = null;
+let quizAnswers = 0;
+const quizLimit = 3;
 const quizScores = { industrial: 0, informatica: 0 };
 
 function hydrateIcons(root = document) {
@@ -154,17 +161,48 @@ function restartPanelAnimation(panel) {
 }
 
 function answerQuiz(score, button) {
+  if (quizAnswers >= quizLimit || button.disabled) return;
+
   quizScores[score] += 1;
+  quizAnswers += 1;
   button.classList.add("is-selected");
   button.setAttribute("aria-pressed", "true");
   button.disabled = true;
+  quizReset.disabled = false;
+  quizProgress.textContent = `${quizAnswers} de ${quizLimit} seleccionadas`;
+
+  if (quizAnswers < quizLimit) {
+    const remaining = quizLimit - quizAnswers;
+    quizMessage.textContent = remaining === 1 ? "Te queda una elección." : `Te quedan ${remaining} elecciones.`;
+    restartPanelAnimation(quizResult);
+    return;
+  }
+
+  quizOptions.forEach((option) => {
+    if (!option.classList.contains("is-selected")) option.disabled = true;
+  });
   const winner =
     quizScores.industrial === quizScores.informatica
       ? "Hay empate: te atrae tanto mejorar sistemas como crear tecnología."
       : quizScores.industrial > quizScores.informatica
-        ? "Tu selección se inclina hacia Civil Industrial: sistemas, procesos, decisiones y coordinación."
-        : "Tu selección se inclina hacia Civil Informática: software, IA, datos y tecnología funcionando.";
-  quizResult.textContent = `${winner} Puedes volver a elegir otras opciones para comparar tu tendencia.`;
+        ? "Tus elecciones se inclinan hacia Civil Industrial: sistemas, procesos, decisiones y coordinación."
+        : "Tus elecciones se inclinan hacia Civil Informática: software, IA, datos y tecnología funcionando.";
+  quizMessage.textContent = `${winner} Puedes reiniciar y probar otra combinación.`;
+  restartPanelAnimation(quizResult);
+}
+
+function resetQuiz() {
+  quizAnswers = 0;
+  quizScores.industrial = 0;
+  quizScores.informatica = 0;
+  quizOptions.forEach((option) => {
+    option.disabled = false;
+    option.classList.remove("is-selected");
+    option.setAttribute("aria-pressed", "false");
+  });
+  quizProgress.textContent = `0 de ${quizLimit} seleccionadas`;
+  quizMessage.textContent = "Elige tu primer desafío.";
+  quizReset.disabled = true;
   restartPanelAnimation(quizResult);
 }
 
@@ -182,6 +220,7 @@ document.addEventListener("click", (event) => {
     if (kind === "jump") goTo(Number(action.dataset.target));
     if (kind === "overview") overview.showModal();
     if (kind === "close-overview") overview.close();
+    if (kind === "reset-quiz") resetQuiz();
     if (kind === "fullscreen") {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen?.().catch(() => {});
@@ -344,7 +383,7 @@ buildProgress();
 buildOverview();
 document.querySelectorAll("[data-career]").forEach((item) => item.setAttribute("aria-selected", String(item.classList.contains("is-selected"))));
 document.querySelectorAll("[data-skill]").forEach((item) => item.setAttribute("aria-pressed", String(item.classList.contains("is-active"))));
-document.querySelectorAll("[data-score]").forEach((item) => item.setAttribute("aria-pressed", "false"));
+quizOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
 renderCareer("industrial");
 renderSkill("analizar");
 updateChrome();

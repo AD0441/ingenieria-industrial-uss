@@ -153,14 +153,24 @@
         <div class="scene__inner content-layout">
           <p class="section-label reveal">Mini test vocacional</p>
           <h2 class="reveal delay-1">¿Qué problema te llama más la atención?</h2>
-          <p class="lede reveal delay-2">No decide por ti; solo te ayuda a reconocer qué tipo de curiosidad aparece primero.</p>
+          <p class="lede reveal delay-2">Elige tres desafíos. El resultado no decide por ti: revela qué tipo de curiosidad aparece primero.</p>
           <div class="quiz-grid reveal delay-3">
             <button class="quiz-option" type="button" data-score="industrial"><i data-icon="route"></i><strong>Reducir filas en un hospital</strong><span>Procesos, datos, coordinación y experiencia.</span></button>
             <button class="quiz-option" type="button" data-score="informatica"><i data-icon="shield"></i><strong>Crear una app segura con IA</strong><span>Software, datos, privacidad y usuarios.</span></button>
             <button class="quiz-option" type="button" data-score="industrial"><i data-icon="factory"></i><strong>Optimizar una cadena logística</strong><span>Recursos, transporte, demanda y sostenibilidad.</span></button>
             <button class="quiz-option" type="button" data-score="informatica"><i data-icon="code"></i><strong>Detectar patrones en millones de datos</strong><span>Algoritmos, modelos y decisiones digitales.</span></button>
+            <button class="quiz-option" type="button" data-score="industrial"><i data-icon="leaf"></i><strong>Reducir el uso de agua y energía</strong><span>Eficiencia, impacto, costos y decisiones sostenibles.</span></button>
+            <button class="quiz-option" type="button" data-score="informatica"><i data-icon="network"></i><strong>Programar sensores que anticipen riesgos</strong><span>Datos en tiempo real, alertas y sistemas conectados.</span></button>
           </div>
-          <div class="quiz-result" id="quiz-result" aria-live="polite"></div>
+          <div class="quiz-feedback reveal delay-4">
+            <div class="quiz-result" id="quiz-result" aria-live="polite">
+              <strong id="quiz-progress">0 de 3 seleccionadas</strong>
+              <span id="quiz-message">Elige tu primer desafío.</span>
+            </div>
+            <button class="quiz-reset" type="button" data-action="reset-quiz" disabled>
+              <i data-icon="rotate-ccw" aria-hidden="true"></i><span>Reiniciar</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -209,8 +219,7 @@
     </main>
 
     <header class="topbar" aria-label="Identidad de presentación">
-      <strong>Ingenierías USS</strong>
-      <span>Industrial + Informática</span>
+      <img src="assets/uss-facultad-ingenieria.png" alt="Universidad San Sebastián, Facultad de Ingeniería" />
     </header>
 
     <aside class="chapter-meta" aria-live="polite">
