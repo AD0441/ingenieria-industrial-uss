@@ -21,6 +21,7 @@ http://127.0.0.1:4174
 - Botón de panorama para saltar entre capítulos.
 - Selector interactivo para comparar carreras.
 - Mini test vocacional con seis desafíos, tres elecciones y reinicio completo.
+- Reto hospitalario interactivo con presupuesto, gráfico comparativo, informe detallado y reinicio total.
 - Identidad visual de la Facultad de Ingeniería USS en todos los capítulos.
 - Enlaces finales a las páginas oficiales de admisión USS de ambas carreras.
 

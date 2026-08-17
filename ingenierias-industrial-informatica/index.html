@@ -174,6 +174,65 @@
         </div>
       </section>
 
+      <section class="scene scene--dark scene--challenge" data-title="Reto exprés">
+        <img class="scene__media challenge-media" src="assets/challenge-hospital-operations.png" alt="Servicio de urgencia con pacientes, personal clínico y tableros de operación" />
+        <div class="challenge-wash" aria-hidden="true"></div>
+        <div class="scene__inner content-layout challenge-layout">
+          <div class="challenge-heading reveal">
+            <div>
+              <p class="section-label section-label--gold">Reto exprés interactivo</p>
+              <h2>Código rojo: 45 minutos</h2>
+              <p class="lede">Urgencias espera 110 minutos. Elige tres intervenciones y reduce la espera sin arriesgar a pacientes ni sobrecargar al equipo.</p>
+            </div>
+            <div class="challenge-brief" aria-label="Condiciones del reto">
+              <span><i data-icon="clock"></i><strong id="challenge-timer">01:30</strong><small>tiempo</small></span>
+              <span><i data-icon="coins"></i><strong id="challenge-budget">100</strong><small>créditos libres</small></span>
+              <span><i data-icon="check-circle"></i><strong id="challenge-count">0 / 3</strong><small>seleccionadas</small></span>
+            </div>
+          </div>
+
+          <div class="challenge-options reveal delay-1" aria-label="Intervenciones disponibles">
+            <button class="challenge-option" type="button" data-challenge="turnos" data-cost="30" data-wait="25" data-coordination="10" data-trust="0">
+              <span class="challenge-option__top"><i data-icon="users"></i><b>30 créditos</b></span>
+              <strong>Reorganizar turnos</strong><small>Usar la demanda real de cada horario.</small><em>Industrial</em>
+            </button>
+            <button class="challenge-option" type="button" data-challenge="triaje" data-cost="25" data-wait="20" data-coordination="15" data-trust="5">
+              <span class="challenge-option__top"><i data-icon="route"></i><b>25 créditos</b></span>
+              <strong>Rediseñar el triaje</strong><small>Separar casos simples, prioritarios y críticos.</small><em>Industrial</em>
+            </button>
+            <button class="challenge-option" type="button" data-challenge="tablero" data-cost="35" data-wait="20" data-coordination="20" data-trust="0">
+              <span class="challenge-option__top"><i data-icon="chart"></i><b>35 créditos</b></span>
+              <strong>Tablero en tiempo real</strong><small>Ver ocupación, esperas y alertas de congestión.</small><em>Ambas</em>
+            </button>
+            <button class="challenge-option" type="button" data-challenge="app" data-cost="20" data-wait="5" data-coordination="0" data-trust="5">
+              <span class="challenge-option__top"><i data-icon="layout"></i><b>20 créditos</b></span>
+              <strong>App para consultar el turno</strong><small>Informar el avance y reducir incertidumbre.</small><em>Informática</em>
+            </button>
+            <button class="challenge-option" type="button" data-challenge="ia" data-cost="45" data-wait="30" data-coordination="5" data-trust="-40" data-risk="true">
+              <span class="challenge-option__top"><i data-icon="brain"></i><b>45 créditos</b></span>
+              <strong>IA sin auditoría</strong><small>Priorizar con un modelo que el proveedor no explica.</small><em>Informática</em>
+            </button>
+            <button class="challenge-option" type="button" data-challenge="sala" data-cost="15" data-wait="0" data-coordination="0" data-trust="0">
+              <span class="challenge-option__top"><i data-icon="armchair"></i><b>15 créditos</b></span>
+              <strong>Ampliar la sala de espera</strong><small>Agregar sillas y una pantalla informativa.</small><em>Solución superficial</em>
+            </button>
+          </div>
+
+          <div class="challenge-outcome reveal delay-2" aria-live="polite">
+            <div class="challenge-scoreboard">
+              <span><small>Espera</small><strong id="challenge-wait">110 min</strong></span>
+              <span><small>Coordinación</small><strong id="challenge-coordination">45 / 100</strong></span>
+              <span><small>Confianza</small><strong id="challenge-trust">80 / 100</strong></span>
+            </div>
+            <p id="challenge-message">Selecciona tres intervenciones sin superar los 100 créditos.</p>
+            <div class="challenge-actions">
+              <button class="command command--primary" type="button" data-action="confirm-challenge" disabled><i data-icon="check-circle"></i><span>Confirmar</span></button>
+              <button class="command command--ghost" type="button" data-action="reset-challenge"><i data-icon="rotate-ccw"></i><span>Reiniciar</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="scene scene--dark" data-title="Desafíos">
         <div class="scene__inner content-layout">
           <p class="section-label section-label--gold reveal">Desafíos del siglo XXI</p>
@@ -256,6 +315,59 @@
         <button class="icon-button" type="button" data-action="close-overview" aria-label="Cerrar"><i data-icon="x"></i></button>
       </div>
       <div class="overview__list" id="overview-list"></div>
+    </dialog>
+
+    <dialog class="challenge-report" id="challenge-report" aria-labelledby="challenge-report-title">
+      <div class="challenge-report__shell">
+        <header class="challenge-report__header">
+          <div>
+            <p id="challenge-report-kicker">Informe de la estrategia</p>
+            <h2 id="challenge-report-title">Resultado del reto</h2>
+            <p id="challenge-report-summary">Aquí aparecerá la explicación de tus decisiones.</p>
+          </div>
+          <button class="icon-button" type="button" data-action="close-challenge-report" aria-label="Cerrar resultado"><i data-icon="x"></i></button>
+        </header>
+
+        <div class="challenge-report__body">
+          <section class="challenge-report__chart" aria-labelledby="challenge-chart-title">
+            <div class="challenge-report__section-title">
+              <span>01</span>
+              <div><h3 id="challenge-chart-title">Antes y después</h3><p>El gráfico compara el punto de partida con el impacto de la estrategia.</p></div>
+            </div>
+            <div class="challenge-chart-legend" aria-hidden="true"><span><i></i>Antes</span><span><i></i>Después</span></div>
+            <div class="challenge-chart" id="challenge-chart"></div>
+          </section>
+
+          <section class="challenge-report__decisions" aria-labelledby="challenge-decisions-title">
+            <div class="challenge-report__section-title">
+              <span>02</span>
+              <div><h3 id="challenge-decisions-title">Qué produjo cada decisión</h3><p id="challenge-report-meta">Tres intervenciones dentro del presupuesto.</p></div>
+            </div>
+            <div class="challenge-decision-list" id="challenge-decision-list"></div>
+          </section>
+
+          <section class="challenge-report__reading" aria-labelledby="challenge-reading-title">
+            <div class="challenge-report__section-title">
+              <span>03</span>
+              <div><h3 id="challenge-reading-title">Lectura ingenieril</h3><p>Una solución se evalúa por lo que mejora y por las consecuencias que introduce.</p></div>
+            </div>
+            <div class="challenge-reading-grid">
+              <article><i data-icon="factory"></i><div><strong>Civil Industrial</strong><p id="challenge-industrial-reading"></p></div></article>
+              <article><i data-icon="code"></i><div><strong>Civil Informática</strong><p id="challenge-informatics-reading"></p></div></article>
+              <article><i data-icon="shield"></i><div><strong>Riesgo principal</strong><p id="challenge-risk-reading"></p></div></article>
+              <article><i data-icon="search"></i><div><strong>Siguiente paso</strong><p id="challenge-next-reading"></p></div></article>
+            </div>
+          </section>
+        </div>
+
+        <footer class="challenge-report__footer">
+          <p><strong>Idea clave:</strong> optimizar un indicador no basta; la solución debe funcionar para el sistema completo.</p>
+          <div>
+            <button class="command command--ghost" type="button" data-action="close-challenge-report"><span>Volver al resultado</span></button>
+            <button class="command command--primary" type="button" data-action="reset-challenge"><i data-icon="rotate-ccw"></i><span>Probar otra estrategia</span></button>
+          </div>
+        </footer>
+      </div>
     </dialog>
 
     <script src="js/app.js"></script>
