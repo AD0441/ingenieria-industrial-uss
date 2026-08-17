@@ -17,10 +17,12 @@ http://127.0.0.1:4174
 ## Controles
 
 - Flechas, Page Up/Page Down o rueda del mouse para avanzar.
+- En móvil, desplazamiento vertical dentro de cada capítulo y gesto horizontal para cambiar de escena.
 - Botón de panorama para saltar entre capítulos.
 - Selector interactivo para comparar carreras.
 - Mini test vocacional con resultado dinámico.
+- Enlaces finales a las páginas oficiales de admisión USS de ambas carreras.
 
 ## Publicación
 
-El proyecto es estático y compatible con GitHub Pages. Publicar desde la rama principal usando la raíz del repositorio.
+El proyecto es estático, no requiere dependencias y es compatible con GitHub Pages. En este repositorio se publica desde la carpeta `ingenierias-industrial-informatica/` de la rama principal.

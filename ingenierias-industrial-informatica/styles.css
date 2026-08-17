@@ -67,6 +67,7 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   overflow: auto;
+  overscroll-behavior: contain;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -75,6 +76,18 @@ button:focus-visible {
     opacity var(--motion) ease,
     transform var(--motion) cubic-bezier(.2,.8,.2,1),
     visibility 0s linear var(--motion);
+}
+
+.deck[data-direction="forward"] .scene {
+  transform: translateX(-22px);
+}
+
+.deck[data-direction="backward"] .scene {
+  transform: translateX(22px);
+}
+
+.deck[data-direction] .scene.is-active {
+  transform: translateX(0);
 }
 
 .scene.is-active {
@@ -120,6 +133,10 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.scene.is-active .scene__media {
+  animation: media-enter 1800ms ease-out both;
 }
 
 .scene__media--right {
@@ -244,12 +261,21 @@ h2 {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 850;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .command:hover {
   transform: translateY(-2px);
+}
+
+.command:active,
+.icon-button:active,
+.toggle:active,
+.skill-node:active,
+.quiz-option:active {
+  transform: scale(.97);
 }
 
 .command--primary {
@@ -288,11 +314,17 @@ h2 {
   border-color: var(--gold);
 }
 
-.problem-grid span {
-  display: block;
+.problem-grid i {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
   margin-bottom: 18px;
   color: var(--cyan);
-  font-weight: 850;
+}
+
+.problem-grid article:nth-child(even) i {
+  color: var(--gold);
 }
 
 .problem-grid strong,
@@ -469,13 +501,15 @@ h2 {
   border-color: var(--gold);
 }
 
-.lens-list span {
+.lens-list i {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
   color: var(--cyan);
-  font-size: 20px;
-  font-weight: 850;
 }
 
-.lens-list article:nth-child(even) span {
+.lens-list article:nth-child(even) i {
   color: var(--gold);
 }
 
@@ -510,6 +544,11 @@ h2 {
   font-weight: 850;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 160ms ease;
+}
+
+.toggle:not(.is-selected):hover {
+  background: #eef7fb;
 }
 
 .toggle.is-selected {
@@ -574,6 +613,11 @@ h2 {
   background: rgba(3,14,33,.42);
   color: var(--white);
   cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 160ms ease;
+}
+
+.skill-node:hover {
+  border-color: var(--gold);
 }
 
 .skill-node:nth-child(even) {
@@ -623,6 +667,12 @@ h2 {
   text-align: left;
   cursor: pointer;
   box-shadow: 0 16px 48px rgba(11,39,67,.08);
+  transition: transform 160ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.quiz-option:not(:disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 54px rgba(11,39,67,.14);
 }
 
 .quiz-option:nth-child(even) {
@@ -987,6 +1037,10 @@ i svg {
 .scene.is-active .delay-3 { animation-delay: 270ms; }
 .scene.is-active .delay-4 { animation-delay: 360ms; }
 
+.scene.is-active .is-updating {
+  animation: panel-in 340ms cubic-bezier(.2,.8,.2,1) both;
+}
+
 @keyframes reveal-in {
   to {
     opacity: 1;
@@ -994,38 +1048,75 @@ i svg {
   }
 }
 
+@keyframes panel-in {
+  from {
+    opacity: .25;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes media-enter {
+  from { filter: brightness(.82) saturate(.86); }
+  to { filter: brightness(1) saturate(1); }
+}
+
 @media (max-height: 780px) and (min-width: 901px) {
   .scene__inner {
-    padding-top: 102px;
-    padding-bottom: 88px;
+    padding-top: 80px;
+    padding-bottom: 70px;
   }
 
   h1 { font-size: 72px; }
-  h2 { font-size: 46px; }
-  .lede { margin-bottom: 26px; font-size: 18px; }
+  h2 { margin-bottom: 14px; font-size: 42px; }
+  .brandline,
+  .section-label { margin-bottom: 10px; }
+  .lede { margin-bottom: 18px; font-size: 17px; line-height: 1.36; }
   .problem-grid,
   .challenge-rail,
-  .math-stage { margin-top: 18px; }
+  .math-stage { margin-top: 12px; }
   .formula-card { min-height: 188px; padding: 22px 18px; }
   .formula-card b { margin-bottom: 18px; font-size: 42px; }
-  .career-card { min-height: 314px; grid-template-rows: 178px 1fr; }
+  .career-compare { gap: 24px; margin-top: 8px; }
+  .career-card { min-height: 272px; grid-template-rows: 136px 1fr; }
+  .career-copy { padding: 18px 20px 18px 74px; }
+  .career-copy i { left: 20px; top: 18px; width: 38px; height: 38px; }
+  .career-copy strong { margin-bottom: 8px; font-size: 20px; }
+  .career-copy p { font-size: 14px; line-height: 1.34; }
+  .lens-list { gap: 10px 14px; }
+  .lens-list article { grid-template-columns: 42px 1fr; gap: 10px; padding: 12px; }
+  .lens-list strong { margin-bottom: 5px; font-size: 15px; }
+  .lens-list p { font-size: 13px; line-height: 1.28; }
+  .split-overlay .lede { max-width: 650px; }
+  .skill-orbit { margin-top: 12px; }
+  .skill-node { min-height: 122px; }
+  .skill-detail,
+  .quiz-result { min-height: 70px; margin-top: 18px; padding: 16px 22px; font-size: 17px; }
 }
 
 @media (max-width: 980px) {
   html,
   body {
-    overflow: auto;
+    overflow: hidden;
   }
 
   .deck {
-    height: auto;
+    height: 100dvh;
   }
 
   .scene {
-    position: relative;
-    min-height: 100vh;
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    height: 100dvh;
     display: none;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    touch-action: pan-y pinch-zoom;
     transform: none;
   }
 
@@ -1034,8 +1125,8 @@ i svg {
   }
 
   .scene__inner {
-    min-height: 100vh;
-    padding: 104px 24px 110px;
+    min-height: 100dvh;
+    padding: 104px 24px 142px;
   }
 
   .hero-shade,
@@ -1100,6 +1191,13 @@ i svg {
     bottom: 22px;
   }
 
+  .chapter-meta span {
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .deck-controls {
     right: 18px;
     bottom: 16px;
@@ -1113,11 +1211,12 @@ i svg {
 
 @media (max-width: 620px) {
   h1 {
-    font-size: 54px;
+    font-size: 50px;
   }
 
   h2 {
-    font-size: 38px;
+    font-size: 36px;
+    line-height: 1.08;
   }
 
   .hero-actions,

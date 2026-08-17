@@ -16,6 +16,13 @@ const icons = {
   network: '<svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="12" cy="18" r="3"></circle><path d="m8.5 8 2 7"></path><path d="m15.5 8-2 7"></path><path d="M9 6h6"></path></svg>',
   city: '<svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8h5v13"></path><path d="M14 21V4h5v17"></path><path d="M7 11h1"></path><path d="M7 15h1"></path><path d="M16 8h1"></path><path d="M16 12h1"></path><path d="M16 16h1"></path></svg>',
   rocket: '<svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1 1-1.5 3-1.5 4.5 1.5 0 3.5-.5 4.5-1.5"></path><path d="M9 15 4 10l5-1 6-6c2 0 4 2 4 4l-6 6-1 5-5-5"></path><path d="M15 9h.01"></path></svg>',
+  users: '<svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+  cpu: '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 14h3"></path><path d="M1 9h3"></path><path d="M1 14h3"></path></svg>',
+  chart: '<svg viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="m7 15 4-4 3 3 5-7"></path></svg>',
+  database: '<svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>',
+  brain: '<svg viewBox="0 0 24 24"><path d="M9.5 4.5A3 3 0 0 0 4 6a3 3 0 0 0 .5 5.5A3.5 3.5 0 0 0 8 17h1.5"></path><path d="M14.5 4.5A3 3 0 0 1 20 6a3 3 0 0 1-.5 5.5A3.5 3.5 0 0 1 16 17h-1.5"></path><path d="M12 3v18"></path><path d="M8 9h4"></path><path d="M12 14h4"></path></svg>',
+  layout: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>',
+  external: '<svg viewBox="0 0 24 24"><path d="M15 3h6v6"></path><path d="m10 14 11-11"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>',
 };
 
 const careers = {
@@ -47,6 +54,7 @@ const skills = {
 };
 
 const scenes = [...document.querySelectorAll(".scene")];
+const deck = document.querySelector("#deck");
 const chapterNumber = document.querySelector("#chapter-number");
 const chapterTitle = document.querySelector("#chapter-title");
 const progress = document.querySelector("#progress");
@@ -60,6 +68,7 @@ const quizResult = document.querySelector("#quiz-result");
 let current = 0;
 let wheelLock = false;
 let touchStartY = null;
+let touchStartX = null;
 const quizScores = { industrial: 0, informatica: 0 };
 
 function hydrateIcons(root = document) {
@@ -92,9 +101,12 @@ function setTheme(index) {
 function goTo(index) {
   const next = Math.max(0, Math.min(index, scenes.length - 1));
   if (next === current) return;
+  deck.dataset.direction = next > current ? "forward" : "backward";
   scenes[current].classList.remove("is-active");
   current = next;
   scenes[current].classList.add("is-active");
+  scenes[current].scrollTop = 0;
+  window.scrollTo(0, 0);
   updateChrome();
 }
 
@@ -104,6 +116,7 @@ function updateChrome() {
   chapterTitle.textContent = scenes[current].dataset.title;
   progress.querySelectorAll("span").forEach((item, index) => item.classList.toggle("is-active", index <= current));
   railNav.querySelectorAll(".rail-dot").forEach((item, index) => item.classList.toggle("is-active", index === current));
+  scenes.forEach((scene, index) => scene.setAttribute("aria-hidden", String(index !== current)));
   document.querySelector('[data-action="prev"]').disabled = current === 0;
   document.querySelector('[data-action="next"]').disabled = current === scenes.length - 1;
   buildOverview();
@@ -127,15 +140,23 @@ function renderCareer(key) {
     </div>
     <ul>${career.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
   `;
+  restartPanelAnimation(careerDetail);
 }
 
 function renderSkill(key) {
   skillDetail.textContent = skills[key];
+  restartPanelAnimation(skillDetail);
+}
+
+function restartPanelAnimation(panel) {
+  panel.classList.remove("is-updating");
+  requestAnimationFrame(() => panel.classList.add("is-updating"));
 }
 
 function answerQuiz(score, button) {
   quizScores[score] += 1;
   button.classList.add("is-selected");
+  button.setAttribute("aria-pressed", "true");
   button.disabled = true;
   const winner =
     quizScores.industrial === quizScores.informatica
@@ -144,6 +165,7 @@ function answerQuiz(score, button) {
         ? "Tu selección se inclina hacia Civil Industrial: sistemas, procesos, decisiones y coordinación."
         : "Tu selección se inclina hacia Civil Informática: software, IA, datos y tecnología funcionando.";
   quizResult.textContent = `${winner} Puedes volver a elegir otras opciones para comparar tu tendencia.`;
+  restartPanelAnimation(quizResult);
 }
 
 document.addEventListener("click", (event) => {
@@ -162,22 +184,30 @@ document.addEventListener("click", (event) => {
     if (kind === "close-overview") overview.close();
     if (kind === "fullscreen") {
       if (document.fullscreenElement) document.exitFullscreen();
-      else document.documentElement.requestFullscreen?.();
+      else document.documentElement.requestFullscreen?.().catch(() => {});
     }
   }
 
   if (jump) {
     goTo(Number(jump.dataset.jump));
-    overview.close?.();
+    if (overview.open) overview.close();
   }
 
   if (toggle) {
-    document.querySelectorAll("[data-career]").forEach((item) => item.classList.toggle("is-selected", item === toggle));
+    document.querySelectorAll("[data-career]").forEach((item) => {
+      const selected = item === toggle;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-selected", String(selected));
+    });
     renderCareer(toggle.dataset.career);
   }
 
   if (skill) {
-    document.querySelectorAll("[data-skill]").forEach((item) => item.classList.toggle("is-active", item === skill));
+    document.querySelectorAll("[data-skill]").forEach((item) => {
+      const selected = item === skill;
+      item.classList.toggle("is-active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
     renderSkill(skill.dataset.skill);
   }
 
@@ -187,17 +217,31 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (overview.open) {
+    if (event.key === "Escape") overview.close();
+    return;
+  }
+  if (event.target instanceof Element && event.target.closest("button, a, input, select, textarea")) return;
+
+  const handled = ["ArrowRight", "PageDown", " ", "ArrowLeft", "PageUp", "Home", "End"].includes(event.key);
   if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") next();
   if (event.key === "ArrowLeft" || event.key === "PageUp") prev();
   if (event.key === "Home") goTo(0);
   if (event.key === "End") goTo(scenes.length - 1);
-  if (event.key === "Escape" && overview.open) overview.close();
+  if (handled) event.preventDefault();
 });
 
 document.addEventListener(
   "wheel",
   (event) => {
     if (overview.open || Math.abs(event.deltaY) < 20 || wheelLock) return;
+    const activeScene = scenes[current];
+    const maxScroll = activeScene.scrollHeight - activeScene.clientHeight;
+    if (maxScroll > 4) {
+      const movingDownInside = event.deltaY > 0 && activeScene.scrollTop < maxScroll - 2;
+      const movingUpInside = event.deltaY < 0 && activeScene.scrollTop > 2;
+      if (movingDownInside || movingUpInside) return;
+    }
     wheelLock = true;
     if (event.deltaY > 0) next();
     else prev();
@@ -211,6 +255,7 @@ document.addEventListener(
 document.addEventListener(
   "touchstart",
   (event) => {
+    touchStartX = event.changedTouches[0].clientX;
     touchStartY = event.changedTouches[0].clientY;
   },
   { passive: true },
@@ -219,12 +264,14 @@ document.addEventListener(
 document.addEventListener(
   "touchend",
   (event) => {
-    if (touchStartY === null) return;
-    const delta = touchStartY - event.changedTouches[0].clientY;
-    if (Math.abs(delta) > 60) {
-      if (delta > 0) next();
+    if (touchStartX === null || touchStartY === null) return;
+    const deltaX = touchStartX - event.changedTouches[0].clientX;
+    const deltaY = touchStartY - event.changedTouches[0].clientY;
+    if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25) {
+      if (deltaX > 0) next();
       else prev();
     }
+    touchStartX = null;
     touchStartY = null;
   },
   { passive: true },
@@ -295,6 +342,9 @@ function startSignalCanvas() {
 hydrateIcons();
 buildProgress();
 buildOverview();
+document.querySelectorAll("[data-career]").forEach((item) => item.setAttribute("aria-selected", String(item.classList.contains("is-selected"))));
+document.querySelectorAll("[data-skill]").forEach((item) => item.setAttribute("aria-pressed", String(item.classList.contains("is-active"))));
+document.querySelectorAll("[data-score]").forEach((item) => item.setAttribute("aria-pressed", "false"));
 renderCareer("industrial");
 renderSkill("analizar");
 updateChrome();
