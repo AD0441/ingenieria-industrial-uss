@@ -2,6 +2,12 @@
 
 Presentación web interactiva de 18 capítulos.
 
+## Proyectos publicados
+
+- Presentación base: `https://ad0441.github.io/ingenieria-industrial-uss/`
+- Industrial + Informática: `https://ad0441.github.io/ingenieria-industrial-uss/ingenierias-industrial-informatica/`
+- Ingeniería Civil Industrial: `https://ad0441.github.io/ingenieria-industrial-uss/ingenieria-civil-industrial/`
+
 Para verla localmente desde esta carpeta:
 
 ```bash

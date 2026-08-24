@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#061526" />
+    <meta name="description" content="Presentación interactiva para estudiantes de 4º medio sobre el quehacer de Ingeniería Civil Industrial USS." />
+    <title>Ingeniería Civil Industrial USS | Diseñar sistemas que funcionan</title>
+    <link rel="preload" as="image" href="assets/industrial-hero-systems.png" />
+    <link rel="preload" as="image" href="assets/industrial-operations-control.png" />
+    <link rel="preload" as="image" href="assets/industrial-factory-challenge.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="signal-canvas" class="signal-canvas" aria-hidden="true"></canvas>
+
+    <main class="deck" id="deck" aria-live="polite">
+      <section class="scene scene--hero scene--dark is-active" data-title="Diseñar sistemas">
+        <img class="scene__media" src="assets/industrial-hero-systems.png" alt="Estudiantes analizando un sistema de operaciónes con datos, energía y logística" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="scene__inner hero-layout">
+          <div class="hero-copy">
+            <p class="brandline reveal">Ingeniería Civil Industrial USS</p>
+            <h1 class="reveal delay-1">Diseñar sistemas que funcionan</h1>
+            <p class="hero-promise reveal delay-2">Datos, matemáticas y criterio humano para mejorar decisiones reales.</p>
+            <p class="hero-support reveal delay-3">Una experiencia para 4º medio: descubre qué hace un ingeniero civil industrial y por qué su mirada transforma organizaciones, servicios e industrias.</p>
+            <div class="hero-actions reveal delay-4">
+              <button class="command command--primary" type="button" data-action="next"><span>Comenzar</span><i data-icon="arrow-right" aria-hidden="true"></i></button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="9"><span>Ir al reto</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="El problema">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">El punto de partida</p>
+          <h2 class="reveal delay-1">Cada sistema cuenta una historia que no siempre se ve</h2>
+          <p class="lede reveal delay-2">Una fila larga, una entrega atrasada, una planta que desperdicia energía o un hospital saturado no son problemas aislados: son señales de un sistema que puede diseñarse mejor.</p>
+          <div class="problem-grid reveal delay-3">
+            <article><i data-icon="users" aria-hidden="true"></i><strong>Personas</strong><p>Experiencia, coordinación, seguridad y bienestar.</p></article>
+            <article><i data-icon="route" aria-hidden="true"></i><strong>Procesos</strong><p>Flujos, tiempos, capacidad, calidad y costos.</p></article>
+            <article><i data-icon="database" aria-hidden="true"></i><strong>Datos</strong><p>Evidencia para mirar patrones y anticipar demanda.</p></article>
+            <article><i data-icon="leaf" aria-hidden="true"></i><strong>Impacto</strong><p>Decisiones sostenibles, medibles y responsables.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Qué hace">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">El quehacer industrial</p>
+          <h2 class="reveal delay-1">No se trata de mirar una pieza: se trata de entender el sistema completo</h2>
+          <p class="lede reveal delay-2">El ingeniero civil industrial conecta personas, tecnología, recursos y objetivos para que una organización funcione mejor. Su trabajo no es adivinar: es modelar, comparar, probar y decidir.</p>
+          <div class="math-stage reveal delay-3">
+            <div class="formula-card is-live"><b>01</b><span>Diagnosticar</span><p>Detectar dónde se acumula el problema y qué datos faltan.</p></div>
+            <div class="formula-card"><b>02</b><span>Modelar</span><p>Convertir la realidad en variables, escenarios y restricciones.</p></div>
+            <div class="formula-card"><b>03</b><span>Optimizar</span><p>Elegir la mejor alternativa con presupuesto, tiempo y riesgo.</p></div>
+            <div class="formula-card"><b>04</b><span>Implementar</span><p>Coordinar equipos, medir resultados y mejorar continuamente.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--image scene--dark" data-title="Mirada sistémica">
+        <img class="scene__media" src="assets/industrial-operations-control.png" alt="Equipo revisando logística, producción, tableros y modelos de operación" />
+        <div class="media-wash" aria-hidden="true"></div>
+        <div class="scene__inner split-overlay">
+          <p class="section-label section-label--gold reveal">Mirada sistémica</p>
+          <h2 class="reveal delay-1">Cambiar una decisión puede mover todo el sistema</h2>
+          <p class="lede reveal delay-2">Si subes producción, puede faltar inventario. Si bajas costos, puede caer la calidad. Si automatizas sin criterio, puedes trasladar el problema a las personas.</p>
+          <div class="lens-list reveal delay-3">
+            <article><i data-icon="factory" aria-hidden="true"></i><div><strong>Operaciones</strong><p>Capacidad, tiempos, calidad y mejora continua.</p></div></article>
+            <article><i data-icon="chart" aria-hidden="true"></i><div><strong>Analítica</strong><p>Datos para estimar, comparar y anticipar.</p></div></article>
+            <article><i data-icon="coins" aria-hidden="true"></i><div><strong>Gestión</strong><p>Costos, proyectos, estrategia y recursos.</p></div></article>
+            <article><i data-icon="leaf" aria-hidden="true"></i><div><strong>Sostenibilidad</strong><p>Impacto económico, social y ambiental.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Dónde trabaja">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Campos de acción</p>
+          <h2 class="reveal delay-1">Civil Industrial cabe donde haya decisiones complejas</h2>
+          <p class="lede reveal delay-2">La carrera abre puertas en industrias muy distintas porque enseña una forma de pensar: comprender sistemas, decidir con evidencia y ejecutar con impacto.</p>
+          <div class="career-compare career-compare--wide reveal delay-3">
+            <article class="career-card">
+              <div class="career-image"><img src="assets/industrial-operations-control.png" alt="Operaciones y logística con modelos de distribución" /></div>
+              <div class="career-copy"><i data-icon="route"></i><strong>Operaciones y logística</strong><p>Rutas, inventarios, planificación, transporte, producción y servicios.</p></div>
+            </article>
+            <article class="career-card">
+              <div class="career-image"><img src="assets/industrial-hero-systems.png" alt="Estudiantes revisando datos y proyectos tecnológicos" /></div>
+              <div class="career-copy"><i data-icon="brain"></i><strong>Datos, IA e innovación</strong><p>Modelos, tableros, automatización responsable y nuevos negocios.</p></div>
+            </article>
+            <article class="career-card">
+              <div class="career-image"><img src="assets/industrial-factory-challenge.png" alt="Planta inteligente y decisiones productivas" /></div>
+              <div class="career-copy"><i data-icon="leaf"></i><strong>Sostenibilidad y gestión</strong><p>Proyectos, evaluación económica, eficiencia energética e impacto.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Matemática aplicada">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">La matemática en acción</p>
+          <h2 class="reveal delay-1">Las fórmulas importan cuando ayudan a decidir mejor</h2>
+          <p class="lede reveal delay-2">Civil Industrial usa matemáticas para leer incertidumbre, optimizar recursos y defender decisiones con evidencia. La pregunta no es "me sé la fórmula", sino "qué decisión puedo mejorar con esto".</p>
+          <div class="problem-grid reveal delay-3">
+            <article><i data-icon="clock" aria-hidden="true"></i><strong>Simulación</strong><p>Probar escenarios antes de cambiar la realidad.</p></article>
+            <article><i data-icon="chart" aria-hidden="true"></i><strong>Optimización</strong><p>Elegir rutas, turnos o producción bajo restricciones.</p></article>
+            <article><i data-icon="database" aria-hidden="true"></i><strong>Estadística</strong><p>Separar patrones reales de ruido y azar.</p></article>
+            <article><i data-icon="coins" aria-hidden="true"></i><strong>Evaluación</strong><p>Comparar costos, beneficios, riesgos e impacto.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="IA aplicada">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">IA como herramienta</p>
+          <h2 class="reveal delay-1">La IA puede recomendar, pero alguien debe hacerse cargo de la decisión</h2>
+          <p class="lede reveal delay-2">Para explicar aprendizaje automático en vivo, la demo sugerida es Teachable Machine: entrenar un modelo simple, observar errores y conversar sobre datos, sesgo y responsabilidad.</p>
+          <div class="career-detail ai-demo reveal delay-3">
+            <div>
+              <h3>Demo breve: control de calidad con IA</h3>
+              <p>Entrenar dos clases, por ejemplo "pieza correcta" y "pieza con falla", usando imágenes o cámara. Luego probar con ejemplos nuevos y preguntar que pasaría si el modelo se equivoca en producción.</p>
+              <a class="command command--primary" href="https://teachablemachine.withgoogle.com/train/" target="_blank" rel="noopener noreferrer"><span>Abrir demo IA</span><i data-icon="external"></i></a>
+            </div>
+            <ul>
+              <li>Los datos representan todos los casos posibles?</li>
+              <li>Que costo tiene un falso positivo o falso negativo?</li>
+              <li>Quien valida la decisión antes de implementarla?</li>
+              <li>Como se integra la IA al proceso completo?</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Habilidades">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Lo que ya puedes entrenar</p>
+          <h2 class="reveal delay-1">Pensar como industrial es aprender a preguntar mejor</h2>
+          <p class="lede reveal delay-2">No necesitas tener una personalidad "cuadrada". Necesitas curiosidad, método y ganas de mejorar algo que hoy no funciona como debería.</p>
+          <div class="skill-orbit reveal delay-3">
+            <button type="button" class="skill-node is-active" data-skill="analizar"><i data-icon="search"></i><span>Analizar</span></button>
+            <button type="button" class="skill-node" data-skill="priorizar"><i data-icon="chart"></i><span>Priorizar</span></button>
+            <button type="button" class="skill-node" data-skill="coordinar"><i data-icon="users"></i><span>Coordinar</span></button>
+            <button type="button" class="skill-node" data-skill="mejorar"><i data-icon="tool"></i><span>Mejorar</span></button>
+          </div>
+          <div class="skill-detail reveal delay-4" id="skill-detail"></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Mini test">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Mini test vocacional</p>
+          <h2 class="reveal delay-1">Qué tipo de problema te dan ganas de ordenar?</h2>
+          <p class="lede reveal delay-2">Elige tres desafíos. El resultado no decide por ti: muestra que dimensión de Civil Industrial aparece primero.</p>
+          <div class="quiz-grid reveal delay-3">
+            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="route"></i><strong>Reducir esperas en urgencias</strong><span>Flujos, capacidad, turnos y experiencia.</span></button>
+            <button class="quiz-option" type="button" data-score="analitica"><i data-icon="database"></i><strong>Predecir la demanda de una tienda</strong><span>Datos, patrones, incertidumbre y proyección.</span></button>
+            <button class="quiz-option" type="button" data-score="gestion"><i data-icon="coins"></i><strong>Evaluar si conviene abrir una planta</strong><span>Costos, riesgo, inversión y estrategia.</span></button>
+            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="factory"></i><strong>Optimizar una linea productiva</strong><span>Cuellos de botella, calidad y productividad.</span></button>
+            <button class="quiz-option" type="button" data-score="sostenibilidad"><i data-icon="leaf"></i><strong>Bajar energía sin perder producción</strong><span>Eficiencia, impacto ambiental y medición.</span></button>
+            <button class="quiz-option" type="button" data-score="analitica"><i data-icon="brain"></i><strong>Usar IA para apoyar decisiones</strong><span>Modelos, sesgos, explicabilidad y control.</span></button>
+          </div>
+          <div class="quiz-feedback reveal delay-4">
+            <div class="quiz-result" id="quiz-result" aria-live="polite">
+              <strong id="quiz-progress">0 de 3 selecciónadas</strong>
+              <span id="quiz-message">Elige tu primer desafío.</span>
+            </div>
+            <button class="quiz-reset" type="button" data-action="reset-quiz" disabled><i data-icon="rotate-ccw" aria-hidden="true"></i><span>Reiniciar</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--challenge" data-title="Reto planta">
+        <img class="scene__media challenge-media" src="assets/industrial-factory-challenge.png" alt="Equipo tomando decisiones en una planta y centro de distribución inteligente" />
+        <div class="challenge-wash" aria-hidden="true"></div>
+        <div class="scene__inner content-layout challenge-layout">
+          <div class="challenge-heading reveal">
+            <div>
+              <p class="section-label section-label--gold">Reto exprés interactivo</p>
+              <h2>Planta en crisis</h2>
+              <p class="lede">Una empresa entrega kits tecnológicos a colegios. Hay atrasos, fallas de calidad y alto consumo de energía. Elige tres intervenciones sin superar el presupuesto.</p>
+            </div>
+            <div class="challenge-brief" aria-label="Condiciones del reto">
+              <span><i data-icon="clock"></i><strong id="challenge-timer">01:30</strong><small>tiempo</small></span>
+              <span><i data-icon="coins"></i><strong id="challenge-budget">100</strong><small>créditos libres</small></span>
+              <span><i data-icon="check-circle"></i><strong id="challenge-count">0 / 3</strong><small>selecciónadas</small></span>
+            </div>
+          </div>
+          <div class="challenge-options reveal delay-1" aria-label="Intervenciones disponibles">
+            <button class="challenge-option" type="button" data-challenge="flujo" data-cost="30" data-time="24" data-quality="10" data-costimpact="5" data-sustainability="5"><span class="challenge-option__top"><i data-icon="route"></i><b>30 créditos</b></span><strong>Rediseñar el flujo</strong><small>Separar etapas críticas y eliminar esperas internas.</small><em>Operaciones</em></button>
+            <button class="challenge-option" type="button" data-challenge="calidad" data-cost="25" data-time="8" data-quality="25" data-costimpact="4" data-sustainability="0"><span class="challenge-option__top"><i data-icon="shield"></i><b>25 créditos</b></span><strong>Control de calidad</strong><small>Inspección temprana y causa raíz de fallas.</small><em>Calidad</em></button>
+            <button class="challenge-option" type="button" data-challenge="tablero" data-cost="35" data-time="18" data-quality="8" data-costimpact="12" data-sustainability="4"><span class="challenge-option__top"><i data-icon="chart"></i><b>35 créditos</b></span><strong>Tablero de datos</strong><small>Demanda, inventario y capacidad en tiempo real.</small><em>Analítica</em></button>
+            <button class="challenge-option" type="button" data-challenge="proveedores" data-cost="20" data-time="12" data-quality="14" data-costimpact="6" data-sustainability="2"><span class="challenge-option__top"><i data-icon="network"></i><b>20 créditos</b></span><strong>Mejorar proveedores</strong><small>Menos quiebres, menos reproceso, más estabilidad.</small><em>Supply chain</em></button>
+            <button class="challenge-option" type="button" data-challenge="maquina" data-cost="45" data-time="20" data-quality="3" data-costimpact="-18" data-sustainability="-8" data-risk="true"><span class="challenge-option__top"><i data-icon="factory"></i><b>45 créditos</b></span><strong>Comprar otra máquina</strong><small>Aumenta capacidad, pero sin resolver el flujo.</small><em>Riesgo</em></button>
+            <button class="challenge-option" type="button" data-challenge="energia" data-cost="15" data-time="2" data-quality="0" data-costimpact="8" data-sustainability="22"><span class="challenge-option__top"><i data-icon="leaf"></i><b>15 créditos</b></span><strong>Plan energético</strong><small>Medir consumo y programar uso eficiente.</small><em>Sostenibilidad</em></button>
+          </div>
+          <div class="challenge-outcome reveal delay-2" aria-live="polite">
+            <div class="challenge-scoreboard">
+              <span><small>Entrega</small><strong id="challenge-wait">14 días</strong></span>
+              <span><small>Calidad</small><strong id="challenge-coordination">62 / 100</strong></span>
+              <span><small>Costo unitario</small><strong id="challenge-trust">100 / 100</strong></span>
+            </div>
+            <p id="challenge-message">Selecciona tres intervenciones sin superar los 100 créditos.</p>
+            <div class="challenge-actions">
+              <button class="command command--primary" type="button" data-action="confirm-challenge" disabled><i data-icon="check-circle"></i><span>Confirmar</span></button>
+              <button class="command command--ghost" type="button" data-action="reset-challenge"><i data-icon="rotate-ccw"></i><span>Reiniciar</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark" data-title="Impacto">
+        <div class="scene__inner content-layout">
+          <p class="section-label section-label--gold reveal">Impacto práctico</p>
+          <h2 class="reveal delay-1">Un industrial transforma problemas en decisiones implementables</h2>
+          <p class="lede reveal delay-2">La diferencia está en hacerse cargo de la solución completa: números, personas, tecnología, recursos, ética y consecuencias.</p>
+          <div class="challenge-rail reveal delay-3">
+            <article><i data-icon="city"></i><strong>Servicios</strong><p>Menos espera y mejor experiencia en salud, educación o transporte.</p></article>
+            <article><i data-icon="factory"></i><strong>Industria</strong><p>Procesos más seguros, eficientes, trazables y sostenibles.</p></article>
+            <article><i data-icon="rocket"></i><strong>Innovación</strong><p>Ideas que pasan de prototipo a operación real.</p></article>
+            <article><i data-icon="brain"></i><strong>IA responsable</strong><p>Modelos útiles, auditables y conectados a decisiones humanas.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--light" data-title="Perfil">
+        <div class="scene__inner content-layout">
+          <p class="section-label reveal">Para estudiantes de 4º medio</p>
+          <h2 class="reveal delay-1">Podría ser para ti si te gusta descubrir por qué algo no funciona</h2>
+          <div class="decision-grid reveal delay-2">
+            <article><span>Si te preguntas...</span><strong>Cómo se organiza mejor esto?</strong><p>Te puede atraer operaciónes, logística y mejora de procesos.</p></article>
+            <article><span>Si te interesa...</span><strong>Decidir con evidencia</strong><p>Te puede atraer analítica, simulación, IA aplicada y evaluación de proyectos.</p></article>
+            <article><span>Si quieres...</span><strong>Impactar desde lo real</strong><p>Te puede atraer innovación, sostenibilidad y gestión de organizaciones.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark scene--close" data-title="Cierre">
+        <div class="scene__inner close-layout">
+          <p class="section-label section-label--gold reveal">Tu próxima decisión</p>
+          <h2 class="reveal delay-1">Mirar el sistema completo cambia la solución</h2>
+          <p class="lede reveal delay-2">Ingeniería Civil Industrial es para quienes quieren entender la complejidad y convertirla en mejoras concretas para personas, organizaciones e industria.</p>
+          <div class="closing-actions reveal delay-3">
+            <a class="command command--primary" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer"><span>Conocer Civil Industrial</span><i data-icon="external" aria-hidden="true"></i></a>
+            <a class="command command--ghost" href="https://teachablemachine.withgoogle.com/train/" target="_blank" rel="noopener noreferrer"><span>Probar demo IA</span><i data-icon="external" aria-hidden="true"></i></a>
+            <button class="command command--ghost" type="button" data-action="jump" data-target="9">Repetir reto</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <header class="topbar" aria-label="Identidad de presentación">
+      <img src="assets/uss-facultad-ingenieria.png" alt="Universidad San Sebastian, Facultad de Ingeniería" />
+    </header>
+
+    <aside class="chapter-meta" aria-live="polite">
+      <strong id="chapter-number">01 / 12</strong>
+      <span id="chapter-title">Diseñar sistemas</span>
+    </aside>
+
+    <nav class="rail-nav" aria-label="Capítulos"></nav>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <nav class="deck-controls" aria-label="Controles de presentación">
+      <button class="icon-button" type="button" data-action="prev" aria-label="Capítulo anterior" data-tooltip="Anterior"><i data-icon="arrow-left"></i></button>
+      <button class="icon-button" type="button" data-action="overview" aria-label="Abrir panorama" data-tooltip="Panorama"><i data-icon="grid"></i></button>
+      <button class="icon-button fullscreen-button" type="button" data-action="fullscreen" aria-label="Pantalla completa" data-tooltip="Pantalla completa"><i data-icon="expand"></i></button>
+      <button class="icon-button" type="button" data-action="next" aria-label="Capítulo siguiente" data-tooltip="Siguiente"><i data-icon="arrow-right"></i></button>
+    </nav>
+
+    <dialog class="overview" id="overview" aria-labelledby="overview-title">
+      <div class="overview__header">
+        <h2 id="overview-title">Panorama</h2>
+        <button class="icon-button" type="button" data-action="close-overview" aria-label="Cerrar"><i data-icon="x"></i></button>
+      </div>
+      <div class="overview__list" id="overview-list"></div>
+    </dialog>
+
+    <dialog class="challenge-report" id="challenge-report" aria-labelledby="challenge-report-title">
+      <div class="challenge-report__shell">
+        <header class="challenge-report__header">
+          <div>
+            <p id="challenge-report-kicker">Informe de la estrategia</p>
+            <h2 id="challenge-report-title">Resultado del reto</h2>
+            <p id="challenge-report-summary">Aquí aparecerá la explicación de tus decisiones.</p>
+          </div>
+          <button class="icon-button" type="button" data-action="close-challenge-report" aria-label="Cerrar resultado"><i data-icon="x"></i></button>
+        </header>
+
+        <div class="challenge-report__body">
+          <section class="challenge-report__chart" aria-labelledby="challenge-chart-title">
+            <div class="challenge-report__section-title">
+              <span>01</span>
+              <div><h3 id="challenge-chart-title">Antes y después</h3><p>El gráfico compara el punto de partida con el impacto de la estrategia.</p></div>
+            </div>
+            <div class="challenge-chart-legend" aria-hidden="true"><span><i></i>Antes</span><span><i></i>Después</span></div>
+            <div class="challenge-chart" id="challenge-chart"></div>
+          </section>
+
+          <section class="challenge-report__decisions" aria-labelledby="challenge-decisions-title">
+            <div class="challenge-report__section-title">
+              <span>02</span>
+              <div><h3 id="challenge-decisions-title">Qué produjo cada decisión</h3><p id="challenge-report-meta">Tres intervenciones dentro del presupuesto.</p></div>
+            </div>
+            <div class="challenge-decision-list" id="challenge-decision-list"></div>
+          </section>
+
+          <section class="challenge-report__reading" aria-labelledby="challenge-reading-title">
+            <div class="challenge-report__section-title">
+              <span>03</span>
+              <div><h3 id="challenge-reading-title">Lectura industrial</h3><p>Una decisión se evalúa por lo que mejora y por las consecuencias que introduce.</p></div>
+            </div>
+            <div class="challenge-reading-grid">
+              <article><i data-icon="factory"></i><div><strong>Operaciones</strong><p id="challenge-industrial-reading"></p></div></article>
+              <article><i data-icon="database"></i><div><strong>Analítica</strong><p id="challenge-informatics-reading"></p></div></article>
+              <article><i data-icon="shield"></i><div><strong>Riesgo principal</strong><p id="challenge-risk-reading"></p></div></article>
+              <article><i data-icon="search"></i><div><strong>Siguiente paso</strong><p id="challenge-next-reading"></p></div></article>
+            </div>
+          </section>
+        </div>
+
+        <footer class="challenge-report__footer">
+          <p><strong>Idea clave:</strong> mejorar un indicador no basta; la solución debe funcionar para el sistema completo.</p>
+          <div>
+            <button class="command command--ghost" type="button" data-action="close-challenge-report"><span>Volver al resultado</span></button>
+            <button class="command command--primary" type="button" data-action="reset-challenge"><i data-icon="rotate-ccw"></i><span>Probar otra estrategia</span></button>
+          </div>
+        </footer>
+      </div>
+    </dialog>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
