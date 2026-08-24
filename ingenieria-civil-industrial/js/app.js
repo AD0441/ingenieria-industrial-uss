@@ -24,6 +24,27 @@ const icons = {
   "check-circle": '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>',
 };
 
+const aiDemos = {
+  quickdraw: {
+    eyebrow: "Demo 01 · IA que reconoce",
+    title: "Quick, Draw!: la IA intenta leer tu dibujo",
+    url: "https://quickdraw.withgoogle.com/",
+    cta: "Abrir Quick, Draw!",
+    intro: "Funciona muy bien como rompehielo: los estudiantes dibujan, la IA adivina y aparecen errores interesantes para conversar.",
+    steps: ["Dibujar un objeto en 20 segundos.", "Observar cuándo acierta y cuándo se confunde.", "Preguntar qué patrones pudo haber usado.", "Conectar con datos, etiquetas y entrenamiento."],
+    question: "Si dos personas dibujan distinto la misma idea, qué necesita la IA para reconocer ambas?",
+  },
+  evolution: {
+    eyebrow: "Demo 02 · IA que aprende",
+    title: "Evolution: una criatura aprende por prueba y error",
+    url: "https://keiwan.itch.io/evolution",
+    cta: "Abrir Evolution",
+    intro: "Es más visual y más ingenieril: permite hablar de objetivo, restricciones, diseño, iteración y optimización.",
+    steps: ["Construir una criatura con huesos, articulaciones y músculos.", "Definir que debe avanzar lo más posible.", "Dejar que el sistema pruebe muchas variantes.", "Comparar qué diseño aprende mejor y por qué."],
+    question: "Antes de que la IA mejore, quién definió qué significa mejorar?",
+  },
+};
+
 const skills = {
   analizar: "Analizar es separar síntomas, causas, datos y supuestos. Un industrial no parte comprando soluciones: primero entiende donde está el cuello de botella.",
   priorizar: "Priorizar es decidir que intervención genera más impacto con recursos limitados. En la vida real siempre hay presupuesto, tiempo y riesgo.",
@@ -39,6 +60,8 @@ const progress = document.querySelector("#progress");
 const railNav = document.querySelector(".rail-nav");
 const overview = document.querySelector("#overview");
 const overviewList = document.querySelector("#overview-list");
+const aiDemoDetail = document.querySelector("#ai-demo-detail");
+const aiDemoButtons = [...document.querySelectorAll("[data-ai-demo]")];
 const skillDetail = document.querySelector("#skill-detail");
 const quizResult = document.querySelector("#quiz-result");
 const quizProgress = document.querySelector("#quiz-progress");
@@ -72,7 +95,7 @@ let touchStartY = null;
 let touchStartX = null;
 let quizAnswers = 0;
 const quizLimit = 3;
-const quizScores = { operaciónes: 0, analitica: 0, gestion: 0, sostenibilidad: 0 };
+const quizScores = { operaciones: 0, analitica: 0, gestion: 0, sostenibilidad: 0 };
 const challengeState = { selected: new Set(), budget: 100, seconds: 90, timerId: null, resolved: false, result: null };
 
 const challengeInterventions = {
@@ -142,6 +165,34 @@ function renderSkill(key) {
   restartPanelAnimation(skillDetail);
 }
 
+function renderAiDemo(key) {
+  const demo = aiDemos[key];
+  if (!demo || !aiDemoDetail) return;
+  aiDemoDetail.innerHTML = `
+    <div class="ai-demo-detail__copy">
+      <span>${demo.eyebrow}</span>
+      <h3>${demo.title}</h3>
+      <p>${demo.intro}</p>
+      <a class="command command--primary" href="${demo.url}" target="_blank" rel="noopener noreferrer"><span>${demo.cta}</span><i data-icon="external" aria-hidden="true"></i></a>
+    </div>
+    <div class="ai-demo-detail__steps">
+      ${demo.steps.map((step, index) => `<article><b>${String(index + 1).padStart(2, "0")}</b><p>${step}</p></article>`).join("")}
+      <div class="ai-demo-question"><strong>Pregunta para cerrar</strong><p>${demo.question}</p></div>
+    </div>
+  `;
+  hydrateIcons(aiDemoDetail);
+  restartPanelAnimation(aiDemoDetail);
+}
+
+function selectAiDemo(button) {
+  aiDemoButtons.forEach((item) => {
+    const selected = item === button;
+    item.classList.toggle("is-selected", selected);
+    item.setAttribute("aria-selected", String(selected));
+  });
+  renderAiDemo(button.dataset.aiDemo);
+}
+
 function answerQuiz(score, button) {
   if (quizAnswers >= quizLimit || button.disabled) return;
   quizScores[score] += 1;
@@ -150,11 +201,11 @@ function answerQuiz(score, button) {
   button.setAttribute("aria-pressed", "true");
   button.disabled = true;
   quizReset.disabled = false;
-  quizProgress.textContent = `${quizAnswers} de ${quizLimit} selecciónadas`;
+  quizProgress.textContent = `${quizAnswers} de ${quizLimit} seleccionadas`;
 
   if (quizAnswers < quizLimit) {
     const remaining = quizLimit - quizAnswers;
-    quizMessage.textContent = remaining === 1 ? "Te queda una elección." : `Te quedan ${remaining} elecciónes.`;
+    quizMessage.textContent = remaining === 1 ? "Te queda una elección." : `Te quedan ${remaining} elecciones.`;
     restartPanelAnimation(quizResult);
     return;
   }
@@ -164,10 +215,10 @@ function answerQuiz(score, button) {
   });
   const [dimension, points] = Object.entries(quizScores).sort((a, b) => b[1] - a[1])[0];
   const messages = {
-    operaciónes: "Tus elecciónes se inclinan hacia operaciónes: flujos, capacidad, logística y mejora continua.",
-    analitica: "Tus elecciónes se inclinan hacia analítica: datos, modelos, IA aplicada y decisiones con evidencia.",
-    gestion: "Tus elecciónes se inclinan hacia gestión: proyectos, evaluación económica, estrategia y recursos.",
-    sostenibilidad: "Tus elecciónes se inclinan hacia sostenibilidad: eficiencia, energía, impacto y responsabilidad.",
+    operaciones: "Tus elecciones se inclinan hacia operaciones: flujos, capacidad, logística y mejora continua.",
+    analitica: "Tus elecciones se inclinan hacia analítica: datos, modelos, IA aplicada y decisiones con evidencia.",
+    gestion: "Tus elecciones se inclinan hacia gestión: proyectos, evaluación económica, estrategia y recursos.",
+    sostenibilidad: "Tus elecciones se inclinan hacia sostenibilidad: eficiencia, energía, impacto y responsabilidad.",
   };
   const tie = Object.values(quizScores).filter((value) => value === points).length > 1;
   quizMessage.textContent = tie ? "Aparece un perfil mixto: te atrae mirar sistemas desde varias dimensiones. Eso es muy Industrial." : `${messages[dimension]} Puedes reiniciar y probar otra combinación.`;
@@ -182,7 +233,7 @@ function resetQuiz() {
     option.classList.remove("is-selected");
     option.setAttribute("aria-pressed", "false");
   });
-  quizProgress.textContent = "0 de 3 selecciónadas";
+  quizProgress.textContent = "0 de 3 seleccionadas";
   quizMessage.textContent = "Elige tu primer desafío.";
   quizReset.disabled = true;
   restartPanelAnimation(quizResult);
@@ -231,9 +282,9 @@ function renderChallengeReport(result, selected) {
   const { delivery, quality, cost, sustainability, outcome, budgetUsed } = result;
   const outcomeCopy = {
     transformed: { kicker: "Sistema transformado", title: "La estrategia ataca el flujo completo", summary: "La combinación reduce atrasos, mejora calidad y baja costo sin esconder consecuencias. Es una respuesta industrial: proceso, datos y criterio.", risk: "La implementación puede fallar si el equipo no adopta los nuevos estándares o si los datos del tablero llegan tarde.", next: "Piloto de dos semanas, medición por etapa, reunión diaria de aprendizaje y ajuste de capacidad según demanda real." },
-    balanced: { kicker: "Mejora balanceada", title: "La operación mejora, pero aún queda trabajo", summary: "La estrategia logra avances visibles, aúnque todavía queda un indicador débil. Hay que seguir midiendo y ajustar el cuello de botella principal.", risk: "Una mejora parcial puede perderse cuando suba la demanda o aparezca variabilidad en proveedores.", next: "Revisar datos de atraso por etapa y escoger una segúnda ola enfocada en el indicador más débil." },
-    costly: { kicker: "Solución cara", title: "Más capacidad no siempre significa mejor sistema", summary: "La compra de maquinaria acelera una parte, pero aumenta costos y puede empeorar sostenibilidad si no se corrige el flujo.", risk: "Invertir en capacidad antes de entender el sistema puede agrandar el problema y dejar costos fijos innecesarios.", next: "Validar si la máquina era el cuello de botella real; rediseñar flujo y medir ocupacion antes de comprar más capacidad." },
-    apparent: { kicker: "Cambio aparente", title: "La propuesta mejora algo, pero no resuelve la crisis", summary: "La estrategia toca síntomas sueltos, pero no cambia suficiente la entrega, calidad o costo. Faltó mirar el sistema completo.", risk: "Celebrar una mejora cosmética puede retrasar decisiones estructurales y aumentar el desgaste del equipo.", next: "Mapear el proceso de punta a punta, medir tiempos reales y priorizar una intervención operaciónal con datos." },
+    balanced: { kicker: "Mejora balanceada", title: "La operación mejora, pero aún queda trabajo", summary: "La estrategia logra avances visibles, aunque todavía queda un indicador débil. Hay que seguir midiendo y ajustar el cuello de botella principal.", risk: "Una mejora parcial puede perderse cuando suba la demanda o aparezca variabilidad en proveedores.", next: "Revisar datos de atraso por etapa y escoger una segunda ola enfocada en el indicador más débil." },
+    costly: { kicker: "Solución cara", title: "Más capacidad no siempre significa mejor sistema", summary: "La compra de maquinaria acelera una parte, pero aumenta costos y puede empeorar sostenibilidad si no se corrige el flujo.", risk: "Invertir en capacidad antes de entender el sistema puede agrandar el problema y dejar costos fijos innecesarios.", next: "Validar si la máquina era el cuello de botella real; rediseñar flujo y medir ocupación antes de comprar más capacidad." },
+    apparent: { kicker: "Cambio aparente", title: "La propuesta mejora algo, pero no resuelve la crisis", summary: "La estrategia toca síntomas sueltos, pero no cambia suficiente la entrega, calidad o costo. Faltó mirar el sistema completo.", risk: "Celebrar una mejora cosmética puede retrasar decisiones estructurales y aumentar el desgaste del equipo.", next: "Mapear el proceso de punta a punta, medir tiempos reales y priorizar una intervención operacional con datos." },
   }[outcome];
 
   challengeReport.dataset.outcome = outcome;
@@ -319,7 +370,7 @@ function confirmChallenge() {
     challengeMessage.textContent = "Sistema transformado: combinaron flujo, calidad y datos para mejorar sin trasladar el problema a otro indicador.";
   } else if (delivery <= 10 && quality >= 75 && cost <= 105) {
     outcome = "balanced";
-    challengeMessage.textContent = "Mejora balanceada: hay avance real, aúnque queda un indicador por reforzar con una segúnda iteracion.";
+    challengeMessage.textContent = "Mejora balanceada: hay avance real, aunque queda un indicador por reforzar con una segunda iteración.";
   } else {
     challengeMessage.textContent = "Cambio aparente: la propuesta mejora una parte, pero la crisis sigue viva. Hay que mirar el sistema completo.";
   }
@@ -370,6 +421,7 @@ document.addEventListener("click", (event) => {
   const action = event.target.closest("[data-action]");
   const jump = event.target.closest("[data-jump]");
   const skill = event.target.closest("[data-skill]");
+  const aiDemo = event.target.closest("[data-ai-demo]");
   const quiz = event.target.closest("[data-score]");
   const challenge = event.target.closest("[data-challenge]");
 
@@ -404,6 +456,7 @@ document.addEventListener("click", (event) => {
     renderSkill(skill.dataset.skill);
   }
 
+  if (aiDemo) selectAiDemo(aiDemo);
   if (quiz) answerQuiz(quiz.dataset.score, quiz);
   if (challenge) toggleChallengeOption(challenge);
 });
@@ -526,8 +579,10 @@ hydrateIcons();
 buildProgress();
 buildOverview();
 document.querySelectorAll("[data-skill]").forEach((item) => item.setAttribute("aria-pressed", String(item.classList.contains("is-active"))));
+aiDemoButtons.forEach((item) => item.setAttribute("aria-selected", String(item.classList.contains("is-selected"))));
 quizOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
 challengeOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
+renderAiDemo("quickdraw");
 renderSkill("analizar");
 syncChallengeControls();
 updateChrome();

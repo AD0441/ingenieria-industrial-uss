@@ -19,9 +19,11 @@ http://127.0.0.1:4174
 - Flechas, Page Up/Page Down o rueda del mouse para avanzar.
 - En móvil, desplazamiento vertical dentro de cada capítulo y gesto horizontal para cambiar de escena.
 - Botón de panorama para saltar entre capítulos.
-- Mini test vocacional con seis desafíos, tres elecciónes y reinicio completo.
+- Noticias gancho sobre IA en operaciones y demanda tecnológica vinculada a cobre, energía y sostenibilidad.
+- Conceptos fuerza de la carrera: tecnología, gestión, liderazgo, proyectos reales e Industria 4.0.
+- Mini test vocacional con seis misiones, tres elecciones y reinicio completo.
 - Reto de planta en crisis con presupuesto, decisiones, gráfico comparativo e informe de consecuencias.
-- Demo externa sugerida con Teachable Machine para explicar IA aplicada a control de calidad.
+- Demo de IA a elección: Quick, Draw! para reconocimiento de patrones o Evolution para aprendizaje por ensayo y error.
 - Identidad visual de la Facultad de Ingeniería USS en todos los capítulos.
 
 ## Publicación
