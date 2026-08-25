@@ -1,12 +1,13 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
   --navy: #0b2743;
   --deep: #061526;
   --blue: #173a5e;
   --ink: #172a45;
   --gold: #cdb57c;
   --cyan: #17b7d8;
-  --paper: #f7f9fb;
+  --paper: #ffffff;
+  --surface: #f4f7fa;
   --white: #ffffff;
   --muted: #5a6b7d;
   --line: #d8e0e8;
@@ -2132,6 +2133,370 @@ i svg {
   to { filter: brightness(1) saturate(1); }
 }
 
+/* Light editorial refresh */
+body.theme-light .signal-canvas {
+  opacity: .08;
+  mix-blend-mode: multiply;
+}
+
+.scene--light .formula-card,
+.scene--light .attribute-grid article,
+.scene--light .ai-flow article,
+.scene--light .skill-node {
+  border-color: var(--line);
+  border-top-color: var(--cyan);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.scene--light .formula-card:nth-child(even),
+.scene--light .attribute-grid article:nth-child(even),
+.scene--light .ai-flow article:nth-child(even),
+.scene--light .skill-node:nth-child(even) {
+  border-top-color: var(--gold);
+}
+
+.scene--light .formula-card.is-live,
+.scene--light .skill-node.is-active {
+  border-color: rgba(23,183,216,.45);
+  background: #eaf8fb;
+}
+
+.scene--light .formula-card p,
+.scene--light .attribute-grid p,
+.scene--light .ai-flow p,
+.scene--light .challenge-rail p {
+  color: var(--muted);
+}
+
+.scene--light .formula-card span,
+.scene--light .attribute-grid strong,
+.scene--light .ai-flow strong,
+.scene--light .skill-node span,
+.scene--light .challenge-rail strong {
+  color: var(--ink);
+}
+
+.scene--light .formula-card b,
+.scene--light .attribute-grid i,
+.scene--light .skill-node i {
+  color: var(--gold);
+}
+
+.scene--light .ai-flow article:not(:last-child)::after {
+  background: rgba(23,42,69,.22);
+}
+
+.scene--light .skill-detail {
+  border-left-color: var(--gold);
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.scene--light .challenge-rail i {
+  color: var(--cyan);
+}
+
+.scene--light .challenge-rail article:nth-child(even) i {
+  color: #9b7533;
+}
+
+.news-card {
+  min-height: 360px;
+  justify-content: flex-start;
+  border-color: var(--line);
+  background: var(--white);
+  color: var(--ink);
+  padding: 176px 28px 24px;
+  box-shadow: 0 18px 50px rgba(11,39,67,.1);
+}
+
+.news-card::before {
+  right: 0;
+  bottom: auto;
+  height: 152px;
+  background: url("assets/industrial-data-simulation.png") center 44% / cover;
+  transform: scale(1.01);
+}
+
+.news-card--energy::before {
+  background: url("assets/industrial-sustainable-operations.png") center 48% / cover;
+}
+
+.news-card::after {
+  top: 152px;
+  bottom: auto;
+  height: 4px;
+  background: var(--cyan);
+}
+
+.news-card--energy::after {
+  background: var(--gold);
+}
+
+.news-card:hover {
+  box-shadow: 0 24px 58px rgba(11,39,67,.16);
+}
+
+.news-card__source {
+  margin-bottom: 12px;
+  color: #8a6a2f;
+}
+
+.news-card strong {
+  margin-bottom: 12px;
+  font-size: clamp(1.55rem, 2vw, 2.25rem);
+}
+
+.news-card p {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.scene--day,
+.scene--close {
+  isolation: isolate;
+}
+
+.scene__media--day,
+.scene__media--close {
+  object-position: center;
+}
+
+.day-fade,
+.close-fade {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: 64%;
+  background: linear-gradient(90deg, #fff 0%, #fff 72%, rgba(255,255,255,.92) 84%, rgba(255,255,255,0) 100%);
+}
+
+.day-layout,
+.close-layout {
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: min(52vw, 760px);
+}
+
+.day-layout {
+  padding-right: min(34vw, 480px);
+}
+
+.day-layout h2 {
+  max-width: 860px;
+  font-size: clamp(3rem, 3.8vw, 3.75rem);
+}
+
+.scene--day .day-fade {
+  width: 70%;
+  background: linear-gradient(90deg, #fff 0%, #fff 75%, rgba(255,255,255,.94) 86%, rgba(255,255,255,0) 100%);
+}
+
+.close-layout h2 {
+  max-width: 690px;
+}
+
+.day-layout .lede,
+.close-layout .lede {
+  max-width: 650px;
+}
+
+.day-flow {
+  display: grid;
+  width: min(680px, 100%);
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: rgba(255,255,255,.94);
+}
+
+.day-flow article {
+  position: relative;
+  min-height: 170px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 22px 20px 68px;
+}
+
+.day-flow b {
+  display: block;
+  margin-bottom: 11px;
+  color: #8a6a2f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+}
+
+.day-flow i {
+  position: absolute;
+  top: 52px;
+  left: 20px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  color: var(--cyan);
+}
+
+.day-flow strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.day-flow p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.38;
+}
+
+.program-facts {
+  display: grid;
+  grid-template-columns: .72fr 1.45fr 1.1fr;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.program-facts span {
+  display: flex;
+  min-height: 78px;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  padding: 12px 22px;
+}
+
+.program-facts span:last-child {
+  border-right: 0;
+}
+
+.program-facts strong,
+.program-facts small {
+  display: block;
+}
+
+.program-facts strong {
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.program-facts--hero {
+  grid-template-columns: .65fr 1.35fr 1.35fr 1.1fr;
+  margin-top: 42px;
+}
+
+.program-facts--hero span {
+  min-height: 260px;
+  justify-content: flex-start;
+  padding: 34px 28px;
+}
+
+.program-facts--hero strong {
+  margin-bottom: 54px;
+  color: var(--cyan);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  line-height: .9;
+}
+
+.program-facts--hero span:nth-child(even) strong {
+  color: #9a783c;
+}
+
+.program-facts--hero small {
+  max-width: 240px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.program-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.program-facts small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.program-facts--hero small {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.myth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 34px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.myth-grid article {
+  min-height: 300px;
+  border-right: 1px solid var(--line);
+  padding: 32px;
+}
+
+.myth-grid article:last-child {
+  border-right: 0;
+}
+
+.myth-grid span {
+  display: block;
+  margin-bottom: 52px;
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.myth-grid article:nth-child(2) span {
+  color: #8a6a2f;
+}
+
+.myth-grid article:nth-child(3) span {
+  color: var(--magenta);
+}
+
+.myth-grid strong {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 2vw, 2.15rem);
+  line-height: 1.1;
+}
+
+.myth-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.48;
+}
+
+.scene--close .closing-actions {
+  max-width: 660px;
+}
+
+.scene--close .command {
+  padding-right: 18px;
+  padding-left: 18px;
+  font-size: 12px;
+}
+
 @media (max-height: 780px) and (min-width: 901px) {
   .scene__inner {
     padding-top: 80px;
@@ -2155,7 +2520,9 @@ i svg {
   .challenge-rail,
   .math-stage { margin-top: 12px; }
   .news-grid { gap: 18px; margin-top: 12px; }
-  .news-card { min-height: 260px; padding: 22px; }
+  .news-card { min-height: 300px; padding: 142px 20px 18px; }
+  .news-card::before { height: 122px; }
+  .news-card::after { top: 122px; }
   .news-card strong { font-size: 28px; }
   .news-card p { margin-bottom: 12px; font-size: 14px; line-height: 1.32; }
   .attribute-grid { gap: 14px; margin-top: 12px; }
@@ -2168,6 +2535,15 @@ i svg {
   .learning-timeline span { margin-bottom: 28px; font-size: 42px; }
   .learning-timeline strong { font-size: 20px; }
   .learning-timeline p { font-size: 14px; line-height: 1.34; }
+  .program-facts { margin-top: 12px; }
+  .program-facts span { min-height: 60px; padding: 8px 16px; }
+  .program-facts strong { font-size: 15px; }
+  .program-facts small { font-size: 11px; }
+  .program-facts--hero { margin-top: 16px; }
+  .program-facts--hero span { min-height: 170px; padding: 22px; }
+  .program-facts--hero strong { margin-bottom: 30px; font-size: 54px; }
+  .program-facts--hero small { font-size: 14px; }
+  .program-note { margin-top: 10px; font-size: 11px; }
   .formula-card { min-height: 188px; padding: 22px 18px; }
   .formula-card b { margin-bottom: 18px; font-size: 42px; }
   .career-compare { gap: 24px; margin-top: 8px; }
@@ -2204,6 +2580,20 @@ i svg {
   .skill-node { min-height: 122px; }
   .skill-detail,
   .quiz-result { min-height: 70px; margin-top: 18px; padding: 16px 22px; font-size: 17px; }
+  .day-layout,
+  .close-layout { padding-right: min(52vw, 720px); }
+  .day-layout { padding-right: min(34vw, 480px); }
+  .day-layout h2 { font-size: 42px; }
+  .day-flow article { min-height: 132px; padding: 16px 16px 14px 58px; }
+  .day-flow b { margin-bottom: 6px; font-size: 16px; }
+  .day-flow i { top: 39px; left: 14px; }
+  .day-flow strong { font-size: 15px; }
+  .day-flow p { font-size: 12px; }
+  .myth-grid { margin-top: 16px; }
+  .myth-grid article { min-height: 220px; padding: 22px; }
+  .myth-grid span { margin-bottom: 30px; }
+  .myth-grid strong { font-size: 24px; }
+  .myth-grid p { font-size: 14px; }
   .quiz-grid { gap: 12px; }
   .quiz-option { min-height: 128px; padding: 14px; }
   .quiz-option strong { margin: 9px 0 5px; font-size: 16px; }
@@ -2233,6 +2623,24 @@ i svg {
   html,
   body {
     overflow: hidden;
+  }
+
+  body::after {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 34;
+    height: 104px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    background: var(--deep);
+    content: "";
+    pointer-events: none;
+  }
+
+  body.theme-light::after {
+    border-top-color: var(--line);
+    background: var(--white);
   }
 
   .deck {
@@ -2273,6 +2681,55 @@ i svg {
     opacity: .55;
   }
 
+  .scene--day .scene__media,
+  .scene--close .scene__media {
+    top: 0;
+    bottom: auto;
+    height: 46vh;
+    opacity: 1;
+    object-position: 68% center;
+  }
+
+  .day-fade,
+  .close-fade {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 54vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.12) 54%, #fff 88%, #fff 100%);
+  }
+
+  .day-layout,
+  .close-layout {
+    justify-content: flex-start;
+    padding-top: 46vh;
+    padding-right: 24px;
+  }
+
+  .day-flow,
+  .program-facts,
+  .myth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-facts span,
+  .myth-grid article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .program-facts span:last-child,
+  .myth-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .program-facts--hero span {
+    min-height: 150px;
+  }
+
+  .program-facts--hero strong {
+    margin-bottom: 20px;
+  }
+
   .split-overlay,
   .split-overlay--right {
     padding-left: 24px;
@@ -2309,7 +2766,16 @@ i svg {
   }
 
   .news-card {
-    min-height: 320px;
+    min-height: 390px;
+    padding-top: 176px;
+  }
+
+  .news-card::before {
+    height: 150px;
+  }
+
+  .news-card::after {
+    top: 150px;
   }
 
   .learning-timeline article {
@@ -2495,6 +2961,10 @@ i svg {
   h2 {
     font-size: 36px;
     line-height: 1.08;
+  }
+
+  .day-layout h2 {
+    font-size: 36px;
   }
 
   .hero-actions,

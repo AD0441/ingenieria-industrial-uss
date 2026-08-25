@@ -32,7 +32,7 @@ const aiDemos = {
     cta: "Abrir Quick, Draw!",
     intro: "Funciona muy bien como rompehielo: los estudiantes dibujan, la IA adivina y aparecen errores interesantes para conversar.",
     steps: ["Dibujar un objeto en 20 segundos.", "Observar cuándo acierta y cuándo se confunde.", "Preguntar qué patrones pudo haber usado.", "Conectar con datos, etiquetas y entrenamiento."],
-    question: "Si dos personas dibujan distinto la misma idea, qué necesita la IA para reconocer ambas?",
+    question: "Si dos personas dibujan distinto la misma idea, ¿qué necesita la IA para reconocer ambas?",
   },
   evolution: {
     eyebrow: "Demo 02 · IA que aprende",
@@ -41,13 +41,13 @@ const aiDemos = {
     cta: "Abrir Evolution",
     intro: "Es más visual y más ingenieril: permite hablar de objetivo, restricciones, diseño, iteración y optimización.",
     steps: ["Construir una criatura con huesos, articulaciones y músculos.", "Definir que debe avanzar lo más posible.", "Dejar que el sistema pruebe muchas variantes.", "Comparar qué diseño aprende mejor y por qué."],
-    question: "Antes de que la IA mejore, quién definió qué significa mejorar?",
+    question: "Antes de que la IA mejore, ¿quién definió qué significa mejorar?",
   },
 };
 
 const skills = {
-  analizar: "Analizar es separar síntomas, causas, datos y supuestos. Un industrial no parte comprando soluciones: primero entiende donde está el cuello de botella.",
-  priorizar: "Priorizar es decidir que intervención genera más impacto con recursos limitados. En la vida real siempre hay presupuesto, tiempo y riesgo.",
+  analizar: "Analizar es separar síntomas, causas, datos y supuestos. Un industrial no parte comprando soluciones: primero entiende dónde está el cuello de botella.",
+  priorizar: "Priorizar es decidir qué intervención genera más impacto con recursos limitados. En la vida real siempre hay presupuesto, tiempo y riesgo.",
   coordinar: "Coordinar significa lograr que personas, procesos y tecnología trabajen juntos. Una buena decisión técnica falla si el equipo no puede implementarla.",
   mejorar: "Mejorar es medir antes y después, aprender de los errores y ajustar. La solución no termina cuando se presenta: termina cuando funciona.",
 };
@@ -221,7 +221,7 @@ function answerQuiz(score, button) {
     sostenibilidad: "Tus elecciones se inclinan hacia sostenibilidad: eficiencia, energía, impacto y responsabilidad.",
   };
   const tie = Object.values(quizScores).filter((value) => value === points).length > 1;
-  quizMessage.textContent = tie ? "Aparece un perfil mixto: te atrae mirar sistemas desde varias dimensiones. Eso es muy Industrial." : `${messages[dimension]} Puedes reiniciar y probar otra combinación.`;
+  quizMessage.textContent = tie ? "Aparece un perfil mixto: te atrae mirar sistemas desde varias dimensiones. Eso es muy propio de Civil Industrial." : `${messages[dimension]} Puedes reiniciar y probar otra combinación.`;
   restartPanelAnimation(quizResult);
 }
 
