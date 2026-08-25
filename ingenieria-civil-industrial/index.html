@@ -205,41 +205,46 @@
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="Cómo aprende IA">
+      <section class="scene scene--light" data-title="Quién decide">
         <div class="scene__inner content-layout">
-          <p class="section-label reveal">Antes de abrir la demo</p>
-          <h2 class="reveal delay-1">Una IA no decide sola: optimiza el objetivo que alguien le dio</h2>
-          <p class="lede reveal delay-2">La inteligencia artificial funciona cuando alguien prepara datos, define qué significa “mejor”, prueba errores y valida si el resultado sirve en el mundo real.</p>
-          <div class="ai-flow reveal delay-3">
-            <article><b>01</b><i data-icon="database"></i><strong>Datos</strong><p>Ejemplos suficientes, variados y bien capturados.</p></article>
-            <article><b>02</b><i data-icon="search"></i><strong>Patrones</strong><p>El modelo busca señales que se repiten.</p></article>
-            <article><b>03</b><i data-icon="chart"></i><strong>Objetivo</strong><p>Alguien define qué significa acertar o mejorar.</p></article>
-            <article><b>04</b><i data-icon="shield"></i><strong>Decisión</strong><p>Una persona valida riesgos, costos y consecuencias.</p></article>
+          <p class="section-label reveal">La pregunta incómoda</p>
+          <h2 class="reveal delay-1">¿Entonces ahora decide la IA?</h2>
+          <p class="lede reveal delay-2">Puede reconocer imágenes, anticipar fallas y recomendar acciones. Pero reconocer un patrón no significa comprender el sistema completo ni hacerse cargo de sus consecuencias.</p>
+          <div class="ai-flow ai-role-flow reveal delay-3">
+            <article><b>01</b><i data-icon="search"></i><strong>Reconoce</strong><p>La IA compara casos y detecta patrones que se repiten.</p></article>
+            <article><b>02</b><i data-icon="chart"></i><strong>Predice</strong><p>Estima una categoría, un riesgo o un resultado probable.</p></article>
+            <article><b>03</b><i data-icon="tool"></i><strong>Definimos</strong><p>El ingeniero formula la pregunta, el objetivo y las restricciones.</p></article>
+            <article><b>04</b><i data-icon="shield"></i><strong>Respondemos</strong><p>Revisamos errores, decidimos y asumimos las consecuencias.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="Elegir demo IA">
+      <section class="scene scene--light" data-title="Quick, Draw!">
         <div class="scene__inner content-layout">
           <p class="section-label reveal">IA en acción</p>
-          <h2 class="reveal delay-1">Elige la demo: IA que reconoce o IA que aprende</h2>
-          <p class="lede reveal delay-2">Elige una demo para verla funcionando en pocos minutos. Primero se observa el mecanismo; después se conversa sobre datos, objetivos, errores y responsabilidad.</p>
-          <div class="ai-demo-stage reveal delay-3">
-            <div class="ai-choice-grid" role="tablist" aria-label="Demos de inteligencia artificial">
-              <button class="ai-choice is-selected" type="button" data-ai-demo="quickdraw" role="tab" aria-selected="true">
-                <span class="ai-choice__icon"><i data-icon="search"></i></span>
-                <span class="ai-choice__tag">Reconocer patrones</span>
-                <strong>Quick, Draw!</strong>
-                <small>La IA intenta adivinar lo que dibujas en 20 segundos.</small>
-              </button>
-              <button class="ai-choice" type="button" data-ai-demo="evolution" role="tab" aria-selected="false">
-                <span class="ai-choice__icon"><i data-icon="route"></i></span>
-                <span class="ai-choice__tag">Optimizar por ensayo y error</span>
-                <strong>Evolution</strong>
-                <small>Una criatura con huesos y articulaciones aprende a moverse.</small>
-              </button>
+          <h2 class="reveal delay-1">¿La IA entiende tu dibujo?</h2>
+          <p class="lede reveal delay-2">Quick, Draw! intenta reconocer lo que dibujas en 20 segundos. Observemos cuándo acierta, cuándo se confunde y qué aprendemos de sus errores.</p>
+          <div class="quickdraw-stage reveal delay-3">
+            <article class="quickdraw-demo">
+              <span class="quickdraw-demo__icon"><i data-icon="brain"></i></span>
+              <small>Demostración en vivo</small>
+              <h3>Quick, Draw!</h3>
+              <p>Dibuja un objeto, escucha las predicciones y compara el resultado con tu intención.</p>
+              <div class="quickdraw-facts" aria-label="Datos de la demostración">
+                <span><strong>20 s</strong><small>por dibujo</small></span>
+                <span><strong>6</strong><small>desafíos</small></span>
+              </div>
+              <a class="command command--primary" href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener noreferrer"><span>Abrir Quick, Draw!</span><i data-icon="external" aria-hidden="true"></i></a>
+            </article>
+            <div class="quickdraw-bridge">
+              <p class="quickdraw-bridge__label">La bajada a Civil Industrial</p>
+              <div class="quickdraw-bridge-grid">
+                <article><b>01</b><div><strong>En el juego</strong><p>Dibujos anteriores.</p></div><i data-icon="arrow-right"></i><div><strong>En la carrera</strong><p>Datos históricos de procesos.</p></div></article>
+                <article><b>02</b><div><strong>En el juego</strong><p>Reconoce una categoría.</p></div><i data-icon="arrow-right"></i><div><strong>En la carrera</strong><p>Anticipa fallas, demanda o atrasos.</p></div></article>
+                <article><b>03</b><div><strong>Si se equivoca</strong><p>Volvemos a dibujar.</p></div><i data-icon="arrow-right"></i><div><strong>En una operación</strong><p>El error puede afectar personas y recursos.</p></div></article>
+              </div>
+              <div class="quickdraw-callout"><strong>La IA encuentra un patrón.</strong><span>El ingeniero decide qué significa y qué hacer con él.</span></div>
             </div>
-            <div class="ai-demo-detail" id="ai-demo-detail" aria-live="polite"></div>
           </div>
         </div>
       </section>
@@ -369,7 +374,7 @@
           <p class="lede reveal delay-2">No tienes que saberlo todo hoy. Basta con reconocer qué problemas te dan ganas de entender y mejorar.</p>
           <div class="closing-actions reveal delay-3">
             <a class="command command--primary" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer"><span>Conocer Civil Industrial</span><i data-icon="external" aria-hidden="true"></i></a>
-            <button class="command command--ghost" type="button" data-action="jump" data-target="12"><span>Elegir demo IA</span></button>
+            <button class="command command--ghost" type="button" data-action="jump" data-target="12"><span>Volver a Quick, Draw!</span></button>
             <button class="command command--ghost" type="button" data-action="jump" data-target="16">Repetir reto</button>
           </div>
         </div>

@@ -24,27 +24,6 @@ const icons = {
   "check-circle": '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>',
 };
 
-const aiDemos = {
-  quickdraw: {
-    eyebrow: "Demo 01 · IA que reconoce",
-    title: "Quick, Draw!: la IA intenta leer tu dibujo",
-    url: "https://quickdraw.withgoogle.com/",
-    cta: "Abrir Quick, Draw!",
-    intro: "Funciona muy bien como rompehielo: los estudiantes dibujan, la IA adivina y aparecen errores interesantes para conversar.",
-    steps: ["Dibujar un objeto en 20 segundos.", "Observar cuándo acierta y cuándo se confunde.", "Preguntar qué patrones pudo haber usado.", "Conectar con datos, etiquetas y entrenamiento."],
-    question: "Si dos personas dibujan distinto la misma idea, ¿qué necesita la IA para reconocer ambas?",
-  },
-  evolution: {
-    eyebrow: "Demo 02 · IA que aprende",
-    title: "Evolution: una criatura aprende por prueba y error",
-    url: "https://keiwan.itch.io/evolution",
-    cta: "Abrir Evolution",
-    intro: "Es más visual y más ingenieril: permite hablar de objetivo, restricciones, diseño, iteración y optimización.",
-    steps: ["Construir una criatura con huesos, articulaciones y músculos.", "Definir que debe avanzar lo más posible.", "Dejar que el sistema pruebe muchas variantes.", "Comparar qué diseño aprende mejor y por qué."],
-    question: "Antes de que la IA mejore, ¿quién definió qué significa mejorar?",
-  },
-};
-
 const skills = {
   analizar: "Analizar es separar síntomas, causas, datos y supuestos. Un industrial no parte comprando soluciones: primero entiende dónde está el cuello de botella.",
   priorizar: "Priorizar es decidir qué intervención genera más impacto con recursos limitados. En la vida real siempre hay presupuesto, tiempo y riesgo.",
@@ -60,8 +39,6 @@ const progress = document.querySelector("#progress");
 const railNav = document.querySelector(".rail-nav");
 const overview = document.querySelector("#overview");
 const overviewList = document.querySelector("#overview-list");
-const aiDemoDetail = document.querySelector("#ai-demo-detail");
-const aiDemoButtons = [...document.querySelectorAll("[data-ai-demo]")];
 const skillDetail = document.querySelector("#skill-detail");
 const quizResult = document.querySelector("#quiz-result");
 const quizProgress = document.querySelector("#quiz-progress");
@@ -135,6 +112,7 @@ function goTo(index) {
   current = nextIndex;
   scenes[current].classList.add("is-active");
   scenes[current].scrollTop = 0;
+  document.body.classList.remove("scene-scrolled");
   window.scrollTo(0, 0);
   updateChrome();
 }
@@ -163,34 +141,6 @@ function restartPanelAnimation(panel) {
 function renderSkill(key) {
   skillDetail.textContent = skills[key];
   restartPanelAnimation(skillDetail);
-}
-
-function renderAiDemo(key) {
-  const demo = aiDemos[key];
-  if (!demo || !aiDemoDetail) return;
-  aiDemoDetail.innerHTML = `
-    <div class="ai-demo-detail__copy">
-      <span>${demo.eyebrow}</span>
-      <h3>${demo.title}</h3>
-      <p>${demo.intro}</p>
-      <a class="command command--primary" href="${demo.url}" target="_blank" rel="noopener noreferrer"><span>${demo.cta}</span><i data-icon="external" aria-hidden="true"></i></a>
-    </div>
-    <div class="ai-demo-detail__steps">
-      ${demo.steps.map((step, index) => `<article><b>${String(index + 1).padStart(2, "0")}</b><p>${step}</p></article>`).join("")}
-      <div class="ai-demo-question"><strong>Pregunta para cerrar</strong><p>${demo.question}</p></div>
-    </div>
-  `;
-  hydrateIcons(aiDemoDetail);
-  restartPanelAnimation(aiDemoDetail);
-}
-
-function selectAiDemo(button) {
-  aiDemoButtons.forEach((item) => {
-    const selected = item === button;
-    item.classList.toggle("is-selected", selected);
-    item.setAttribute("aria-selected", String(selected));
-  });
-  renderAiDemo(button.dataset.aiDemo);
 }
 
 function answerQuiz(score, button) {
@@ -421,7 +371,6 @@ document.addEventListener("click", (event) => {
   const action = event.target.closest("[data-action]");
   const jump = event.target.closest("[data-jump]");
   const skill = event.target.closest("[data-skill]");
-  const aiDemo = event.target.closest("[data-ai-demo]");
   const quiz = event.target.closest("[data-score]");
   const challenge = event.target.closest("[data-challenge]");
 
@@ -456,7 +405,6 @@ document.addEventListener("click", (event) => {
     renderSkill(skill.dataset.skill);
   }
 
-  if (aiDemo) selectAiDemo(aiDemo);
   if (quiz) answerQuiz(quiz.dataset.score, quiz);
   if (challenge) toggleChallengeOption(challenge);
 });
@@ -578,11 +526,12 @@ function startSignalCanvas() {
 hydrateIcons();
 buildProgress();
 buildOverview();
+scenes.forEach((scene) => scene.addEventListener("scroll", () => {
+  if (scene === scenes[current]) document.body.classList.toggle("scene-scrolled", scene.scrollTop > 24);
+}, { passive: true }));
 document.querySelectorAll("[data-skill]").forEach((item) => item.setAttribute("aria-pressed", String(item.classList.contains("is-active"))));
-aiDemoButtons.forEach((item) => item.setAttribute("aria-selected", String(item.classList.contains("is-selected"))));
 quizOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
 challengeOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
-renderAiDemo("quickdraw");
 renderSkill("analizar");
 syncChallengeControls();
 updateChrome();

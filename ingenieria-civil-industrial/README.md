@@ -25,7 +25,7 @@ http://127.0.0.1:4174
 - Datos prácticos de duración, sedes, rutas de profundización y título profesional.
 - Mini test vocacional con seis misiones, tres elecciones y reinicio completo.
 - Reto de planta en crisis con presupuesto, decisiones, gráfico comparativo e informe de consecuencias.
-- Demo de IA a elección: Quick, Draw! para reconocimiento de patrones o Evolution para aprendizaje por ensayo y error.
+- Pregunta guiada sobre quién decide con IA y demo de Quick, Draw! para conectar reconocimiento de patrones, errores y responsabilidad con el rol de Ingeniería Civil Industrial.
 - Identidad visual de la Facultad de Ingeniería USS en todos los capítulos.
 
 ## Publicación
