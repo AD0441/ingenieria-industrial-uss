@@ -27,22 +27,31 @@
             <p class="hero-support reveal delay-3">Una experiencia para 4º medio: descubre qué hace un ingeniero civil industrial y por qué su mirada transforma organizaciones, servicios e industrias.</p>
             <div class="hero-actions reveal delay-4">
               <button class="command command--primary" type="button" data-action="next"><span>Comenzar</span><i data-icon="arrow-right" aria-hidden="true"></i></button>
-              <button class="command command--ghost" type="button" data-action="jump" data-target="16"><span>Ir al reto</span></button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="12"><span>Ir al reto</span></button>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="El problema">
+      <section class="scene scene--light" data-title="Elige tu misión">
         <div class="scene__inner content-layout">
-          <p class="section-label reveal">El punto de partida</p>
-          <h2 class="reveal delay-1">Cada sistema cuenta una historia que no siempre se ve</h2>
-          <p class="lede reveal delay-2">Una fila larga, una entrega atrasada, una planta que desperdicia energía o un hospital saturado no son problemas aislados: son señales de un sistema que puede diseñarse mejor.</p>
-          <div class="problem-grid reveal delay-3">
-            <article><i data-icon="users" aria-hidden="true"></i><strong>Personas</strong><p>Experiencia, coordinación, seguridad y bienestar.</p></article>
-            <article><i data-icon="route" aria-hidden="true"></i><strong>Procesos</strong><p>Flujos, tiempos, capacidad, calidad y costos.</p></article>
-            <article><i data-icon="database" aria-hidden="true"></i><strong>Datos</strong><p>Evidencia para mirar patrones y anticipar demanda.</p></article>
-            <article><i data-icon="leaf" aria-hidden="true"></i><strong>Impacto</strong><p>Decisiones sostenibles, medibles y responsables.</p></article>
+          <p class="section-label reveal">Tu punto de partida</p>
+          <h2 class="reveal delay-1">Elige tu misión: ¿qué sistema salvarías primero?</h2>
+          <p class="lede reveal delay-2">Una fila, un atraso o un desperdicio son señales de algo más grande. Elige tres desafíos y descubre qué dimensión de Civil Industrial despierta primero tu curiosidad.</p>
+          <div class="quiz-grid reveal delay-3">
+            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="users"></i><strong>Una urgencia hospitalaria saturada</strong><span>Flujos, capacidad, turnos y experiencia.</span></button>
+            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="route"></i><strong>Una cadena de suministro con quiebres</strong><span>Inventario, proveedores, rutas y demanda.</span></button>
+            <button class="quiz-option" type="button" data-score="sostenibilidad"><i data-icon="leaf"></i><strong>Una planta que desperdicia energía</strong><span>Eficiencia, impacto ambiental y medición.</span></button>
+            <button class="quiz-option" type="button" data-score="analitica"><i data-icon="database"></i><strong>Una empresa que decide sin datos</strong><span>Indicadores, evidencia, modelos y control.</span></button>
+            <button class="quiz-option" type="button" data-score="gestion"><i data-icon="coins"></i><strong>Un proyecto que se atrasa y encarece</strong><span>Costos, riesgo, planificación y liderazgo.</span></button>
+            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="city"></i><strong>Una ciudad con transporte mal coordinado</strong><span>Sistemas, tiempos, demanda y servicio.</span></button>
+          </div>
+          <div class="quiz-feedback reveal delay-4">
+            <div class="quiz-result" id="quiz-result" aria-live="polite">
+              <strong id="quiz-progress">0 de 3 seleccionadas</strong>
+              <span id="quiz-message">Elige tu primer desafío.</span>
+            </div>
+            <button class="quiz-reset" type="button" data-action="reset-quiz" disabled><i data-icon="rotate-ccw" aria-hidden="true"></i><span>Reiniciar</span></button>
           </div>
         </div>
       </section>
@@ -69,32 +78,18 @@
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="Qué hace">
-        <div class="scene__inner content-layout">
-          <p class="section-label reveal">El quehacer industrial</p>
-          <h2 class="reveal delay-1">No se trata de mirar una pieza: se trata de entender el sistema completo</h2>
-          <p class="lede reveal delay-2">El ingeniero civil industrial conecta personas, tecnología, recursos y objetivos para que una organización funcione mejor. Su trabajo no es adivinar: es modelar, comparar, probar y decidir.</p>
-          <div class="math-stage reveal delay-3">
-            <div class="formula-card is-live"><b>01</b><span>Diagnosticar</span><p>Detectar dónde se acumula el problema y qué datos faltan.</p></div>
-            <div class="formula-card"><b>02</b><span>Modelar</span><p>Convertir la realidad en variables, escenarios y restricciones.</p></div>
-            <div class="formula-card"><b>03</b><span>Optimizar</span><p>Elegir la mejor alternativa con presupuesto, tiempo y riesgo.</p></div>
-            <div class="formula-card"><b>04</b><span>Implementar</span><p>Coordinar equipos, medir resultados y mejorar continuamente.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="scene scene--light scene--day" data-title="Un día real">
+      <section class="scene scene--light scene--day" data-title="Así trabaja">
         <img class="scene__media scene__media--day" src="assets/industrial-day-in-life.png" alt="Estudiantes y un joven profesional analizando un proceso logístico en un laboratorio" />
         <div class="day-fade" aria-hidden="true"></div>
         <div class="scene__inner day-layout">
-          <p class="section-label reveal">Así se ve el trabajo</p>
-          <h2 class="reveal delay-1">Un día real como ingeniero civil industrial</h2>
-          <p class="lede reveal delay-2">El escenario cambia, pero el método se repite: observar, modelar, decidir e implementar junto a otras personas.</p>
+          <p class="section-label reveal">El quehacer industrial</p>
+          <h2 class="reveal delay-1">Así trabaja un ingeniero civil industrial</h2>
+          <p class="lede reveal delay-2">No es solo una planilla: recorre procesos, conversa con equipos, construye modelos y convierte una decisión en una mejora que funciona.</p>
           <div class="day-flow reveal delay-3">
-            <article><b>08:30</b><i data-icon="search"></i><strong>Observar</strong><p>Recorrer el proceso y escuchar a quienes lo viven.</p></article>
-            <article><b>10:00</b><i data-icon="chart"></i><strong>Modelar</strong><p>Contrastar datos, causas y escenarios posibles.</p></article>
-            <article><b>12:30</b><i data-icon="users"></i><strong>Decidir</strong><p>Alinear al equipo y elegir con restricciones reales.</p></article>
-            <article><b>15:00</b><i data-icon="tool"></i><strong>Implementar</strong><p>Probar, medir resultados y ajustar la solución.</p></article>
+            <article><b>01</b><i data-icon="search"></i><strong>Diagnosticar</strong><p>Escuchar, medir y encontrar la causa detrás del síntoma.</p></article>
+            <article><b>02</b><i data-icon="chart"></i><strong>Modelar</strong><p>Traducir la realidad en variables, escenarios y restricciones.</p></article>
+            <article><b>03</b><i data-icon="route"></i><strong>Optimizar</strong><p>Comparar alternativas con tiempo, presupuesto y riesgo.</p></article>
+            <article><b>04</b><i data-icon="tool"></i><strong>Implementar</strong><p>Coordinar personas, probar, medir y volver a mejorar.</p></article>
           </div>
         </div>
       </section>
@@ -116,53 +111,45 @@
       </section>
 
       <section class="scene scene--light" data-title="Sellos USS">
+        <img class="corner-system-art" src="assets/industrial-system-corner.png" alt="" aria-hidden="true" />
         <div class="scene__inner content-layout">
           <p class="section-label reveal">Conceptos fuerza de la carrera</p>
-          <h2 class="reveal delay-1">Mejorar sistemas reales: personas, datos, procesos, tecnología y decisiones</h2>
-          <p class="lede reveal delay-2">El sello de Ingeniería Civil Industrial USS combina tecnología, gestión y liderazgo para resolver problemas con proyectos reales, metodologías ágiles y herramientas de Industria 4.0.</p>
-          <div class="attribute-grid reveal delay-3">
-            <article><i data-icon="tool"></i><strong>Proyectos reales</strong><p>Desde primer año, aprender haciendo con desafíos concretos y metodologías ágiles.</p></article>
-            <article><i data-icon="users"></i><strong>+400 empresas</strong><p>Una red para acercar proyectos, experiencias y desafíos del mundo profesional.</p></article>
-            <article><i data-icon="brain"></i><strong>Industria 4.0</strong><p>Data science, IoT, automatización y simulación de procesos.</p></article>
-            <article><i data-icon="route"></i><strong>Especialización flexible</strong><p>Operaciones y logística, finanzas o data science según el camino profesional.</p></article>
+          <h2 class="reveal delay-1">Tecnología, gestión y liderazgo para mejorar sistemas reales</h2>
+          <p class="lede reveal delay-2">El sello USS se vive en proyectos concretos, contacto con organizaciones y herramientas que hoy están transformando las operaciones.</p>
+          <div class="attribute-grid attribute-grid--three reveal delay-3">
+            <article><i data-icon="tool"></i><strong>Aprender haciendo</strong><p>Proyectos reales desde primer año, desafíos concretos y metodologías ágiles.</p></article>
+            <article><i data-icon="users"></i><strong>Conectar con empresas</strong><p>Una red de más de 400 organizaciones acerca experiencias y problemas profesionales.</p></article>
+            <article><i data-icon="brain"></i><strong>Dominar herramientas 4.0</strong><p>Data science, IoT, automatización y simulación aplicadas a decisiones reales.</p></article>
           </div>
         </div>
       </section>
 
       <section class="scene scene--light" data-title="Qué aprenderás">
+        <img class="corner-system-art corner-system-art--soft" src="assets/industrial-system-corner.png" alt="" aria-hidden="true" />
         <div class="scene__inner content-layout">
           <p class="section-label reveal">Camino formativo</p>
-          <h2 class="reveal delay-1">La carrera mezcla base científica, herramientas digitales y gestión real</h2>
-          <p class="lede reveal delay-2">Desde cálculo, álgebra, física y estadística hasta simulación, optimización, analítica, logística, calidad, finanzas y proyectos con empresas.</p>
+          <h2 class="reveal delay-1">Diez semestres para pasar de entender problemas a liderar soluciones</h2>
+          <p class="lede reveal delay-2">La carrera conecta base científica, herramientas digitales, gestión y proyectos con organizaciones.</p>
           <div class="learning-timeline reveal delay-3">
             <article>
               <span>01-04</span>
               <strong>Base para pensar</strong>
-              <p>Matemáticas, física, programación, estadística y economía para entender problemas con método.</p>
+              <p>Matemáticas, física, programación, estadística y economía.</p>
             </article>
             <article>
               <span>05-08</span>
               <strong>Herramientas para modelar</strong>
-              <p>Optimización, simulación, modelos estocásticos, analítica, gestión de operaciones y proyectos.</p>
+              <p>Optimización, simulación, analítica, operaciones y proyectos.</p>
             </article>
             <article>
               <span>09-10</span>
               <strong>Decisiones profesionales</strong>
-              <p>Logística, calidad, talento humano, electivos de profundización y proyecto de titulación.</p>
+              <p>Logística, calidad, electivos y proyecto de titulación.</p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="scene scene--light" data-title="La carrera en simple">
-        <div class="scene__inner content-layout">
-          <p class="section-label reveal">La carrera en simple</p>
-          <h2 class="reveal delay-1">Diez semestres para pasar de entender problemas a liderar soluciones</h2>
-          <p class="lede reveal delay-2">Una formación amplia que conecta ciencias de la ingeniería, tecnología, gestión, liderazgo y proyectos con organizaciones.</p>
-          <div class="program-facts program-facts--hero reveal delay-3" aria-label="Datos prácticos de la carrera">
-            <span><strong>10</strong><small>semestres de duración formal</small></span>
-            <span><strong>4</strong><small>sedes: Santiago, Concepción, Valdivia y Puerto Montt</small></span>
-            <span><strong>3</strong><small>rutas: operaciones y logística, finanzas o data science</small></span>
+          <div class="program-facts reveal delay-4" aria-label="Datos prácticos de la carrera">
+            <span><strong>4 sedes</strong><small>Santiago, Concepción, Valdivia y Puerto Montt</small></span>
+            <span><strong>3 rutas</strong><small>Operaciones y logística, finanzas o data science</small></span>
             <span><strong>1 título</strong><small>Ingeniero/a Civil Industrial</small></span>
           </div>
           <p class="program-note reveal delay-4">La malla y la oferta por sede pueden actualizarse. La referencia final siempre es Admisión USS.</p>
@@ -173,7 +160,7 @@
         <div class="scene__inner content-layout">
           <p class="section-label reveal">Campos de acción</p>
           <h2 class="reveal delay-1">Civil Industrial cabe donde haya decisiones complejas</h2>
-          <p class="lede reveal delay-2">La carrera abre puertas en industrias muy distintas porque enseña una forma de pensar: comprender sistemas, decidir con evidencia y ejecutar con impacto.</p>
+          <p class="lede reveal delay-2">No es una carrera limitada a fábricas. Su forma de pensar permite comprender sistemas, decidir con evidencia y ejecutar con impacto en sectores muy distintos.</p>
           <div class="career-compare career-compare--wide reveal delay-3">
             <article class="career-card">
               <div class="career-image"><img src="assets/industrial-healthcare-operations.png" alt="Equipo coordinando capacidad y flujo de pacientes en un hospital" /></div>
@@ -192,10 +179,11 @@
       </section>
 
       <section class="scene scene--light" data-title="Matemática aplicada">
+        <img class="corner-system-art corner-system-art--math" src="assets/industrial-system-corner.png" alt="" aria-hidden="true" />
         <div class="scene__inner content-layout">
           <p class="section-label reveal">La matemática en acción</p>
           <h2 class="reveal delay-1">Las fórmulas importan cuando ayudan a decidir mejor</h2>
-          <p class="lede reveal delay-2">Civil Industrial usa matemáticas para leer incertidumbre, optimizar recursos y defender decisiones con evidencia. La pregunta no es “¿me sé la fórmula?”, sino “¿qué decisión puedo mejorar con esto?”.</p>
+          <p class="lede reveal delay-2">No necesitas entrar sabiéndolo todo. Aprenderás matemáticas para leer incertidumbre, optimizar recursos y defender decisiones con evidencia. La pregunta es: “¿qué decisión puedo mejorar con esto?”.</p>
           <div class="problem-grid reveal delay-3">
             <article><i data-icon="clock" aria-hidden="true"></i><strong>Simulación</strong><p>Probar escenarios antes de cambiar la realidad.</p></article>
             <article><i data-icon="chart" aria-hidden="true"></i><strong>Optimización</strong><p>Elegir rutas, turnos o producción bajo restricciones.</p></article>
@@ -206,6 +194,7 @@
       </section>
 
       <section class="scene scene--light" data-title="Quién decide">
+        <img class="corner-system-art corner-system-art--soft" src="assets/industrial-system-corner.png" alt="" aria-hidden="true" />
         <div class="scene__inner content-layout">
           <p class="section-label reveal">La pregunta incómoda</p>
           <h2 class="reveal delay-1">¿Entonces ahora decide la IA?</h2>
@@ -249,11 +238,17 @@
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="Habilidades">
+      <section class="scene scene--light" data-title="Podría ser para ti">
+        <img class="corner-system-art corner-system-art--profile" src="assets/industrial-system-corner.png" alt="" aria-hidden="true" />
         <div class="scene__inner content-layout">
-          <p class="section-label reveal">Lo que ya puedes entrenar</p>
-          <h2 class="reveal delay-1">Pensar como industrial es aprender a preguntar mejor</h2>
-          <p class="lede reveal delay-2">No necesitas tener una personalidad "cuadrada". Necesitas curiosidad, método y ganas de mejorar algo que hoy no funciona como debería.</p>
+          <p class="section-label reveal">Para estudiantes de 4º medio</p>
+          <h2 class="reveal delay-1">Podría ser para ti si te gusta descubrir por qué algo no funciona</h2>
+          <p class="lede reveal delay-2">No existe un único perfil. Puedes llegar por las operaciones, los datos, la tecnología, la sostenibilidad o las ganas de convertir una idea en una mejora real.</p>
+          <div class="profile-signals reveal delay-3" aria-label="Señales de afinidad con la carrera">
+            <span><b>Si te preguntas...</b> ¿Cómo se organiza mejor esto?</span>
+            <span><b>Si te interesa...</b> Decidir con evidencia</span>
+            <span><b>Si quieres...</b> Impactar desde lo real</span>
+          </div>
           <div class="skill-orbit reveal delay-3">
             <button type="button" class="skill-node is-active" data-skill="analizar"><i data-icon="search"></i><span>Analizar</span></button>
             <button type="button" class="skill-node" data-skill="priorizar"><i data-icon="chart"></i><span>Priorizar</span></button>
@@ -261,42 +256,6 @@
             <button type="button" class="skill-node" data-skill="mejorar"><i data-icon="tool"></i><span>Mejorar</span></button>
           </div>
           <div class="skill-detail reveal delay-4" id="skill-detail"></div>
-        </div>
-      </section>
-
-      <section class="scene scene--light" data-title="Mitos">
-        <div class="scene__inner content-layout">
-          <p class="section-label reveal">Tres mitos que conviene soltar</p>
-          <h2 class="reveal delay-1">No es solo fábrica, Excel ni ser “genio” en matemáticas</h2>
-          <p class="lede reveal delay-2">La carrera exige trabajo y método, pero también creatividad, comunicación y capacidad para aprender con otros.</p>
-          <div class="myth-grid reveal delay-3">
-            <article><span>Mito 01</span><strong>“Tengo que saber toda la matemática desde antes”</strong><p>La universidad te enseña herramientas. Lo importante es entrenar razonamiento, constancia y curiosidad.</p></article>
-            <article><span>Mito 02</span><strong>“Solo voy a trabajar en una fábrica”</strong><p>También puedes mejorar hospitales, bancos, startups, transporte, minería, servicios públicos o energía.</p></article>
-            <article><span>Mito 03</span><strong>“Todo ocurre frente a una planilla”</strong><p>Hay terreno, equipos, clientes, datos, pilotos, negociación y decisiones que deben implementarse.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="scene scene--light" data-title="Mini test">
-        <div class="scene__inner content-layout">
-          <p class="section-label reveal">Mini test vocacional</p>
-          <h2 class="reveal delay-1">Elige tu misión: ¿qué sistema salvarías primero?</h2>
-          <p class="lede reveal delay-2">Elige tres desafíos. El resultado no decide por ti: muestra qué dimensión de Civil Industrial aparece primero.</p>
-          <div class="quiz-grid reveal delay-3">
-            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="users"></i><strong>Una urgencia hospitalaria saturada</strong><span>Flujos, capacidad, turnos y experiencia.</span></button>
-            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="route"></i><strong>Una cadena de suministro con quiebres</strong><span>Inventario, proveedores, rutas y demanda.</span></button>
-            <button class="quiz-option" type="button" data-score="sostenibilidad"><i data-icon="leaf"></i><strong>Una planta que desperdicia energía</strong><span>Eficiencia, impacto ambiental y medición.</span></button>
-            <button class="quiz-option" type="button" data-score="analitica"><i data-icon="database"></i><strong>Una empresa que decide sin datos</strong><span>Indicadores, evidencia, modelos y control.</span></button>
-            <button class="quiz-option" type="button" data-score="gestion"><i data-icon="coins"></i><strong>Un proyecto que se atrasa y encarece</strong><span>Costos, riesgo, planificación y liderazgo.</span></button>
-            <button class="quiz-option" type="button" data-score="operaciones"><i data-icon="city"></i><strong>Una ciudad con transporte mal coordinado</strong><span>Sistemas, tiempos, demanda y calidad de servicio.</span></button>
-          </div>
-          <div class="quiz-feedback reveal delay-4">
-            <div class="quiz-result" id="quiz-result" aria-live="polite">
-              <strong id="quiz-progress">0 de 3 seleccionadas</strong>
-              <span id="quiz-message">Elige tu primer desafío.</span>
-            </div>
-            <button class="quiz-reset" type="button" data-action="reset-quiz" disabled><i data-icon="rotate-ccw" aria-hidden="true"></i><span>Reiniciar</span></button>
-          </div>
         </div>
       </section>
 
@@ -353,18 +312,6 @@
         </div>
       </section>
 
-      <section class="scene scene--light" data-title="Perfil">
-        <div class="scene__inner content-layout">
-          <p class="section-label reveal">Para estudiantes de 4º medio</p>
-          <h2 class="reveal delay-1">Podría ser para ti si te gusta descubrir por qué algo no funciona</h2>
-          <div class="decision-grid reveal delay-2">
-            <article><span>Si te preguntas...</span><strong>¿Cómo se organiza mejor esto?</strong><p>Te puede atraer operaciones, logística y mejora de procesos.</p></article>
-            <article><span>Si te interesa...</span><strong>Decidir con evidencia</strong><p>Te puede atraer analítica, simulación, IA aplicada y evaluación de proyectos.</p></article>
-            <article><span>Si quieres...</span><strong>Impactar desde lo real</strong><p>Te puede atraer innovación, sostenibilidad y gestión de organizaciones.</p></article>
-          </div>
-        </div>
-      </section>
-
       <section class="scene scene--light scene--close" data-title="Cierre">
         <img class="scene__media scene__media--close" src="assets/industrial-day-in-life.png" alt="Estudiantes trabajando con un modelo logístico y datos" />
         <div class="close-fade" aria-hidden="true"></div>
@@ -372,10 +319,16 @@
           <p class="section-label reveal">Tu próxima decisión</p>
           <h2 class="reveal delay-1">Mirar el sistema completo cambia la solución</h2>
           <p class="lede reveal delay-2">No tienes que saberlo todo hoy. Basta con reconocer qué problemas te dan ganas de entender y mejorar.</p>
-          <div class="closing-actions reveal delay-3">
-            <a class="command command--primary" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer"><span>Conocer Civil Industrial</span><i data-icon="external" aria-hidden="true"></i></a>
-            <button class="command command--ghost" type="button" data-action="jump" data-target="12"><span>Volver a Quick, Draw!</span></button>
-            <button class="command command--ghost" type="button" data-action="jump" data-target="16">Repetir reto</button>
+          <div class="closing-engagement reveal delay-3">
+            <div class="closing-actions">
+              <a class="command command--primary" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer"><span>Conocer Civil Industrial</span><i data-icon="external" aria-hidden="true"></i></a>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="10"><span>Volver a Quick, Draw!</span></button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="12">Repetir reto</button>
+            </div>
+            <a class="closing-qr" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer" aria-label="Abrir información de Admisión USS para Ingeniería Civil Industrial">
+              <img src="assets/qr-admision-industrial.png" alt="Código QR hacia Admisión USS" />
+              <span><strong>Escanea y conoce la carrera</strong><small>Malla, sedes y proceso de admisión</small></span>
+            </a>
           </div>
         </div>
       </section>
@@ -387,7 +340,7 @@
     </header>
 
     <aside class="chapter-meta" aria-live="polite">
-      <strong id="chapter-number">01 / 20</strong>
+      <strong id="chapter-number">01 / 15</strong>
       <span id="chapter-title">Diseñar sistemas</span>
     </aside>
 
