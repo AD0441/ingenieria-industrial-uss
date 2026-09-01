@@ -11,6 +11,7 @@
     <link rel="preload" as="image" href="assets/industrial-day-in-life.png" />
     <link rel="preload" as="image" href="assets/industrial-factory-challenge.png" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ai-demo.css" />
   </head>
   <body>
     <canvas id="signal-canvas" class="signal-canvas" aria-hidden="true"></canvas>
@@ -225,7 +226,7 @@
               </div>
               <div class="quickdraw-actions">
                 <a class="command command--primary" href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener noreferrer"><span>Abrir Quick, Draw!</span><i data-icon="external" aria-hidden="true"></i></a>
-                <a class="command command--ghost" href="demo-ia/index.html?return=../index.html%3Fslide%3D10"><span>Explorar cómo aprende</span><i data-icon="brain" aria-hidden="true"></i></a>
+                <button class="command command--ghost" type="button" data-action="open-ai-demo"><span>Explorar cómo aprende</span><i data-icon="brain" aria-hidden="true"></i></button>
               </div>
             </article>
             <div class="quickdraw-bridge">
@@ -337,6 +338,327 @@
       </section>
     </main>
 
+    <div id="ai-demo" class="ai-subdeck" role="dialog" aria-modal="true" aria-label="Cómo aprende una IA visual" aria-hidden="true" tabindex="-1" hidden>
+      <main class="deck" id="ai-deck" aria-live="polite">
+          <section class="slide slide-light is-active" data-slide="0" aria-labelledby="slide-1-title">
+            <header class="slide-header">
+              <a class="wordmark" href="#" aria-label="Inicio">IA <span>VISUAL</span></a>
+              <p class="eyebrow">01 · EL DESAFÍO</p>
+            </header>
+
+            <div class="hook-view" id="hook-view">
+              <div class="hook-copy">
+                <p class="kicker">Antes de explicar, decide tú</p>
+                <h1 id="slide-1-title">¿Perro<br>o <em>gato?</em></h1>
+                <p class="lead">Tú puedes usar experiencias, contexto y sentido común. Una máquina necesita transformar imágenes en números y aprender a partir de ejemplos.</p>
+                <div class="hook-choice" role="group" aria-label="Elegir perro o gato">
+                  <button type="button" data-hook-choice="dog">Perro</button>
+                  <button type="button" data-hook-choice="cat">Gato</button>
+                </div>
+                <div class="hook-feedback" id="hook-feedback" aria-live="polite" hidden>
+                  <strong id="hook-result">Es un gato.</strong>
+                  <p id="hook-explanation">El disfraz introduce señales que pueden confundir. ¿Cómo enseñamos a una IA a distinguir lo importante?</p>
+                  <button class="primary-button" id="show-dataset" type="button">Descubrir cómo aprende</button>
+                </div>
+              </div>
+              <div class="hook-visual">
+                <div class="hook-image" role="img" aria-label="Gato usando un disfraz con orejas de perro">
+                  <div class="hook-question-mark" aria-hidden="true">?</div>
+                </div>
+                <p><strong>Haz tu predicción.</strong> No hay trampa: hay información que compite.</p>
+              </div>
+            </div>
+
+            <div class="dataset-view" id="dataset-view" hidden>
+              <div class="headline-block">
+                <p class="kicker">Datos y etiquetas</p>
+                <h2>No le damos una regla.<br><em>Le mostramos ejemplos.</em></h2>
+                <p class="lead">Cada imagen necesita una etiqueta correcta. Con suficientes ejemplos, el modelo comienza a buscar patrones que separan una clase de otra.</p>
+                <div class="dataset-action">
+                  <button class="primary-button" id="label-data" type="button">Etiquetar ejemplos</button>
+                  <div class="dataset-count" aria-live="polite">
+                    <strong id="labeled-count">0</strong><span>/ 8 imágenes</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dataset-stage" aria-label="Conjunto de imágenes de entrenamiento">
+                <div class="training-grid">
+                  <article class="sample sample-cat image-cell train-1"><span>Gato</span></article>
+                  <article class="sample sample-cat image-cell train-2"><span>Gato</span></article>
+                  <article class="sample sample-cat image-cell train-3"><span>Gato</span></article>
+                  <article class="sample sample-cat image-cell train-4"><span>Gato</span></article>
+                  <article class="sample sample-dog image-cell train-5"><span>Perro</span></article>
+                  <article class="sample sample-dog image-cell train-6"><span>Perro</span></article>
+                  <article class="sample sample-dog image-cell train-7"><span>Perro</span></article>
+                  <article class="sample sample-dog image-cell train-8"><span>Perro</span></article>
+                </div>
+                <div class="dataset-rule">
+                  <span aria-hidden="true"></span>
+                  <p><strong>La variedad importa.</strong> Ángulos, tamaños, fondos y luces diferentes ayudan a evitar atajos.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="slide slide-dark" data-slide="1" aria-labelledby="slide-2-title" hidden>
+            <header class="slide-header">
+              <a class="wordmark wordmark-light" href="#" aria-label="Inicio">IA <span>VISUAL</span></a>
+              <p class="eyebrow eyebrow-light">02 · ENTRENAMIENTO</p>
+            </header>
+
+            <div class="training-heading">
+              <div>
+                <p class="kicker kicker-cyan">Aprender es corregirse</p>
+                <h2 id="slide-2-title">Mira cómo el modelo<br><em>reduce su error.</em></h2>
+              </div>
+              <p class="training-intro">La imagen se convierte en números. La red ajusta sus conexiones, compara su respuesta con la etiqueta y vuelve a intentarlo.</p>
+            </div>
+
+            <div class="training-lab">
+              <div class="lab-stage input-stage">
+                <p class="stage-label">ENTRADA</p>
+                <div class="model-input image-cell train-6" aria-label="Imagen de perro">
+                  <div class="pixel-scan" aria-hidden="true"></div>
+                </div>
+                <p>Una imagen</p>
+              </div>
+
+              <div class="flow-arrow" aria-hidden="true">→</div>
+
+              <div class="lab-stage network-stage">
+                <div class="stage-label-row">
+                  <p class="stage-label">MODELO</p>
+                  <span>busca patrones</span>
+                </div>
+                <svg class="network" id="network" viewBox="0 0 520 260" role="img" aria-label="Red neuronal simplificada">
+                  <g class="network-lines" id="network-lines"></g>
+                  <g class="nodes input-nodes">
+                    <circle cx="55" cy="48" r="12"/><circle cx="55" cy="102" r="12"/><circle cx="55" cy="158" r="12"/><circle cx="55" cy="212" r="12"/>
+                  </g>
+                  <g class="nodes hidden-nodes">
+                    <circle cx="250" cy="32" r="15"/><circle cx="250" cy="81" r="15"/><circle cx="250" cy="130" r="15"/><circle cx="250" cy="179" r="15"/><circle cx="250" cy="228" r="15"/>
+                  </g>
+                  <g class="nodes output-nodes">
+                    <circle cx="462" cy="93" r="19"/><circle cx="462" cy="174" r="19"/>
+                  </g>
+                </svg>
+                <div class="feature-row" id="feature-row">
+                  <span>Bordes</span><span>Texturas</span><span>Formas</span>
+                </div>
+              </div>
+
+              <div class="flow-arrow" aria-hidden="true">→</div>
+
+              <div class="lab-stage output-stage">
+                <p class="stage-label">SALIDA</p>
+                <div class="probability probability-dog">
+                  <div><span>Perro</span><strong id="train-dog-value">50%</strong></div>
+                  <div class="probability-track"><span id="train-dog-bar" style="width:50%"></span></div>
+                </div>
+                <div class="probability probability-cat">
+                  <div><span>Gato</span><strong id="train-cat-value">50%</strong></div>
+                  <div class="probability-track"><span id="train-cat-bar" style="width:50%"></span></div>
+                </div>
+                <div class="metric-pair">
+                  <div><span>ÉPOCA</span><strong id="epoch-value">0</strong></div>
+                  <div><span>ERROR</span><strong id="loss-value">0,69</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="training-controls">
+              <button class="primary-button primary-button-light" id="train-step" type="button">Entrenar una ronda</button>
+              <button class="text-button" id="train-auto" type="button">Ver entrenamiento completo</button>
+              <p id="training-caption">Al comienzo, el modelo responde casi al azar.</p>
+            </div>
+            <div class="training-cycle" aria-label="Ciclo de entrenamiento">
+              <span><b>1</b> Predice</span><span><b>2</b> Compara</span><span><b>3</b> Mide el error</span><span><b>4</b> Ajusta y repite</span>
+            </div>
+          </section>
+
+          <section class="slide slide-light" data-slide="2" aria-labelledby="slide-3-title" hidden>
+            <header class="slide-header">
+              <a class="wordmark" href="#" aria-label="Inicio">IA <span>VISUAL</span></a>
+              <p class="eyebrow">03 · PRUEBA</p>
+            </header>
+
+            <div class="test-layout">
+              <div class="test-copy">
+                <p class="kicker">Ahora llega algo nuevo</p>
+                <h2 id="slide-3-title">¿Qué ve la IA?</h2>
+                <p class="lead">Elige una imagen. El modelo no recupera una respuesta memorizada: compara patrones y asigna probabilidades.</p>
+
+                <div class="test-picker" role="group" aria-label="Elegir imagen de prueba">
+                  <button class="test-thumb image-cell test-1 is-selected" data-test="dog" type="button"><span>Claro</span></button>
+                  <button class="test-thumb image-cell test-2" data-test="cat" type="button"><span>Contexto nuevo</span></button>
+                  <button class="test-thumb image-cell test-3" data-test="ambiguous" type="button"><span>Ambiguo</span></button>
+                  <button class="test-thumb image-cell test-4" data-test="hidden" type="button"><span>Oculto</span></button>
+                </div>
+                <button class="primary-button" id="classify-button" type="button">Clasificar imagen</button>
+              </div>
+
+              <div class="classifier-stage">
+                <div class="selected-image image-cell test-1" id="selected-image" aria-label="Imagen seleccionada">
+                  <div class="scan-line" aria-hidden="true"></div>
+                  <div class="focus-grid" aria-hidden="true"></div>
+                </div>
+                <div class="classification-result" id="classification-result">
+                  <p class="result-label">RESULTADO DEL MODELO</p>
+                  <h3 id="prediction-title">Esperando imagen…</h3>
+                  <div class="result-probabilities" aria-label="Probabilidades del modelo">
+                    <div>
+                      <p><span>Perro</span><strong id="result-dog-value">—</strong></p>
+                      <div class="result-track"><span id="result-dog-bar" style="width:0%"></span></div>
+                    </div>
+                    <div>
+                      <p><span>Gato</span><strong id="result-cat-value">—</strong></p>
+                      <div class="result-track result-track-gold"><span id="result-cat-bar" style="width:0%"></span></div>
+                    </div>
+                  </div>
+                  <p class="result-explanation" id="result-explanation">Pulsa “Clasificar imagen” para observar el cálculo.</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="big-idea"><strong>Idea clave:</strong> confianza no significa verdad. La IA calcula qué etiqueta parece más probable según lo que aprendió.</p>
+          </section>
+
+          <section class="slide slide-bias" data-slide="3" aria-labelledby="slide-4-title" hidden>
+            <header class="slide-header">
+              <a class="wordmark" href="#" aria-label="Inicio">IA <span>VISUAL</span></a>
+              <p class="eyebrow">04 · SESGOS Y ERRORES</p>
+            </header>
+
+            <div class="bias-heading">
+              <div>
+                <p class="kicker">Cuando la IA aprende un atajo</p>
+                <h2 id="slide-4-title">Los errores no aparecen<br><em>de la nada.</em></h2>
+              </div>
+              <p class="lead">A veces el modelo aprende algo distinto a lo que imaginamos. Explora qué puede fallar y cómo detectarlo.</p>
+            </div>
+
+            <div class="error-tabs" role="tablist" aria-label="Tipos de error de una IA visual">
+              <button class="is-active" data-error="context" type="button" role="tab">Atajo de contexto</button>
+              <button data-error="light" type="button" role="tab">Poca luz</button>
+              <button data-error="hidden" type="button" role="tab">Información oculta</button>
+              <button data-error="unknown" type="button" role="tab">Caso nunca visto</button>
+            </div>
+
+            <div class="bias-lab">
+              <div class="bias-data">
+                <div id="context-controls">
+                  <div class="segmented-control" role="group" aria-label="Tipo de conjunto de entrenamiento">
+                    <button class="is-active" data-bias-mode="biased" type="button">Datos sesgados</button>
+                    <button data-bias-mode="balanced" type="button">Datos diversos</button>
+                  </div>
+                  <p class="bias-subtitle" id="bias-subtitle">Todos los gatos aparecen dentro; casi todos los perros, sobre pasto.</p>
+                  <div class="bias-grid" id="bias-grid" aria-label="Ejemplos usados para entrenar">
+                    <div class="bias-sample image-cell train-1"><span>Gato · interior</span></div>
+                    <div class="bias-sample image-cell train-2"><span>Gato · interior</span></div>
+                    <div class="bias-sample image-cell train-3"><span>Gato · interior</span></div>
+                    <div class="bias-sample image-cell train-5"><span>Perro · pasto</span></div>
+                    <div class="bias-sample image-cell train-6"><span>Perro · pasto</span></div>
+                    <div class="bias-sample image-cell train-7"><span>Perro · exterior</span></div>
+                  </div>
+                </div>
+                <div class="error-detail" id="error-detail" hidden>
+                  <p class="result-label">QUÉ ESTÁ FALLANDO</p>
+                  <h3 id="error-detail-title">La imagen perdió información útil</h3>
+                  <p id="error-detail-copy">Menos contraste y menos detalle vuelven menos confiables los patrones aprendidos.</p>
+                  <div class="error-signals">
+                    <span><b>Detectar</b> Probar bajo condiciones reales</span>
+                    <span><b>Corregir</b> Agregar ejemplos diversos</span>
+                    <span><b>Decidir</b> Permitir que el sistema se abstenga</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bias-test">
+                <p class="stage-label" id="error-image-label">NUEVA IMAGEN: GATO AL AIRE LIBRE</p>
+                <div class="bias-image image-cell test-2" id="error-image">
+                  <div class="attention-box" id="attention-box" aria-hidden="true"><span id="attention-label">PASTO</span></div>
+                </div>
+              </div>
+
+              <div class="bias-outcome" aria-live="polite">
+                <p class="result-label">RESPUESTA</p>
+                <h3 id="bias-prediction">Perro · 71%</h3>
+                <div class="bias-meter"><span id="bias-meter-bar" style="width:71%"></span></div>
+                <p id="bias-explanation">El modelo tomó un atajo: asoció el pasto con “perro”. El dato de contexto pesó más que el animal.</p>
+                <div class="question-card">
+                  <span>LA PREGUNTA HUMANA</span>
+                  <strong id="error-question">¿Qué datos faltan y a quién perjudica el error?</strong>
+                </div>
+              </div>
+            </div>
+
+            <p class="closing-statement">Un buen sistema no solo mide cuántas veces acierta: investiga cuándo falla y con quién.</p>
+          </section>
+
+          <section class="slide slide-closing" data-slide="4" aria-labelledby="slide-5-title" hidden>
+            <header class="slide-header">
+              <a class="wordmark wordmark-light" href="#" aria-label="Inicio">IA <span>VISUAL</span></a>
+              <p class="eyebrow eyebrow-light">05 · EL ROL HUMANO</p>
+            </header>
+
+            <div class="closing-layout">
+              <div class="closing-copy">
+                <p class="kicker kicker-cyan">Casos reales · decisiones reales</p>
+                <h2 id="slide-5-title">El error no se queda<br><em>en la pantalla.</em></h2>
+                <p>Cuando una IA participa en un sistema real, el sesgo puede cambiar quién obtiene un trabajo, atención médica o protección.</p>
+              </div>
+
+              <div class="real-case-grid">
+                <article>
+                  <div class="case-meta"><span>CONTRATACIÓN · 2023</span><b>+200</b></div>
+                  <h3>Un filtro automático excluyó por edad</h3>
+                  <p>La EEOC informó que el software de iTutorGroup rechazó automáticamente a más de 200 postulantes calificados según edad y sexo.</p>
+                  <div class="case-lesson"><strong>Lección de ingeniería</strong><span>Auditar reglas y resultados por grupo, no solo la velocidad del proceso.</span></div>
+                  <a href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener noreferrer">Fuente: EEOC</a>
+                </article>
+                <article>
+                  <div class="case-meta"><span>SALUD Y RECURSOS · 2019</span><b>17,7→46,5%</b></div>
+                  <h3>Optimizar costo no era optimizar salud</h3>
+                  <p>Un algoritmo usó gasto médico como sustituto de necesidad. Corregirlo habría elevado de 17,7% a 46,5% la proporción de pacientes negros seleccionados para apoyo.</p>
+                  <div class="case-lesson"><strong>Lección de ingeniería</strong><span>Una métrica conveniente puede representar mal el objetivo verdadero.</span></div>
+                  <a href="https://doi.org/10.1126/science.aax2342" target="_blank" rel="noopener noreferrer">Fuente: Science</a>
+                </article>
+                <article>
+                  <div class="case-meta"><span>MOVILIDAD AUTÓNOMA · 2019</span><b>VISIÓN</b></div>
+                  <h3>No todos los peatones se detectaban igual</h3>
+                  <p>Un estudio encontró diferencias de desempeño según tono de piel que no se explicaban únicamente por horario u oclusión.</p>
+                  <div class="case-lesson"><strong>Lección de ingeniería</strong><span>El promedio no basta: hay que validar personas y condiciones distintas.</span></div>
+                  <a href="https://arxiv.org/abs/1902.11097" target="_blank" rel="noopener noreferrer">Fuente: Wilson et al.</a>
+                </article>
+              </div>
+
+              <div class="engineering-close">
+                <strong>El rol del ingeniero:</strong>
+                <span>definir el objetivo correcto</span><i>→</i><span>validar dónde falla</span><i>→</i><span>responder por la decisión</span>
+              </div>
+
+              <div class="closing-actions">
+                <a class="primary-button return-button" id="return-button" href="#">Volver a Ingeniería Civil Industrial</a>
+                <button class="text-button" id="restart-demo" type="button">Reiniciar la demostración</button>
+              </div>
+              <p class="simulation-note">Las láminas 1–4 son una simulación didáctica. Los casos de esta lámina provienen de las fuentes enlazadas.</p>
+            </div>
+          </section>
+        </main>
+
+        <nav class="deck-controls" aria-label="Controles de la presentación">
+          <div class="slide-index"><strong id="current-slide">01</strong><span>/ 05</span></div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+          <div class="nav-buttons"><button id="ai-demo-close" type="button" title="Cerrar demostración" aria-label="Cerrar demostración">×</button>
+            <button id="reset-button" type="button" title="Reiniciar la lámina" aria-label="Reiniciar la lámina">↻</button>
+            <button id="fullscreen-button" type="button" title="Pantalla completa" aria-label="Pantalla completa">⛶</button>
+            <button id="prev-button" type="button" title="Lámina anterior" aria-label="Lámina anterior">←</button>
+            <button id="next-button" type="button" title="Lámina siguiente" aria-label="Lámina siguiente">→</button>
+          </div>
+        </nav>
+    </div>
+
     <header class="topbar" aria-label="Identidad de presentación">
       <img class="topbar__logo topbar__logo--on-light" src="assets/uss-facultad-ingenieria-color.png" alt="" aria-hidden="true" />
       <img class="topbar__logo topbar__logo--on-dark" src="assets/uss-facultad-ingenieria-white.png" alt="" aria-hidden="true" />
@@ -418,6 +740,7 @@
       </div>
     </dialog>
 
+    <script src="js/ai-demo.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

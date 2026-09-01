@@ -385,6 +385,7 @@ document.addEventListener("click", (event) => {
     if (kind === "confirm-challenge") confirmChallenge();
     if (kind === "reset-challenge") resetChallenge();
     if (kind === "close-challenge-report" && challengeReport.open) challengeReport.close();
+    if (kind === "open-ai-demo") window.aiVisionDemo?.open(action);
     if (kind === "fullscreen") {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen?.().catch(() => {});
@@ -410,6 +411,7 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (document.body.classList.contains("ai-demo-open")) return;
   if (challengeReport.open) {
     if (event.key === "Escape") challengeReport.close();
     return;
@@ -429,6 +431,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("wheel", (event) => {
+  if (document.body.classList.contains("ai-demo-open")) return;
   if (overview.open || challengeReport.open || Math.abs(event.deltaY) < 20 || wheelLock) return;
   const activeScene = scenes[current];
   const maxScroll = activeScene.scrollHeight - activeScene.clientHeight;
@@ -444,11 +447,13 @@ document.addEventListener("wheel", (event) => {
 }, { passive: true });
 
 document.addEventListener("touchstart", (event) => {
+  if (document.body.classList.contains("ai-demo-open")) return;
   touchStartX = event.changedTouches[0].clientX;
   touchStartY = event.changedTouches[0].clientY;
 }, { passive: true });
 
 document.addEventListener("touchend", (event) => {
+  if (document.body.classList.contains("ai-demo-open")) return;
   if (challengeReport.open) return;
   if (touchStartX === null || touchStartY === null) return;
   const deltaX = touchStartX - event.changedTouches[0].clientX;
