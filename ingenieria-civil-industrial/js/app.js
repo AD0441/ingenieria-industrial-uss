@@ -523,6 +523,12 @@ function startSignalCanvas() {
   tick();
 }
 
+const requestedSlide = Number.parseInt(new URLSearchParams(window.location.search).get("slide"), 10);
+if (Number.isInteger(requestedSlide) && requestedSlide >= 0 && requestedSlide < scenes.length) {
+  scenes.forEach((scene, index) => scene.classList.toggle("is-active", index === requestedSlide));
+  current = requestedSlide;
+}
+
 hydrateIcons();
 buildProgress();
 buildOverview();

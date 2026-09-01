@@ -983,6 +983,16 @@ h2 {
   display: block;
 }
 
+.quickdraw-actions {
+  display: grid;
+  gap: 9px;
+  width: 100%;
+}
+
+.quickdraw-actions .command {
+  width: 100%;
+}
+
 .quickdraw-facts strong {
   color: var(--ink);
   font-size: 21px;
