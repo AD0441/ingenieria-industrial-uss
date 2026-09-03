@@ -65,6 +65,11 @@ const challengeOperationsReading = document.querySelector("#challenge-industrial
 const challengeAnalyticsReading = document.querySelector("#challenge-informatics-reading");
 const challengeRiskReading = document.querySelector("#challenge-risk-reading");
 const challengeNextReading = document.querySelector("#challenge-next-reading");
+const openingChoiceButtons = [...document.querySelectorAll("[data-opening-choice]")];
+const uncertainChoiceButtons = [...document.querySelectorAll("[data-uncertain-opening-choice]")];
+const openingSafeFeedback = document.querySelector("#opening-safe-feedback");
+const openingUncertainFeedback = document.querySelector("#opening-uncertain-feedback");
+const openingQuestionStage = document.querySelector("#opening-question-stage");
 
 let current = 0;
 let wheelLock = false;
@@ -136,6 +141,19 @@ function restartPanelAnimation(panel) {
   if (!panel) return;
   panel.classList.remove("is-updating");
   requestAnimationFrame(() => panel.classList.add("is-updating"));
+}
+
+function resolveOpeningChoice(buttons, selectedButton, feedback, message) {
+  if (!selectedButton || selectedButton.disabled) return;
+  buttons.forEach((button) => {
+    const selected = button === selectedButton;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+    button.disabled = true;
+  });
+  feedback.innerHTML = message;
+  feedback.hidden = false;
+  restartPanelAnimation(feedback);
 }
 
 function renderSkill(key) {
@@ -373,6 +391,8 @@ document.addEventListener("click", (event) => {
   const skill = event.target.closest("[data-skill]");
   const quiz = event.target.closest("[data-score]");
   const challenge = event.target.closest("[data-challenge]");
+  const openingChoice = event.target.closest("[data-opening-choice]");
+  const uncertainChoice = event.target.closest("[data-uncertain-opening-choice]");
 
   if (action) {
     const kind = action.dataset.action;
@@ -386,6 +406,14 @@ document.addEventListener("click", (event) => {
     if (kind === "reset-challenge") resetChallenge();
     if (kind === "close-challenge-report" && challengeReport.open) challengeReport.close();
     if (kind === "open-ai-demo") window.aiVisionDemo?.open(action);
+    if (kind === "reveal-opening-cover") {
+      openingQuestionStage?.classList.add("is-revealed");
+      openingQuestionStage?.querySelector(".opening-cover-state")?.setAttribute("aria-hidden", "false");
+    }
+    if (kind === "reset-opening-cover") {
+      openingQuestionStage?.classList.remove("is-revealed");
+      openingQuestionStage?.querySelector(".opening-cover-state")?.setAttribute("aria-hidden", "true");
+    }
     if (kind === "fullscreen") {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen?.().catch(() => {});
@@ -408,6 +436,21 @@ document.addEventListener("click", (event) => {
 
   if (quiz) answerQuiz(quiz.dataset.score, quiz);
   if (challenge) toggleChallengeOption(challenge);
+  if (openingChoice) {
+    const isSafe = openingChoice.dataset.openingChoice === "safe";
+    const message = isSafe
+      ? "<strong>Elegiste con información.</strong> Identificaste la alternativa segura usando evidencia visible."
+      : "<strong>La advertencia importa.</strong> Cuando conocemos el riesgo, podemos evitarlo o controlarlo.";
+    resolveOpeningChoice(openingChoiceButtons, openingChoice, openingSafeFeedback, message);
+  }
+  if (uncertainChoice) {
+    resolveOpeningChoice(
+      uncertainChoiceButtons,
+      uncertainChoice,
+      openingUncertainFeedback,
+      "<strong>No existe una respuesta segura.</strong> Los vasos son indistinguibles: el problema no es elegir mal, sino decidir sin información suficiente."
+    );
+  }
 });
 
 document.addEventListener("keydown", (event) => {
@@ -543,6 +586,8 @@ scenes.forEach((scene) => scene.addEventListener("scroll", () => {
 document.querySelectorAll("[data-skill]").forEach((item) => item.setAttribute("aria-pressed", String(item.classList.contains("is-active"))));
 quizOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
 challengeOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
+openingChoiceButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+uncertainChoiceButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
 renderSkill("analizar");
 syncChallengeControls();
 updateChrome();

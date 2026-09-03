@@ -6,7 +6,10 @@
     <meta name="theme-color" content="#f7f9fb" />
     <meta name="description" content="Presentación interactiva para estudiantes de 4º medio sobre el quehacer de Ingeniería Civil Industrial USS." />
     <title>Ingeniería Civil Industrial USS | Diseñar sistemas que funcionan</title>
+    <link rel="icon" href="data:," />
     <link rel="preload" as="image" href="assets/industrial-hero-systems.png" />
+    <link rel="preload" as="image" href="assets/vasos-eleccion-informada.png" />
+    <link rel="preload" as="image" href="assets/vasos-incertidumbre.png" />
     <link rel="preload" as="image" href="assets/industrial-operations-control.png" />
     <link rel="preload" as="image" href="assets/industrial-day-in-life.png" />
     <link rel="preload" as="image" href="assets/industrial-factory-challenge.png" />
@@ -17,18 +20,79 @@
     <canvas id="signal-canvas" class="signal-canvas" aria-hidden="true"></canvas>
 
     <main class="deck" id="deck" aria-live="polite">
-      <section class="scene scene--hero scene--dark is-active" data-title="Diseñar sistemas">
+      <section class="scene scene--dark opening-scene is-active" data-title="Una elección evidente">
+        <img class="scene__media" src="assets/vasos-eleccion-informada.png" alt="Dos vasos: uno contiene agua transparente y el otro una sustancia verde con una señal de peligro" />
+        <div class="opening-image-shade" aria-hidden="true"></div>
+        <div class="scene__inner opening-glass-layout">
+          <p class="section-label section-label--gold reveal">Antes de hablar de carreras</p>
+          <h1 class="reveal delay-1">Tienes que elegir.<br />¿Cuál beberías?</h1>
+          <p class="opening-lead reveal delay-2">Los dos vasos están frente a ti. Observa la información disponible y toma una decisión.</p>
+          <div class="opening-choice-row reveal delay-3" role="group" aria-label="Elegir uno de los vasos">
+            <button class="opening-choice" type="button" data-opening-choice="safe"><span>A</span><strong>Vaso con agua</strong></button>
+            <button class="opening-choice" type="button" data-opening-choice="danger"><span>B</span><strong>Vaso con advertencia</strong></button>
+          </div>
+          <div class="opening-feedback" id="opening-safe-feedback" aria-live="polite" hidden></div>
+        </div>
+      </section>
+
+      <section class="scene scene--dark opening-scene" data-title="Elegir sin saber">
+        <img class="scene__media" src="assets/vasos-incertidumbre.png" alt="Dos vasos idénticos con líquidos transparentes, sin señales que permitan distinguirlos" />
+        <div class="opening-image-shade" aria-hidden="true"></div>
+        <div class="scene__inner opening-glass-layout">
+          <p class="section-label section-label--gold reveal">Ahora cambia una sola cosa</p>
+          <h2 class="reveal delay-1">Los dos vasos<br />se ven iguales.</h2>
+          <p class="opening-lead reveal delay-2">Uno podría contener veneno. No sabes cuál.</p>
+          <p class="opening-question-line reveal delay-2">¿Cuál eliges ahora?</p>
+          <div class="opening-choice-row reveal delay-3" role="group" aria-label="Elegir entre dos vasos indistinguibles">
+            <button class="opening-choice" type="button" data-uncertain-opening-choice="a"><span>A</span><strong>Vaso izquierdo</strong></button>
+            <button class="opening-choice" type="button" data-uncertain-opening-choice="b"><span>B</span><strong>Vaso derecho</strong></button>
+          </div>
+          <div class="opening-feedback opening-feedback--uncertain" id="opening-uncertain-feedback" aria-live="polite" hidden></div>
+        </div>
+      </section>
+
+      <section class="scene scene--light scene--technical-edge" data-title="La decisión vocacional">
+        <div class="scene__inner opening-evidence-layout">
+          <div class="opening-evidence-copy">
+            <p class="section-label reveal">La decisión vocacional</p>
+            <h2 class="reveal delay-1">Elegir carrera puede sentirse como elegir uno de esos vasos</h2>
+            <p class="lede reveal delay-2">No porque sea realmente una decisión de vida o muerte, sino porque el miedo crece cuando sentimos que no tenemos suficiente información.</p>
+            <a class="opening-source-link reveal delay-3" href="https://www.carolina.cl/noticias/2026/09/03/escolares-sienten-que-elegir-carrera-es-una-decision-de-vida-o-muerte.html" target="_blank" rel="noopener noreferrer">
+              <span>Radio Carolina · 3 septiembre 2026</span>
+              <strong>Escolares sienten que elegir carrera es una decisión “de vida o muerte”</strong>
+              <em>Consultar noticia</em>
+            </a>
+          </div>
+          <div class="opening-evidence-panel reveal delay-3">
+            <article><strong>65%</strong><p>de estudiantes de tercero y cuarto medio siente esta elección como una decisión de “vida o muerte”.</p></article>
+            <article><strong>≈80%</strong><p>ya tiene claros sus intereses; la presión aparece por expectativas externas y miedo a equivocarse.</p></article>
+            <div class="opening-purpose-statement">
+              <span>Nuestra promesa para hoy</span>
+              <p>No venimos a elegir por ti. Venimos a mostrarte qué hace realmente un ingeniero civil industrial para que puedas decidir mejor.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene--hero scene--dark opening-question-scene" data-title="Qué es ingeniería">
         <img class="scene__media" src="assets/industrial-hero-systems.png" alt="Estudiantes analizando un sistema de operaciones con datos, energía y logística" />
         <div class="hero-shade" aria-hidden="true"></div>
-        <div class="scene__inner hero-layout">
-          <div class="hero-copy">
+        <div class="scene__inner hero-layout opening-question-stage" id="opening-question-stage">
+          <div class="opening-question-state">
+            <p class="section-label section-label--gold reveal">Pregunta al público</p>
+            <h1 class="reveal delay-1">Entonces,<br />¿qué es la ingeniería?</h1>
+            <p class="hero-support reveal delay-2">No hay una definición única. Escuchemos dos o tres ideas antes de continuar.</p>
+            <button class="command command--primary reveal delay-3" type="button" data-action="reveal-opening-cover"><span>Revelar la propuesta</span><i data-icon="arrow-right" aria-hidden="true"></i></button>
+          </div>
+          <div class="hero-copy opening-cover-state" aria-hidden="true">
             <p class="brandline reveal">Ingeniería Civil Industrial USS</p>
             <h1 class="reveal delay-1">Diseñar sistemas que funcionan</h1>
             <p class="hero-promise reveal delay-2">Datos, matemáticas y criterio humano para mejorar decisiones reales.</p>
-            <p class="hero-support reveal delay-3">Una experiencia para 4º medio: descubre qué hace un ingeniero civil industrial y por qué su mirada transforma organizaciones, servicios e industrias.</p>
+            <p class="hero-support reveal delay-3"><strong>Ingeniería:</strong> comprender un problema, usar conocimiento y crear una solución que funcione en el mundo real.</p>
             <div class="hero-actions reveal delay-4">
               <button class="command command--primary" type="button" data-action="next"><span>Comenzar</span><i data-icon="arrow-right" aria-hidden="true"></i></button>
-              <button class="command command--ghost" type="button" data-action="jump" data-target="12"><span>Ir al reto</span></button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="15"><span>Ir al reto</span></button>
+              <button class="command command--ghost" type="button" data-action="reset-opening-cover"><span>Volver a la pregunta</span></button>
             </div>
           </div>
         </div>
@@ -326,8 +390,8 @@
           <div class="closing-engagement reveal delay-3">
             <div class="closing-actions">
               <a class="command command--primary" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer"><span>Conocer Civil Industrial</span><i data-icon="external" aria-hidden="true"></i></a>
-              <button class="command command--ghost" type="button" data-action="jump" data-target="10"><span>Volver a Quick, Draw!</span></button>
-              <button class="command command--ghost" type="button" data-action="jump" data-target="12">Repetir reto</button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="13"><span>Volver a Quick, Draw!</span></button>
+              <button class="command command--ghost" type="button" data-action="jump" data-target="15">Repetir reto</button>
             </div>
             <a class="closing-qr" href="https://admision.uss.cl/carreras/ingenieria-civil-industrial" target="_blank" rel="noopener noreferrer" aria-label="Abrir información de Admisión USS para Ingeniería Civil Industrial">
               <img src="assets/qr-admision-industrial.png" alt="Código QR hacia Admisión USS" />
@@ -665,8 +729,8 @@
     </header>
 
     <aside class="chapter-meta" aria-live="polite">
-      <strong id="chapter-number">01 / 15</strong>
-      <span id="chapter-title">Diseñar sistemas</span>
+      <strong id="chapter-number">01 / 18</strong>
+      <span id="chapter-title">Una elección evidente</span>
     </aside>
 
     <nav class="rail-nav" aria-label="Capítulos"></nav>

@@ -1,6 +1,6 @@
 # Ingeniería Civil Industrial USS
 
-Presentación web interactiva de 20 capítulos para estudiantes de 4º medio, enfocada en el quehacer de Ingeniería Civil Industrial.
+Presentación web interactiva de 18 capítulos para estudiantes de 4º medio, enfocada en el quehacer de Ingeniería Civil Industrial.
 
 ## Ver localmente
 
@@ -19,6 +19,7 @@ http://127.0.0.1:4174
 - Flechas, Page Up/Page Down o rueda del mouse para avanzar.
 - En móvil, desplazamiento vertical dentro de cada capítulo y gesto horizontal para cambiar de escena.
 - Botón de panorama para saltar entre capítulos.
+- Apertura interactiva para contrastar una decisión informada con una decisión bajo incertidumbre y conectarla con la elección vocacional.
 - Noticias gancho sobre IA en operaciones y demanda tecnológica vinculada a cobre, energía y sostenibilidad.
 - Conceptos fuerza de la carrera: tecnología, gestión, liderazgo, proyectos reales, red de empresas e Industria 4.0.
 - Recorrido visual de un día de trabajo, campos de acción y tres mitos vocacionales.
