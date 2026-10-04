@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Comprobar lugar de devolución">
+  <path d="M26 52h76v56H26z" fill="#e6f7fd" stroke="#102c59" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M37 52v-9h54v9" fill="none" stroke="#102c59" stroke-width="7" stroke-linecap="round"/>
+  <path d="M64 13v28m0 0L51 28m13 13 13-13" fill="none" stroke="#16b9c5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m48 79 12 12 23-25" fill="none" stroke="#38b987" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Medir tiempo de búsqueda">
+  <circle cx="64" cy="70" r="42" fill="#e6f7fd" stroke="#102c59" stroke-width="7"/>
+  <path d="M64 70V43m0 27 19 13" fill="none" stroke="#102c59" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 15h28M64 15v12" fill="none" stroke="#102c59" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="64" cy="70" r="6" fill="#ffc83d" stroke="#102c59" stroke-width="3"/>
+  <path d="M26 35 17 45m85-10 9 10" fill="none" stroke="#16b9c5" stroke-width="7" stroke-linecap="round"/>
+</svg>

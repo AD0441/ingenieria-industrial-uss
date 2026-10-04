@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Cable">
+  <path d="M32 34c-16 0-19 19-8 29s31-2 45 13c16 17 37 10 37-9" fill="none" stroke="#102c59" stroke-width="14" stroke-linecap="round"/>
+  <path d="M32 34c-16 0-19 19-8 29s31-2 45 13c16 17 37 10 37-9" fill="none" stroke="#16b9c5" stroke-width="8" stroke-linecap="round"/>
+  <rect x="22" y="23" width="24" height="22" rx="5" fill="#ffc83d" stroke="#102c59" stroke-width="4"/>
+  <path d="M28 23v-9M39 23v-9" stroke="#102c59" stroke-width="5" stroke-linecap="round"/>
+  <rect x="93" y="55" width="24" height="23" rx="5" fill="#ffc83d" stroke="#102c59" stroke-width="4"/>
+  <path d="M99 78v9M110 78v9" stroke="#102c59" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Rueda">
+  <circle cx="64" cy="64" r="48" fill="#102c59" stroke="#102c59" stroke-width="5"/>
+  <circle cx="64" cy="64" r="33" fill="#e7f7fd" stroke="#55c8f3" stroke-width="7"/>
+  <path d="M64 32v18M64 78v18M32 64h18M78 64h18M42 42l13 13M73 73l13 13M86 42 73 55M55 73 42 86" stroke="#102c59" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="13" fill="#ffc83d" stroke="#102c59" stroke-width="5"/>
+</svg>

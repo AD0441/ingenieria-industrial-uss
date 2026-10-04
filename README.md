@@ -7,6 +7,7 @@ Presentación web interactiva de 18 capítulos.
 - Presentación base: `https://ad0441.github.io/ingenieria-industrial-uss/`
 - Industrial + Informática: `https://ad0441.github.io/ingenieria-industrial-uss/ingenierias-industrial-informatica/`
 - Ingeniería Civil Industrial: `https://ad0441.github.io/ingenieria-industrial-uss/ingenieria-civil-industrial/`
+- FIERTEC Los Lagos 2026 · De un problema a una idea: `https://ad0441.github.io/ingenieria-industrial-uss/fiertec-los-lagos-2026/`
 
 Para verla localmente desde esta carpeta:
 

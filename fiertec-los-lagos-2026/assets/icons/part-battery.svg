@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Batería">
+  <rect x="34" y="23" width="60" height="88" rx="12" fill="#e8f7fd" stroke="#102c59" stroke-width="6"/>
+  <rect x="51" y="12" width="26" height="12" rx="3" fill="#102c59"/>
+  <path d="m69 39-19 29h16l-7 24 23-34H65l4-19Z" fill="#ffc83d" stroke="#102c59" stroke-width="4" stroke-linejoin="round"/>
+</svg>

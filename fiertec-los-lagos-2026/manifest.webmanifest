@@ -1,0 +1,16 @@
+{
+  "name": "De un problema a una idea · FIERTEC Los Lagos 2026",
+  "short_name": "Problema a idea",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "assets/fiertec-logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
