@@ -1,16 +1,18 @@
-const CACHE = "fiertec-problema-idea-v17";
+const CACHE = "fiertec-problema-idea-v19";
 const FILES = [
   "./",
   "./index.html",
-  "./styles.css?v=17",
-  "./app.js?v=17",
+  "./styles.css?v=19",
+  "./app.js?v=19",
   "./manifest.webmanifest",
   "./assets/fiertec-logo.png",
   "./assets/uss-logo.png",
   "./assets/hero-mission-v2.png",
+  "./assets/juicero-concept-v1.jpg",
+  "./assets/juicero-comparison-v1.jpg",
   "./assets/observe-school-v2.png",
   "./assets/design-thinking-v2.png",
-  "./assets/workshop-search-v1.png",
+  "./assets/workshop-context-v1.jpg",
   "./assets/workshop-people-v1.png",
   "./assets/workshop-return-v1.png",
   "./assets/icons/dt-empathize.png",

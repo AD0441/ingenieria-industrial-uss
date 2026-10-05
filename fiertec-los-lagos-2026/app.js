@@ -30,6 +30,31 @@
 
   const focusableSelector = "button:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex='-1'])";
 
+  // Inline narrative states are independent of the secondary insight dialog.
+  function renderRevealState(slide) {
+    const step = Number(slide.dataset.revealStep || 0);
+    $$('[data-reveal-from], [data-reveal-to]', slide).forEach((element) => {
+      const from = Number(element.dataset.revealFrom || 0);
+      const to = element.dataset.revealTo === undefined ? Infinity : Number(element.dataset.revealTo);
+      const visible = step >= from && step < to;
+      element.hidden = !visible;
+      element.classList.toggle('is-revealed', visible && step > 0);
+    });
+  }
+
+  function resetRevealState(slide) {
+    slide.dataset.revealStep = '0';
+    slide.classList.remove('is-keyboard-reveal');
+    $$('[data-reveal-group] [data-reveal-choice]', slide).forEach((button) => {
+      button.classList.remove('is-selected');
+      button.setAttribute('aria-pressed', 'false');
+    });
+    $$('[data-reveal-for]', slide).forEach((element) => { element.hidden = true; });
+    renderRevealState(slide);
+  }
+
+  slides.forEach(resetRevealState);
+
   $$('[data-insight]').forEach((trigger) => trigger.setAttribute("aria-haspopup", "dialog"));
   ui.speaker.setAttribute("aria-hidden", "true");
   ui.speaker.inert = true;
@@ -85,6 +110,7 @@
     const nextIndex = Math.max(0, Math.min(total - 1, index));
     if (nextIndex === current) return;
     closeInsight({ restoreFocus: false });
+    resetRevealState(slides[current]);
     slides.forEach((slide) => slide.classList.remove("is-instant-entry"));
     if (!animate) slides[nextIndex].classList.add("is-instant-entry");
     current = nextIndex;
@@ -113,6 +139,39 @@
   }
 
   document.addEventListener("click", (event) => {
+    const revealButton = event.target.closest('button[data-reveal-next]');
+    if (revealButton) {
+      const slide = revealButton.closest('.slide');
+      slide.classList.toggle('is-keyboard-reveal', event.detail === 0);
+      slide.dataset.revealStep = String(Number(slide.dataset.revealStep || 0) + 1);
+      renderRevealState(slide);
+      const nextButton = slide.querySelector('button[data-reveal-next]:not([hidden])');
+      if (nextButton) nextButton.focus({ preventScroll: true });
+      else {
+        slide.setAttribute('tabindex', '-1');
+        slide.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    const choice = event.target.closest('button[data-reveal-choice]');
+    if (choice) {
+      const slide = choice.closest('.slide');
+      slide.classList.toggle('is-keyboard-reveal', event.detail === 0);
+      const group = choice.closest('[data-reveal-group]');
+      $$('button[data-reveal-choice]', group).forEach((button) => {
+        const selected = button === choice;
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+      $$('[data-reveal-for]', slide).forEach((element) => {
+        element.hidden = element.dataset.revealFor !== choice.dataset.revealChoice;
+      });
+      slide.dataset.revealStep = '1';
+      renderRevealState(slide);
+      return;
+    }
+
     const action = event.target.closest("[data-action]");
     if (action?.dataset.action === "next") goTo(current + 1);
 

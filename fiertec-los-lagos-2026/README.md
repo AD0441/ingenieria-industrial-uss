@@ -2,7 +2,7 @@
 
 Presentación web de 14 láminas para un taller de 30 minutos: 25 de exposición y 5 de preguntas. Está dirigida a estudiantes de Educación Básica y Media que participan en FIERTEC Los Lagos 2026. El tema es Emprendimiento e Innovación Productiva y el título de la charla es **«De un problema a una idea: Cómo crear soluciones que sí funcionan»**.
 
-Es ante todo una charla. Un mismo caso ilustrativo —un equipo escolar de robótica que pierde tiempo buscando piezas— atraviesa observación, empatía, definición de la necesidad, ideas buenas y malas, prototipo, prueba y creación de valor. Las interacciones son apoyos opcionales, no actividades obligatorias.
+Es ante todo una charla. Abre con Juicero como caso real breve —precio inicial y bolsa exprimible— y después sigue un caso **hipotético**: un equipo escolar de robótica que pierde tiempo buscando piezas. La ruta es observar → comprender → definir → idear → prototipar → probar → aprender. Las interacciones son apoyos opcionales, no actividades obligatorias.
 
 ## Abrir
 
@@ -23,18 +23,18 @@ Luego abra `http://localhost:8080` y use pantalla completa. Después de la prime
 - Inicio/Fin: primera/última lámina.
 - En pantallas táctiles: deslizamiento horizontal.
 
-Al seleccionar una de las cuatro pistas de la lámina 3, una idea o una etapa, aparece un cuadro flotante con la explicación. Es opcional: el relato principal funciona sin hacer clic. La lámina 9 es completamente expositiva. Las notas del presentador detallan las transiciones y distinguen las hipótesis de los resultados comprobados.
+La lámina 1 revela con un clic una comparación ilustrada de Juicero y su enseñanza completa. La 12 revela el aprendizaje y la nueva prueba; las opciones de 2 y 8 muestran su razón ahí mismo. Los botones pueden activarse con teclado, sin animación de entrada. Al volver a una lámina, el revelado empieza de cero. Las pistas de la lámina 3 conservan el cuadro flotante. Las láminas 4, 6, 7, 9 y 14 son expositivas; el cierre está completo desde el principio. Las notas distinguen hipótesis de resultados comprobados.
 
 ## Narrativa
 
-1. Reconocer que una idea brillante puede no resolver un problema.
+1. Descubrir mediante Juicero que una idea brillante puede resolver la pregunta equivocada.
 2. Observar el entorno y entender a quienes viven el problema.
 3. Definir una necesidad sin imponer una solución de antemano.
-4. Idear y contrastar alternativas débiles, incompletas y prometedoras.
+4. Idear y contrastar alternativas sin tratar la primera prueba barata como ganadora definitiva.
 5. Anticipar cómo podría fallar una idea en el uso real.
-6. Comparar la misma tarea antes y con un prototipo de papel; observar el uso y corregir.
+6. Mostrar un prototipo pequeño, después planificar cómo compararlo con la situación inicial; observar el uso y corregir.
 7. Diferenciar creatividad, innovación y emprendimiento con el mismo caso.
-8. Cerrar con cinco minutos de preguntas sobre proyectos de FIERTEC, el colegio y el territorio.
+8. Cerrar con cinco minutos de preguntas orales sobre proyectos de FIERTEC, el colegio y el territorio.
 
 ## Archivos
 
